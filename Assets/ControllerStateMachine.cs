@@ -14,6 +14,7 @@ public class State{
 }
 
 
+
 public class ControllerStateMachine : MonoBehaviour
 {
 
@@ -24,21 +25,92 @@ public class ControllerStateMachine : MonoBehaviour
     public static State SAD = new State(0.4f, 0f, 0.15f);
     public static State DEPRESSED = new State(0.2f, 0f, 0.1f);
 
-    bool timerStarted;
     float startTime;
 
     public float randomInputDelay = 5f;
 
+
     State currentState;
+
+    public ControllerInterface currentGame;
     // Start is called before the first frame update
     void Start()
     {
         currentState = DEFAULT;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(Time.time - startTime > randomInputDelay){
+            startTime = Time.time;
+            if(currentState.randomInputPercent > Random.value){
+                RandomInput();
+            }
+        }
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
+        float a = Input.GetAxis("A");
+        float b = Input.GetAxis("B");
+        if(horizontal != 0f || vertical != 0f || a != 0f || b != 0){
+            float decisionValue = Random.value;
+            if(decisionValue < currentState.listenPercent){
+                if(horizontal > 0f){
+                    currentGame.Right();
+                }
+                if(horizontal < 0f){
+                    currentGame.Left();
+                }
+                if(vertical > 0f){
+                    currentGame.Up();
+                }
+                if(vertical < 0f){
+                    currentGame.Down();
+                }
+                if(a > 0f){
+                    currentGame.A();
+                }
+                if(b > 0f){
+                    currentGame.B();
+                }
+            }
+            else if(1 - decisionValue < currentState.wrongInputPercent){
+                RandomInput();
+            }
+        }
     }
+
+
+    public void RandomInput(){
+        int randInput = Random.Range(0,6);
+        switch(randInput){
+            case 0:
+                currentGame.A();
+                break;
+            case 1:
+                currentGame.B();
+                break;
+            case 2:
+                currentGame.Up();
+                break;
+            case 3:
+                currentGame.Down();
+                break;
+            case 4:
+                currentGame.Left();
+                break;
+            case 5:
+                currentGame.Right();
+                break;
+        }
+    }
+
+    public void SetGame(ControllerInterface game){
+        currentGame = game;
+        startTime = Time.time;
+    }
+
+
+
 }
