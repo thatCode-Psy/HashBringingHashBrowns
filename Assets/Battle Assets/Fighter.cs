@@ -79,7 +79,7 @@ public class Fighter : MonoBehaviour {
             playerHealth.value += Time.deltaTime * healthSliderSpeed;
         }
 
-        healthText.text = "HP: " + Health + " / " + maxHealth;
+        healthText.text = "HP: " + Health + " / " + maxHealth; // update player health text
     }
 
     // function to handle the execution of actions between the player and the target

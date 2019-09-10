@@ -46,7 +46,7 @@ public class FighterAI : MonoBehaviour {
             healthBar.value += Time.deltaTime * healthSliderSpeed;
         }
 
-        healthText.text = "HP: " + Health + " / " + maxHealth;
+        healthText.text = "HP: " + Health + " / " + maxHealth; // update enemy health text
     }
 
     // function to pick a random action
