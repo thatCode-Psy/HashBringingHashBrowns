@@ -10,10 +10,15 @@ public class Player : MonoBehaviour , ControllerInterface
     public float acceleration;
     public float jumppower;
     public bool grounded;
+    bool duckonland;
+    public bool ducking;
     public int score;
     public bool pause;
     Vector3 pausepos;
     Vector3 pausevel;
+    bool forceunduck;
+    public bool unduckafterpause;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -35,9 +40,31 @@ public class Player : MonoBehaviour , ControllerInterface
         {
             runspeed += acceleration;
             
-            if (Input.GetKeyDown(KeyCode.Space) && grounded)
+            if (Input.GetKeyDown(KeyCode.UpArrow) && grounded)
             {
                 Jump();
+            }
+
+            if (Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                if(!grounded)
+                {
+                    duckonland = true;
+                }
+                else
+                {
+                    Duck();
+                }
+            }
+
+            if(Input.GetKeyUp(KeyCode.DownArrow))
+            {
+                duckonland = false;
+                Unduck();
+                if(pause)
+                {
+                    unduckafterpause = true;
+                }
             }
         }
 
@@ -45,12 +72,14 @@ public class Player : MonoBehaviour , ControllerInterface
         {
             Pause();
         }
+
+        
     }
 
     void Pause()
     {
         pause = !pause;
-
+    
         if(pause)
         {
             pausepos = transform.position;
@@ -61,6 +90,11 @@ public class Player : MonoBehaviour , ControllerInterface
         if(!pause)
         {
             rb.velocity = pausevel;
+            if(unduckafterpause)
+            {
+                Unduck();
+                unduckafterpause = false;
+            }
         }
     }
     private void FixedUpdate()
@@ -81,6 +115,11 @@ public class Player : MonoBehaviour , ControllerInterface
         if (collision.transform.name == "Floor")
         {
             grounded = true;
+            if(duckonland)
+            {
+                Duck();
+                duckonland = false;
+            }
         }
 
         if(collision.transform.tag == "Obstacle")
@@ -122,7 +161,43 @@ public class Player : MonoBehaviour , ControllerInterface
     public void Jump()
     {
         grounded = false;
+        if(ducking)
+        {
+            forceunduck = true;
+            Unduck();
+            duckonland = true;
+        }
         rb.AddForce(new Vector2(0,jumppower));
     }
 
+    public void Duck()
+    {
+        if(pause)
+        {
+            unduckafterpause = false;
+        }
+        else
+        {
+            transform.localScale = new Vector3(1,.5f,1);
+            transform.position = new Vector3(transform.position.x,.25f,0);
+            ducking = true;
+        }
+        
+    }
+
+    public void Unduck()
+    {
+        if(pause)
+        {
+            unduckafterpause = true;
+        }
+        else if(grounded || forceunduck)
+        {
+            transform.position = new Vector3(transform.position.x, .5f, 0);
+            transform.localScale = new Vector3(1,1,1);
+            ducking = false;
+            forceunduck = false;
+        }
+        
+    }
 }
