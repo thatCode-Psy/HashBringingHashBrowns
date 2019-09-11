@@ -8,8 +8,7 @@ public class Dialogue : MonoBehaviour
 {
     public TMP_Text textBox;
     public GameObject continueButton;
-    private bool eventRecieved = false; 
-    //Store all your text in this string array
+    public GameEventListener listenerRef; 
     string[] goatText = new string[] { "1. Laik's super awesome custom typewriter script", "2. You can click to skip to the next text", "3.All text is stored in a single string array", "4. Ok, now we can continue", "5. End Kappa" };
     int currentlyDisplayingText = 0;
 
@@ -26,12 +25,11 @@ public class Dialogue : MonoBehaviour
                 GoToEnd(); 
         }
     }
-    //This is a function for a button you press to skip to the next text
+
     public void SkipToNextText()
     {
         StopAllCoroutines();
         currentlyDisplayingText++;
-        //If we've reached the end of the array, do anything you want. I just restart the example text
         if (currentlyDisplayingText > goatText.Length - 1)
         {
             currentlyDisplayingText = 0;
@@ -63,10 +61,10 @@ public class Dialogue : MonoBehaviour
 
     public void DialogueInit()
     {
-        if (eventRecieved == false)
-        {
-            StartCoroutine(AnimateText());
-            eventRecieved = true; 
-        }
+        StartCoroutine(AnimateText());
+        listenerRef.enabled = false; 
+
     }
+
+
 }

@@ -7,7 +7,9 @@ public class DiaTrig : MonoBehaviour
 {
 
     [SerializeField]
-    UnityEvent diaTrigger; 
+    UnityEvent diaTrigger;
+
+    public GameEvent choiceEvent; 
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +22,11 @@ public class DiaTrig : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             diaTrigger.Invoke();
+        }
+
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            choiceEvent.Raise(); 
         }
     }
 
