@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour , ControllerInterface
 {
     Rigidbody2D rb;
     public float runspeed;
@@ -34,6 +34,7 @@ public class Player : MonoBehaviour
         else
         {
             runspeed += acceleration;
+            
             if (Input.GetKeyDown(KeyCode.Space) && grounded)
             {
                 Jump();
@@ -88,7 +89,35 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void A()
+    {
+        Jump();
+    }
 
+    public void B()
+    {
+
+    }
+
+    public void Up()
+    {
+
+    }
+
+    public void Down()
+    {
+
+    }
+
+    public void Left()
+    {
+
+    }
+
+    public void Right()
+    {
+
+    }
 
     public void Jump()
     {
