@@ -5,10 +5,11 @@ using UnityEngine.Events;
 
 public class GameEventListener : MonoBehaviour
 {
+    [SerializeField]
     GameEvent Event;
 
     [SerializeField]
-    UnityEvent[] Response;
+    UnityEvent Response;
 
     public void OnEnable()
     {
@@ -22,7 +23,6 @@ public class GameEventListener : MonoBehaviour
 
     public void OnEventRaised()
     {
-        for (int i = 0; i < Response.Length; i++)
-            Response[i].Invoke(); 
+        Response.Invoke(); 
     }
 }
