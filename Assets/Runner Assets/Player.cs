@@ -10,14 +10,14 @@ public class Player : MonoBehaviour , ControllerInterface
     public float acceleration;
     public float jumppower;
     public bool grounded;
-    public bool duckonland;
+    bool duckonland;
     public bool ducking;
     public int score;
     public bool pause;
     Vector3 pausepos;
     Vector3 pausevel;
     bool forceunduck;
-    bool unduckafterpause;
+    public bool unduckafterpause;
     
 
     // Start is called before the first frame update
@@ -172,23 +172,32 @@ public class Player : MonoBehaviour , ControllerInterface
 
     public void Duck()
     {
-        transform.localScale = new Vector3(1,.5f,1);
-        transform.position = new Vector3(transform.position.x,.25f,0);
-        ducking = true;
+        if(pause)
+        {
+            unduckafterpause = false;
+        }
+        else
+        {
+            transform.localScale = new Vector3(1,.5f,1);
+            transform.position = new Vector3(transform.position.x,.25f,0);
+            ducking = true;
+        }
+        
     }
 
     public void Unduck()
     {
-        if(grounded || forceunduck)
+        if(pause)
+        {
+            unduckafterpause = true;
+        }
+        else if(grounded || forceunduck)
         {
             transform.position = new Vector3(transform.position.x, .5f, 0);
             transform.localScale = new Vector3(1,1,1);
             ducking = false;
             forceunduck = false;
         }
-        if(pause)
-        {
-            unduckafterpause = true;
-        }
+        
     }
 }
