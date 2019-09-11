@@ -111,6 +111,10 @@ public class ControllerStateMachine : MonoBehaviour
         startTime = Time.time;
     }
 
+    public void SetState(State state){
+        currentState = state;
+    }
+
 
 
 }

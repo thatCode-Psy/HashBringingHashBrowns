@@ -14,15 +14,21 @@ public class Fighter : MonoBehaviour {
     public Text healthText;
     public Slider playerHealth;
 
+    [Header("Enemy Objects")]
+    public GameObject enemyPrefab;
+    public Text enemyNameText;
+    public Text enemyHealthText;
+    public Slider enemyHealthBar;
+    public string[] enemyNames;
+
     [Header("Cooldown")]
     public float actionCooldown = 7f;
-
-    [HideInInspector] public string battleFeedback = "";
 
     private FighterAI enemy;
 
     private static string[] actions = { "Attack", "Rush", "Defend", "Counter", "Heal" };
     private string currentAction = "";
+    private string battleFeedback = "";
 
     private bool readyToTakeAction = false;
     private bool needsNewTarget = true;
@@ -45,31 +51,35 @@ public class Fighter : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        if(Alive() && !needsNewTarget) { // check if player is alive and if they do not need a new target
+        if(needsNewTarget && readyToTakeAction) { // spawn a new target for the player
+            SpawnNewEnemy();
+            readyToTakeAction = false;
+            needsNewTarget = false;
+        } else if (Alive()) { // check if player is alive and if they do not need a new target
             if(!readyToTakeAction) {
                 timeSinceAction += Time.deltaTime;
 
                 // if time since action is greater than the action cooldown then the player is ready to take action
                 if (timeSinceAction >= actionCooldown) {
-                    textBox.fontSize = 28;
-                    textBox.text = "Select an ability to use:\nAttack for highest damage\nDefend to reduce damage\nRush to attack first with less damage\nCounter" +
-                        " to counter your opponents rush\nHeal to heal yourself.";
+                   if (!needsNewTarget) { // if needsNewTarget is false then update textBox as normal
+                        textBox.fontSize = 28;
+                        textBox.text = "Select an ability to use:\nAttack for highest damage\nDefend to reduce damage\nRush to attack first with less damage\nCounter" +
+                            " to counter your opponents rush\nHeal to heal yourself.";
+                   }
+
                     readyToTakeAction = true;
                     timeSinceAction = 0f;
                 }
             }
 
             // if the player has selected an action and is ready to take action then update the enemies action and execute their actions
-            if(currentAction != "" && readyToTakeAction) {
+            if(currentAction != "" && readyToTakeAction && !needsNewTarget) {
                 enemy.PickRandomAction();
                 ExecuteAction(enemy, currentAction);
 
                 currentAction = "";
                 readyToTakeAction = false;
             }
-        } else if(needsNewTarget) { // spawn or get reference to a new target for the player
-            enemy = GameObject.FindGameObjectWithTag("Enemy").GetComponent<FighterAI>();
-            needsNewTarget = false;
         }
 
         // update the players health bar to represent their current health
@@ -129,6 +139,7 @@ public class Fighter : MonoBehaviour {
                 battleFeedback += target.nickname + " defended. You dealt " + damage + " damage to " + target.nickname + ".\n";
             } else {
                 battleFeedback += "You dealt " + (int)(attackAmount / 1.5f) + " damage to " + target.nickname + ".\n";
+                target.TakeDamage((int)(attackAmount / 1.5f));
 
                 if(target.Alive()) { // check if target is still alive
                     if(targetsAction == "Attack") {
@@ -229,6 +240,20 @@ public class Fighter : MonoBehaviour {
 
         Health -= damage;
         Health = Mathf.Clamp(Health, 0, maxHealth);
+    }
+
+    // function to spawn a new enemy and link the player to the enemy
+    public void SpawnNewEnemy() {
+        // instantiate the new enemy and update all of the enemies information
+        GameObject newEnemy = Instantiate(enemyPrefab, Vector3.zero, Quaternion.identity);
+        newEnemy.name = "Enemy";
+        enemy = newEnemy.GetComponent<FighterAI>();
+        enemy.nickname = enemyNames[Random.Range(0, enemyNames.Length)];
+
+        // output that a new enemy has appeared
+        textBox.fontSize = 44;
+        textBox.text = enemy.nickname + " has appeared!";
+        timeSinceAction = actionCooldown / 2f; // speed up delay between enemy appearing and being able to play
     }
 
     // returns the current action
