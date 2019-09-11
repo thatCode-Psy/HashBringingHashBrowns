@@ -10,10 +10,14 @@ public class Player : MonoBehaviour , ControllerInterface
     public float acceleration;
     public float jumppower;
     public bool grounded;
+    public bool duckonland;
+    public bool ducking;
     public int score;
     public bool pause;
     Vector3 pausepos;
     Vector3 pausevel;
+    bool forceunduck;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -40,13 +44,21 @@ public class Player : MonoBehaviour , ControllerInterface
                 Jump();
             }
 
-            if (Input.GetKeyDown(KeyCode.DownArrow) && grounded)
+            if (Input.GetKeyDown(KeyCode.DownArrow))
             {
-                Duck();
+                if(!grounded)
+                {
+                    duckonland = true;
+                }
+                else
+                {
+                    Duck();
+                }
             }
 
             if(Input.GetKeyUp(KeyCode.DownArrow))
             {
+                duckonland = false;
                 Unduck();
             }
         }
@@ -93,6 +105,12 @@ public class Player : MonoBehaviour , ControllerInterface
         if (collision.transform.name == "Floor")
         {
             grounded = true;
+            transform.position = new Vector3(transform.position.x,0.5f,0);
+            if(duckonland)
+            {
+                Duck();
+                duckonland = false;
+            }
         }
 
         if(collision.transform.tag == "Obstacle")
@@ -134,6 +152,12 @@ public class Player : MonoBehaviour , ControllerInterface
     public void Jump()
     {
         grounded = false;
+        if(ducking)
+        {
+            forceunduck = true;
+            Unduck();
+            duckonland = true;
+        }
         rb.AddForce(new Vector2(0,jumppower));
     }
 
@@ -141,12 +165,17 @@ public class Player : MonoBehaviour , ControllerInterface
     {
         transform.localScale = new Vector3(1,.5f,1);
         transform.position = new Vector3(transform.position.x,.25f,0);
+        ducking = true;
     }
 
     public void Unduck()
     {
-        transform.position = new Vector3(transform.position.x, .5f, 0);
-        transform.localScale = new Vector3(1,1,1);
+        if(grounded || forceunduck)
+        {
+            transform.position = new Vector3(transform.position.x, .5f, 0);
+            transform.localScale = new Vector3(1,1,1);
+            ducking = false;
+            forceunduck = false;
+        }
     }
-
 }

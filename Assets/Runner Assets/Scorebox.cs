@@ -1,15 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Scorebox : MonoBehaviour
 {
     public GameObject player;
+    public TextMeshProUGUI t;
     bool pause;
+    public int score;
     // Start is called before the first frame update
     void Start()
     {
-        
+        score = 0;
     }
 
     // Update is called once per frame
@@ -18,7 +21,7 @@ public class Scorebox : MonoBehaviour
         pause = player.GetComponent<Player>().pause;
         if (!pause)
         {
-            transform.position = new Vector3(player.transform.position.x - 1.23f, 0.5f, 0);
+            transform.position = new Vector3(player.transform.position.x - 1.23f, 2.6f, 0);
         }
        
     }
@@ -28,6 +31,13 @@ public class Scorebox : MonoBehaviour
         if (collision.transform.tag == "Obstacle")
         {
             player.GetComponent<Player>().score += 1;
+            score = player.GetComponent<Player>().score;
+            IncreaseScore();
         }
+    }
+
+    void IncreaseScore()
+    {
+        t.text = "Score: " + score;
     }
 }
