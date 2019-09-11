@@ -35,9 +35,19 @@ public class Player : MonoBehaviour , ControllerInterface
         {
             runspeed += acceleration;
             
-            if (Input.GetKeyDown(KeyCode.Space) && grounded)
+            if (Input.GetKeyDown(KeyCode.UpArrow) && grounded)
             {
                 Jump();
+            }
+
+            if (Input.GetKeyDown(KeyCode.DownArrow) && grounded)
+            {
+                Duck();
+            }
+
+            if(Input.GetKeyUp(KeyCode.DownArrow))
+            {
+                Unduck();
             }
         }
 
@@ -45,6 +55,8 @@ public class Player : MonoBehaviour , ControllerInterface
         {
             Pause();
         }
+
+        
     }
 
     void Pause()
@@ -123,6 +135,18 @@ public class Player : MonoBehaviour , ControllerInterface
     {
         grounded = false;
         rb.AddForce(new Vector2(0,jumppower));
+    }
+
+    public void Duck()
+    {
+        transform.localScale = new Vector3(1,.5f,1);
+        transform.position = new Vector3(transform.position.x,.25f,0);
+    }
+
+    public void Unduck()
+    {
+        transform.position = new Vector3(transform.position.x, .5f, 0);
+        transform.localScale = new Vector3(1,1,1);
     }
 
 }

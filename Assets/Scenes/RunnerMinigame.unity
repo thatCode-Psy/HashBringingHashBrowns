@@ -613,7 +613,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnchance: 1
-  obstacle: {fileID: 3576439944635822825, guid: a1e510a37eee9954db464df4aac2e7ab,
+  jumpobstacle: {fileID: 3576439944635822825, guid: a1e510a37eee9954db464df4aac2e7ab,
+    type: 3}
+  duckobstacle: {fileID: 6859505698634429931, guid: d7eb2ae364be0ce4790e4f3f7a275eef,
     type: 3}
   player: {fileID: 2066699872}
   wait: 0
@@ -762,3 +764,4 @@ MonoBehaviour:
   jumppower: 950
   grounded: 0
   score: 0
+  pause: 0
