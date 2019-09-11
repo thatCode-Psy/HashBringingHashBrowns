@@ -17,6 +17,7 @@ public class Player : MonoBehaviour , ControllerInterface
     Vector3 pausepos;
     Vector3 pausevel;
     bool forceunduck;
+    bool unduckafterpause;
     
 
     // Start is called before the first frame update
@@ -60,6 +61,10 @@ public class Player : MonoBehaviour , ControllerInterface
             {
                 duckonland = false;
                 Unduck();
+                if(pause)
+                {
+                    unduckafterpause = true;
+                }
             }
         }
 
@@ -74,7 +79,7 @@ public class Player : MonoBehaviour , ControllerInterface
     void Pause()
     {
         pause = !pause;
-
+    
         if(pause)
         {
             pausepos = transform.position;
@@ -85,6 +90,11 @@ public class Player : MonoBehaviour , ControllerInterface
         if(!pause)
         {
             rb.velocity = pausevel;
+            if(unduckafterpause)
+            {
+                Unduck();
+                unduckafterpause = false;
+            }
         }
     }
     private void FixedUpdate()
@@ -105,7 +115,6 @@ public class Player : MonoBehaviour , ControllerInterface
         if (collision.transform.name == "Floor")
         {
             grounded = true;
-            transform.position = new Vector3(transform.position.x,0.5f,0);
             if(duckonland)
             {
                 Duck();
@@ -176,6 +185,10 @@ public class Player : MonoBehaviour , ControllerInterface
             transform.localScale = new Vector3(1,1,1);
             ducking = false;
             forceunduck = false;
+        }
+        if(pause)
+        {
+            unduckafterpause = true;
         }
     }
 }
