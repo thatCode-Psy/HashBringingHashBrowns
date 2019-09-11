@@ -18,7 +18,7 @@ public class Cam : MonoBehaviour
 
     }
 
-    private void FixedUpdate()
+    private void LateUpdate()
     {
         transform.position = new Vector3(player.transform.position.x+3.5f, 4, -10);
     }

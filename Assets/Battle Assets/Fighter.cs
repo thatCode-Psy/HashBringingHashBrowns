@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Fighter : MonoBehaviour {
+public class Fighter : MonoBehaviour, ControllerInterface {
     [Header("Stats")]
     public int Health = 0;
     public int Strength = 0;
@@ -267,5 +267,29 @@ public class Fighter : MonoBehaviour {
         if(readyToTakeAction) {
             currentAction = a;
         }
+    }
+
+    void ControllerInterface.Left() {
+
+    }
+
+    void ControllerInterface.Right() {
+
+    }
+
+    void ControllerInterface.Up() {
+
+    }
+
+    void ControllerInterface.Down() {
+
+    }
+
+    void ControllerInterface.A() {
+
+    }
+
+    void ControllerInterface.B() {
+
     }
 }
