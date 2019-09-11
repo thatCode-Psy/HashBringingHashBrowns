@@ -5,7 +5,8 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     public float spawnchance;
-    public GameObject obstacle;
+    public GameObject jumpobstacle;
+    public GameObject duckobstacle;
     public GameObject player;
     public bool wait;
     bool pause;
@@ -41,8 +42,18 @@ public class Spawner : MonoBehaviour
 
     void Spawn()
     {
-        Instantiate(obstacle, new Vector3(player.transform.position.x + 20f, 1f, 0f), Quaternion.identity);
-        StartCoroutine("startwait");
+        float r = Random.Range(0,2);
+        if(r == 0)
+        {
+            Instantiate(jumpobstacle, new Vector3(player.transform.position.x + 20f, 1f, 0f), Quaternion.identity);
+            StartCoroutine("startwait");
+        }
+        else
+        {
+            Instantiate(duckobstacle, new Vector3(player.transform.position.x + 20f, 5.7f, 0f), Quaternion.identity);
+            StartCoroutine("startwait");
+        }
+        
     }
 
     IEnumerator startwait()
