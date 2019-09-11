@@ -4,13 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class FighterAI : MonoBehaviour {
-    [Header("Name")]
-    public string nickname = "ENEMY";
-
-    [Header("UI Objects")]
-    public Slider healthBar;
-    public Text nameText;
-    public Text healthText;
+    [HideInInspector] public Slider healthBar;
+    [HideInInspector] public Text nameText;
+    [HideInInspector] public Text healthText;
+    [HideInInspector] public string nickname = "ENEMY";
 
     private string[] actions = { "Attack", "Rush", "Defend", "Counter", "Heal" };
     private string currentAction = "";
@@ -26,6 +23,10 @@ public class FighterAI : MonoBehaviour {
 
     // Start is called before the first frame update
     void Awake() {
+        healthBar = GameObject.Find("Enemy Health Bar").GetComponent<Slider>();
+        healthText = GameObject.Find("Enemy Health").GetComponent<Text>();
+        nameText = GameObject.Find("Enemy Name").GetComponent<Text>();
+
         Health = Random.Range(20, 50);
         Strength = Random.Range(1, 4);
         Defense = Random.Range(1, 4);

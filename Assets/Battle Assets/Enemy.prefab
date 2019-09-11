@@ -43,5 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9aa337794801be4c8ab7f4ba3a76b42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nickname: -NAME-
   healthBar: {fileID: 0}
+  nameText: {fileID: 0}
+  healthText: {fileID: 0}
+  nickname: Bitch
