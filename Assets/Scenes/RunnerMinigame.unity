@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 186014279}
   - component: {fileID: 186014277}
   - component: {fileID: 186014281}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Deleter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -225,7 +225,7 @@ GameObject:
   - component: {fileID: 728408379}
   - component: {fileID: 728408378}
   - component: {fileID: 728408377}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -328,7 +328,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1056670635}
   - component: {fileID: 1056670634}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Directional Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -421,7 +421,7 @@ GameObject:
   - component: {fileID: 1591499658}
   - component: {fileID: 1591499660}
   - component: {fileID: 1591499661}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ScoreBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -549,19 +549,19 @@ Camera:
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
+    x: 0.274
+    y: 0.404
+    width: 0.453
+    height: 0.455
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
   orthographic: 1
   orthographic size: 5
-  m_Depth: -1
+  m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 256
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -631,7 +631,7 @@ GameObject:
   - component: {fileID: 2066699874}
   - component: {fileID: 2066699873}
   - component: {fileID: 2066699878}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -762,3 +762,4 @@ MonoBehaviour:
   jumppower: 950
   grounded: 0
   score: 0
+  pause: 0
