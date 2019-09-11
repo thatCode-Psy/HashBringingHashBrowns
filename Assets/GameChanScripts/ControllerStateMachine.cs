@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class State{
     public float listenPercent;
@@ -25,6 +26,13 @@ public class ControllerStateMachine : MonoBehaviour
     public static State SAD = new State(0.4f, 0f, 0.15f);
     public static State DEPRESSED = new State(0.2f, 0f, 0.1f);
 
+    public Texture DefaultImage;
+    public Texture HappyImage;
+    public Texture ExcitedImage;
+    public Texture AngryImage;
+    public Texture SadImage;
+    public Texture DepressedImage;
+
     float startTime;
     bool started;
 
@@ -48,9 +56,11 @@ public class ControllerStateMachine : MonoBehaviour
     {
         DontDestroyOnLoad(transform.gameObject);
         Instance = this;
+    }
+
+    void Start(){
         currentState = DEFAULT;
         started = false;
-        
     }
 
     // Update is called once per frame
@@ -133,6 +143,8 @@ public class ControllerStateMachine : MonoBehaviour
 
     public void SetState(State state){
         currentState = state;
+        GameObject gameChan = GameObject.FindGameObjectWithTag("ControllerChan");
+        Image imageScript = gameChan.GetComponent<Image>();
     }
 
 
