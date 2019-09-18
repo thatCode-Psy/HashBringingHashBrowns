@@ -27,6 +27,7 @@ public class Player : MonoBehaviour , ControllerInterface
         grounded = true;
         score = 0;
         pause = false;
+        ControllerStateMachine.Instance.SetGame(this);
     }
 
     // Update is called once per frame
@@ -40,32 +41,32 @@ public class Player : MonoBehaviour , ControllerInterface
         {
             runspeed += acceleration;
             
-            if (Input.GetKeyDown(KeyCode.UpArrow) && grounded)
-            {
-                Jump();
-            }
+            // if (Input.GetKeyDown(KeyCode.UpArrow) && grounded)
+            // {
+            //     Jump();
+            // }
 
-            if (Input.GetKeyDown(KeyCode.DownArrow))
-            {
-                if(!grounded)
-                {
-                    duckonland = true;
-                }
-                else
-                {
-                    Duck();
-                }
-            }
+            // if (Input.GetKeyDown(KeyCode.DownArrow))
+            // {
+            //     if(!grounded)
+            //     {
+            //         duckonland = true;
+            //     }
+            //     else
+            //     {
+            //         Duck();
+            //     }
+            // }
 
-            if(Input.GetKeyUp(KeyCode.DownArrow))
-            {
-                duckonland = false;
-                Unduck();
-                if(pause)
-                {
-                    unduckafterpause = true;
-                }
-            }
+            // if(Input.GetKeyUp(KeyCode.DownArrow))
+            // {
+            //     duckonland = false;
+            //     Unduck();
+            //     if(pause)
+            //     {
+            //         unduckafterpause = true;
+            //     }
+            // }
         }
 
         if(Input.GetKeyDown(KeyCode.P))
@@ -130,7 +131,10 @@ public class Player : MonoBehaviour , ControllerInterface
 
     public void A()
     {
-        Jump();
+        print("test of a button");
+        if(grounded){
+            Jump();
+        }
     }
 
     public void B()
@@ -140,12 +144,15 @@ public class Player : MonoBehaviour , ControllerInterface
 
     public void Up()
     {
-
+        if(grounded){
+            Jump();
+        }
+        
     }
 
     public void Down()
     {
-
+        //Duck();
     }
 
     public void Left()
