@@ -11,6 +11,8 @@ public class Fighter : MonoBehaviour, ControllerInterface {
     public int expNeeded = 0;
 
     [Header("UI Objects")]
+    public GameObject battleCanvas;
+    public GameObject evolveCanvas;
     public Text textBox;
     public Text healthText;
     public Text expText;
@@ -56,13 +58,15 @@ public class Fighter : MonoBehaviour, ControllerInterface {
     // Update is called once per frame
     void Update() {
         if(levelUp && readyToTakeAction) {
-            textBox.fontSize = 36;
-            textBox.text = "LEVEL UP!\nOh, what is this? You're pokabomination is evolving!";
-
             if(evolveTimer < 4f) {
+                textBox.fontSize = 36;
+                textBox.text = "LEVEL UP!\nOh, what is this? You're pokabomination is evolving!";
                 evolveTimer += Time.deltaTime;
             } else {
-
+                if (!evolveCanvas.activeInHierarchy) {
+                    evolveCanvas.SetActive(true);
+                    battleCanvas.SetActive(true);
+                }
             }
         } else if(needsNewTarget && readyToTakeAction) { // spawn a new target for the player
             SpawnNewEnemy();
@@ -101,6 +105,13 @@ public class Fighter : MonoBehaviour, ControllerInterface {
         } else if (playerHealth.value < ((float)Health / (float)maxHealth) - 0.005f) {
             playerHealth.value += Time.deltaTime * healthSliderSpeed;
         }
+
+        /* IN HERE FOR EVOLVING TESTING PURPOSES */
+        /*
+        if (exp < expNeeded) {
+            ExpGain(100);
+        }
+        */
 
         healthText.text = "HP: " + Health + " / " + maxHealth; // update player health text
         expText.text = "EXP: " + exp + "/" + expNeeded; // update player exp text
