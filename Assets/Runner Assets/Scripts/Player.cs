@@ -18,7 +18,6 @@ public class Player : MonoBehaviour , ControllerInterface
     Vector3 pausevel;
     bool forceunduck;
     public bool unduckafterpause;
-    
 
     // Start is called before the first frame update
     void Start()
@@ -58,15 +57,15 @@ public class Player : MonoBehaviour , ControllerInterface
             //     }
             // }
 
-            // if(Input.GetKeyUp(KeyCode.DownArrow))
-            // {
-            //     duckonland = false;
-            //     Unduck();
-            //     if(pause)
-            //     {
-            //         unduckafterpause = true;
-            //     }
-            // }
+            if(Input.GetKeyUp(KeyCode.DownArrow) || Input.GetKeyUp(KeyCode.B))
+            {
+                duckonland = false;
+                Unduck();
+                if(pause)
+                {
+                    unduckafterpause = true;
+                }
+            }
         }
 
         if(Input.GetKeyDown(KeyCode.P))
@@ -75,6 +74,49 @@ public class Player : MonoBehaviour , ControllerInterface
         }
 
         
+    }
+
+    public void A()
+    {
+        print("test of a button");
+        if(grounded){
+            Jump();
+        }
+    }
+
+    public void B()
+    {
+
+    }
+
+    public void Up()
+    {
+        if(grounded){
+            Jump();
+        }
+        
+    }
+
+    public void Down()
+    {
+        if(!grounded)
+            {
+                duckonland = true;
+            }
+            else
+            {
+                Duck();
+            }
+    }
+
+    public void Left()
+    {
+
+    }
+
+    public void Right()
+    {
+
     }
 
     void Pause()
@@ -129,41 +171,7 @@ public class Player : MonoBehaviour , ControllerInterface
         }
     }
 
-    public void A()
-    {
-        print("test of a button");
-        if(grounded){
-            Jump();
-        }
-    }
-
-    public void B()
-    {
-
-    }
-
-    public void Up()
-    {
-        if(grounded){
-            Jump();
-        }
-        
-    }
-
-    public void Down()
-    {
-        //Duck();
-    }
-
-    public void Left()
-    {
-
-    }
-
-    public void Right()
-    {
-
-    }
+    
 
     public void Jump()
     {
@@ -209,4 +217,5 @@ public class Player : MonoBehaviour , ControllerInterface
         }
         
     }
+
 }
