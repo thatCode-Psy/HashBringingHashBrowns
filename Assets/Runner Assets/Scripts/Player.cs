@@ -185,7 +185,8 @@ public class Player : MonoBehaviour , ControllerInterface
         }
         else
         {
-            transform.localScale = new Vector3(1,.5f,1);
+            transform.localScale = new Vector3(3.33333333f, 1.5f,1);
+            GetComponent<CircleCollider2D>().radius = 0.075f;
             transform.position = new Vector3(transform.position.x,.25f,0);
             ducking = true;
         }
@@ -201,7 +202,8 @@ public class Player : MonoBehaviour , ControllerInterface
         else if(grounded || forceunduck)
         {
             transform.position = new Vector3(transform.position.x, .5f, 0);
-            transform.localScale = new Vector3(1,1,1);
+            transform.localScale = new Vector3(3.33333333f, 3.33333333f, 1);
+            GetComponent<CircleCollider2D>().radius = 0.15f;
             ducking = false;
             forceunduck = false;
         }

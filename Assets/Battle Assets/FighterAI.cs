@@ -15,6 +15,7 @@ public class FighterAI : MonoBehaviour {
     private int Health = 0;
     private int Strength = 0;
     private int Defense = 0;
+    private int EXP = 0;
     private int attackAmount = 0;
     private int defenseAmount = 0;
     private int maxHealth = 0;
@@ -30,6 +31,7 @@ public class FighterAI : MonoBehaviour {
         Health = Random.Range(20, 50);
         Strength = Random.Range(1, 4);
         Defense = Random.Range(1, 4);
+        EXP = Random.Range(20, 40);
         
         attackAmount = 3 * Strength;
         defenseAmount = 2 * Defense;
@@ -72,6 +74,9 @@ public class FighterAI : MonoBehaviour {
 
     // return the defense stat of the enemy
     public int DefenseAmount() { return defenseAmount; }
+
+    // return the exp amount of the enemy
+    public int ExpAmount() { return EXP; }
 
     // return if the enemy is alive
     public bool Alive() { return (Health != 0); }

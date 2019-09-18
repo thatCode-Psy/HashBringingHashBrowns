@@ -8,10 +8,12 @@ public class Fighter : MonoBehaviour, ControllerInterface {
     public int Health = 0;
     public int Strength = 0;
     public int Defense = 0;
+    public int expNeeded = 0;
 
     [Header("UI Objects")]
     public Text textBox;
     public Text healthText;
+    public Text expText;
     public Slider playerHealth;
 
     [Header("Enemy Objects")]
@@ -19,6 +21,7 @@ public class Fighter : MonoBehaviour, ControllerInterface {
     public Text enemyNameText;
     public Text enemyHealthText;
     public Slider enemyHealthBar;
+    public GameObject[] enemySprites;
     public string[] enemyNames;
 
     [Header("Cooldown")]
@@ -32,13 +35,17 @@ public class Fighter : MonoBehaviour, ControllerInterface {
 
     private bool readyToTakeAction = false;
     private bool needsNewTarget = true;
+    private bool levelUp = false;
 
     private int attackAmount = 0;
     private int defenseAmount = 0;
     private int maxHealth = 0;
+    private int exp = 0;
+    private int spriteIndex = 0;
 
     private float timeSinceAction = 3f;
     private float healthSliderSpeed = 1f;
+    private float evolveTimer = 0f;
 
     // Start is called before the first frame update
     void Awake() {
@@ -47,11 +54,21 @@ public class Fighter : MonoBehaviour, ControllerInterface {
         maxHealth = Health;
 
         healthText.text = "HP: " + Health + " / " + maxHealth;
+        expText.text = "EXP: " + exp + "/" + expNeeded;
     }
 
     // Update is called once per frame
     void Update() {
-        if(needsNewTarget && readyToTakeAction) { // spawn a new target for the player
+        if(levelUp && readyToTakeAction) {
+            textBox.fontSize = 36;
+            textBox.text = "LEVEL UP!\nOh, what is this? You're pokabomination is evolving!";
+
+            if(evolveTimer < 4f) {
+                evolveTimer += Time.deltaTime;
+            } else {
+
+            }
+        } else if(needsNewTarget && readyToTakeAction) { // spawn a new target for the player
             SpawnNewEnemy();
             readyToTakeAction = false;
             needsNewTarget = false;
@@ -90,6 +107,7 @@ public class Fighter : MonoBehaviour, ControllerInterface {
         }
 
         healthText.text = "HP: " + Health + " / " + maxHealth; // update player health text
+        expText.text = "EXP: " + exp + "/" + expNeeded; // update player exp text
     }
 
     // function to handle the execution of actions between the player and the target
@@ -227,7 +245,9 @@ public class Fighter : MonoBehaviour, ControllerInterface {
         }
 
         if (!target.Alive()) { // check if target was defeated during the battle
-            battleFeedback += "You have defeated " + target.nickname + "!\n";
+            battleFeedback += "You have defeated " + target.nickname + " and recieved " + target.ExpAmount() + " EXP!\n";
+            ExpGain(target.ExpAmount());
+            enemySprites[spriteIndex].SetActive(false);
             needsNewTarget = true; // update that the player needs a new target
         }
 
@@ -242,6 +262,16 @@ public class Fighter : MonoBehaviour, ControllerInterface {
         Health = Mathf.Clamp(Health, 0, maxHealth);
     }
 
+    // function to add exp to the player
+    public void ExpGain(int amount) {
+        exp += amount;
+        exp = Mathf.Clamp(exp, 0, expNeeded);
+
+        if(exp == expNeeded) {
+            levelUp = true;
+        }
+    }
+
     // function to spawn a new enemy and link the player to the enemy
     public void SpawnNewEnemy() {
         // instantiate the new enemy and update all of the enemies information
@@ -254,6 +284,10 @@ public class Fighter : MonoBehaviour, ControllerInterface {
         textBox.fontSize = 44;
         textBox.text = enemy.nickname + " has appeared!";
         timeSinceAction = actionCooldown / 2f; // speed up delay between enemy appearing and being able to play
+
+        // set an enemy sprite active for the new enemy
+        spriteIndex = Random.Range(0, enemySprites.Length);
+        enemySprites[spriteIndex].SetActive(true);
     }
 
     // returns the current action
