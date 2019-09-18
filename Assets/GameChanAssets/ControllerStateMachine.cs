@@ -180,7 +180,7 @@ public class ControllerStateMachine : MonoBehaviour
         }
         for(int i = 0; i < stateValues.Length; ++i){
             if(stateValues[i] < 0){
-                stateValues = 0;
+                stateValues[i] = 0;
             }
         }
         SetImage();
