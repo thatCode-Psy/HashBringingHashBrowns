@@ -37,7 +37,6 @@ public class FighterAI : MonoBehaviour {
         defenseAmount = 2 * Defense;
         maxHealth = Health;
 
-        nameText.text = nickname;
         healthText.text = "HP: " + Health + " / " + maxHealth;
     }
 
@@ -50,6 +49,7 @@ public class FighterAI : MonoBehaviour {
         }
 
         healthText.text = "HP: " + Health + " / " + maxHealth; // update enemy health text
+        nameText.text = nickname; // update enemy name
     }
 
     // function to pick a random action

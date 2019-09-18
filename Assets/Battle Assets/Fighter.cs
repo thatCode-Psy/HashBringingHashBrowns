@@ -18,9 +18,6 @@ public class Fighter : MonoBehaviour, ControllerInterface {
 
     [Header("Enemy Objects")]
     public GameObject enemyPrefab;
-    public Text enemyNameText;
-    public Text enemyHealthText;
-    public Slider enemyHealthBar;
     public GameObject[] enemySprites;
     public string[] enemyNames;
 
@@ -29,7 +26,6 @@ public class Fighter : MonoBehaviour, ControllerInterface {
 
     private FighterAI enemy;
 
-    private static string[] actions = { "Attack", "Rush", "Defend", "Counter", "Heal" };
     private string currentAction = "";
     private string battleFeedback = "";
 
@@ -304,26 +300,26 @@ public class Fighter : MonoBehaviour, ControllerInterface {
     }
 
     void ControllerInterface.Left() {
-
+        UpdateAction("Rush");
     }
 
     void ControllerInterface.Right() {
-
+        
     }
 
     void ControllerInterface.Up() {
-
+        UpdateAction("Attack");
     }
 
     void ControllerInterface.Down() {
-
+        UpdateAction("Heal");
     }
 
     void ControllerInterface.A() {
-
+        UpdateAction("Defend");
     }
 
     void ControllerInterface.B() {
-
+        UpdateAction("Counter");
     }
 }
