@@ -79,7 +79,7 @@ public class Fighter : MonoBehaviour, ControllerInterface {
                 // if time since action is greater than the action cooldown then the player is ready to take action
                 if (timeSinceAction >= actionCooldown) {
                    if (!needsNewTarget) { // if needsNewTarget is false then update textBox as normal
-                        textBox.fontSize = 28;
+                        textBox.fontSize = 24;
                         textBox.text = "Select an ability to use:\nAttack for highest damage\nDefend to reduce damage\nRush to attack first with less damage\nCounter" +
                             " to counter your opponents rush\nHeal to heal yourself.";
                    }
