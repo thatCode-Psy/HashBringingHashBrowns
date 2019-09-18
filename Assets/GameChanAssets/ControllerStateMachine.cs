@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class State{
     public float listenPercent;
@@ -84,13 +85,14 @@ public class ControllerStateMachine : MonoBehaviour
                 }
             }
             
-            bool left = Input.GetButton("Left");
-            bool right = Input.GetButton("Right");
-            bool up = Input.GetButton("Up");
-            bool down = Input.GetButton("Down");
-            bool a = Input.GetButton("A");
-            bool b = Input.GetButton("B");
-            if(left || right || up || down || a || b){
+            bool left = Input.GetButtonDown("Left");
+            bool right = Input.GetButtonDown("Right");
+            bool up = Input.GetButtonDown("Up");
+            bool down = Input.GetButtonDown("Down");
+            bool a = Input.GetButtonDown("A");
+            bool b = Input.GetButtonDown("B");
+            bool escape = Input.GetButton("Escape");
+            if(left || right || up || down || a || b || escape){
                 float decisionValue = Random.value;
                 if(decisionValue < currentState.listenPercent){
                     if(right){
@@ -110,6 +112,9 @@ public class ControllerStateMachine : MonoBehaviour
                     }
                     if(b){
                         currentGame.B();
+                    }
+                    if(escape){
+                        ExitGame();
                     }
                 }
                 else if(1 - decisionValue < currentState.wrongInputPercent){
@@ -145,6 +150,9 @@ public class ControllerStateMachine : MonoBehaviour
             case 5:
                 currentGame.Right();
                 break;
+            case 6:
+                ExitGame();
+                break;
         }
     }
 
@@ -156,6 +164,10 @@ public class ControllerStateMachine : MonoBehaviour
 
     public void StopGame(){
         started = false;
+    }
+
+    public void ExitGame(){
+        SceneManager.LoadScene("GameSelect");
     }
 
     //For non-fuzzy logic
@@ -249,4 +261,6 @@ public class ControllerStateMachine : MonoBehaviour
         wrongInputPercent /= totalValue;
         currentState = new State(listenPercent, randomInputPercent, wrongInputPercent);
     }
+
+    
 }
