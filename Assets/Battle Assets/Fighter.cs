@@ -18,9 +18,6 @@ public class Fighter : MonoBehaviour, ControllerInterface {
 
     [Header("Enemy Objects")]
     public GameObject enemyPrefab;
-    public Text enemyNameText;
-    public Text enemyHealthText;
-    public Slider enemyHealthBar;
     public GameObject[] enemySprites;
     public string[] enemyNames;
 
@@ -29,7 +26,6 @@ public class Fighter : MonoBehaviour, ControllerInterface {
 
     private FighterAI enemy;
 
-    private static string[] actions = { "Attack", "Rush", "Defend", "Counter", "Heal" };
     private string currentAction = "";
     private string battleFeedback = "";
 
@@ -122,8 +118,8 @@ public class Fighter : MonoBehaviour, ControllerInterface {
                 battleFeedback += target.nickname + " dealt " + (int)(target.AttackAmount() / 1.5f) + " damage to you.\n";
                 TakeDamage((int)(target.AttackAmount() / 1.5f));
             } else if(targetsAction == "Heal") {
-                battleFeedback += target.nickname + " healed for 7 HP.\n";
-                target.TakeDamage(-7); // take damage from target with a negative value to increase targets health
+                battleFeedback += target.nickname + " healed for 4 HP.\n";
+                target.TakeDamage(-4); // take damage from target with a negative value to increase targets health
             }
 
             if(Alive()) { // check that player is still alive
@@ -167,8 +163,8 @@ public class Fighter : MonoBehaviour, ControllerInterface {
                         battleFeedback += target.nickname + " dealt " + (int)(target.AttackAmount() / 1.5f) + " damage to you.\n";
                         TakeDamage((int)(target.AttackAmount() / 1.5f));
                     } else if(targetsAction == "Heal") {
-                        battleFeedback += target.nickname + " healed for 7 HP.\n";
-                        target.TakeDamage(-7); // take damage from target with a negative value to increase targets health
+                        battleFeedback += target.nickname + " healed for 4 HP.\n";
+                        target.TakeDamage(-4); // take damage from target with a negative value to increase targets health
                     }
                 }
             }
@@ -176,8 +172,8 @@ public class Fighter : MonoBehaviour, ControllerInterface {
             if(targetsAction == "Defend" || targetsAction == "Counter") {
                 battleFeedback += "Nothing happened.\n";
             } else if(targetsAction == "Heal") {
-                battleFeedback += "You defended.\n" + target.nickname + " healed for 7 HP.\n";
-                target.TakeDamage(-7); // take damage from target with a negative value to increase targets health
+                battleFeedback += "You defended.\n" + target.nickname + " healed for 4 HP.\n";
+                target.TakeDamage(-4); // take damage from target with a negative value to increase targets health
             } else {
                 int targetDamage = target.AttackAmount();
                 battleFeedback += "You defended. ";
@@ -216,13 +212,13 @@ public class Fighter : MonoBehaviour, ControllerInterface {
                 TakeDamage((int)(target.AttackAmount() / 1.5f));
 
                 if(Alive()) { // check if player is still alive
-                    battleFeedback += "You healed for 7 HP.\n";
-                    Health += 7;
+                    battleFeedback += "You healed for 6 HP.\n";
+                    Health += 6;
                     Health = Mathf.Clamp(Health, 0, maxHealth);
                 }
             } else {
-                battleFeedback += "You healed for 7 HP.\n";
-                Health += 7;
+                battleFeedback += "You healed for 6 HP.\n";
+                Health += 6;
                 Health = Mathf.Clamp(Health, 0, maxHealth);
 
                 if(targetsAction == "Attack") {
@@ -233,8 +229,8 @@ public class Fighter : MonoBehaviour, ControllerInterface {
                 } else if(targetsAction == "Counter") {
                     battleFeedback += target.nickname + " was unsuccessful in countering.\n";
                 } else if(targetsAction == "Heal") {
-                    battleFeedback += target.nickname + " healed for 7 HP.\n";
-                    target.TakeDamage(-7); // take damage from target with a negative value to increase targets health
+                    battleFeedback += target.nickname + " healed for 4 HP.\n";
+                    target.TakeDamage(-4); // take damage from target with a negative value to increase targets health
                 }
             }
         }
@@ -304,27 +300,27 @@ public class Fighter : MonoBehaviour, ControllerInterface {
     }
 
     void ControllerInterface.Left() {
-
+        UpdateAction("Rush");
     }
 
     void ControllerInterface.Right() {
-
+        
     }
 
     void ControllerInterface.Up() {
-
+        UpdateAction("Attack");
     }
 
     void ControllerInterface.Down() {
-
+        UpdateAction("Heal");
     }
 
     void ControllerInterface.A() {
-
+        UpdateAction("Defend");
     }
 
     void ControllerInterface.B() {
-
+        UpdateAction("Counter");
     }
 
 
