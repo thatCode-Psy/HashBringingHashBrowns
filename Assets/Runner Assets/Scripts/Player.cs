@@ -82,7 +82,7 @@ public class Player : MonoBehaviour , ControllerInterface
 
     public void A()
     {
-        print("test of a button");
+        
         if(grounded){
             Jump();
         }

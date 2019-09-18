@@ -115,6 +115,9 @@ public class ControllerStateMachine : MonoBehaviour
                 else if(1 - decisionValue < currentState.wrongInputPercent){
                     RandomInput();
                 }
+                else{
+                    print("not listening");
+                }
             }
         }
     }
@@ -122,6 +125,7 @@ public class ControllerStateMachine : MonoBehaviour
 
     public void RandomInput(){
         int randInput = Random.Range(0, 6);
+        print("doing random input");
         switch(randInput){
             case 0:
                 currentGame.A();
