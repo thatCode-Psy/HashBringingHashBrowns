@@ -1,0 +1,13 @@
+{
+    "id": 4,
+    "line": ["Stupid head!!"],
+    "playerResponses": [],
+    "adjacentNodes": [],
+    "Head": false,
+    "Tail": true,
+    "Angry": 2,
+    "Happy": 0,
+    "Excited": 0,
+    "Sad": 0,
+    "Depressed": 0
+}

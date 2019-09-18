@@ -1,11 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerResponse : MonoBehaviour
 {
     [SerializeField]
     GameObject[] choices;
+    public int currentChoice;
+    public int numOfChoices;
+    public Dialogue diaRef; 
     public GameEventListener choiceListener; 
     // Start is called before the first frame update
     void Start()
@@ -21,16 +25,18 @@ public class PlayerResponse : MonoBehaviour
 
     public void ShowPlayerChoices()
     {
+        numOfChoices = diaRef.currentNode.playerResponses.Count; 
         choiceListener.enabled = false;
-        foreach(GameObject ga in choices)
+        for(int i = 0; i < numOfChoices; i++)
         {
-            ga.SetActive(true);
+            choices[i].SetActive(true);
         }
+
     }
 
-    public void SendPlayerChoice(string s)
+    public void SendPlayerChoice(int i)
     {
-        Debug.Log(s);
+        currentChoice = i;
         DeactivateButtons(); 
     }
 
@@ -49,5 +55,10 @@ public class PlayerResponse : MonoBehaviour
         {
             ga.SetActive(false);
         }
+    }
+
+    public void SetChoiceText(int choiceNum, string line)
+    {
+        choices[choiceNum].GetComponentInChildren<TextMeshProUGUI>().text = line; 
     }
 }
