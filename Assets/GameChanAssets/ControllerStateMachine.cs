@@ -118,7 +118,7 @@ public class ControllerStateMachine : MonoBehaviour
 
 
     public void RandomInput(){
-        int randInput = 0;
+        int randInput = Random.Range(0, 6);
         switch(randInput){
             case 0:
                 currentGame.A();
