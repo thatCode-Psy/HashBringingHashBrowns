@@ -129,7 +129,7 @@ public class ControllerStateMachine : MonoBehaviour
 
 
     public void RandomInput(){
-        int randInput = Random.Range(0, 6);
+        int randInput = Random.Range(0, 7);
         print("doing random input");
         switch(randInput){
             case 0:
