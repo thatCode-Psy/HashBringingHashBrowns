@@ -16,5 +16,6 @@ public interface ControllerInterface
 
     void Right();
 
+    void Pause();
 
 }
