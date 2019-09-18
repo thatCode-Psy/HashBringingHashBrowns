@@ -11,6 +11,8 @@ public class Fighter : MonoBehaviour, ControllerInterface {
     public int expNeeded = 0;
 
     [Header("UI Objects")]
+    public GameObject battleCanvas;
+    public GameObject evolveCanvas;
     public Text textBox;
     public Text healthText;
     public Text expText;
@@ -18,9 +20,6 @@ public class Fighter : MonoBehaviour, ControllerInterface {
 
     [Header("Enemy Objects")]
     public GameObject enemyPrefab;
-    public Text enemyNameText;
-    public Text enemyHealthText;
-    public Slider enemyHealthBar;
     public GameObject[] enemySprites;
     public string[] enemyNames;
 
@@ -29,13 +28,13 @@ public class Fighter : MonoBehaviour, ControllerInterface {
 
     private FighterAI enemy;
 
-    private static string[] actions = { "Attack", "Rush", "Defend", "Counter", "Heal" };
     private string currentAction = "";
     private string battleFeedback = "";
 
     private bool readyToTakeAction = false;
     private bool needsNewTarget = true;
     private bool levelUp = false;
+    private bool pause = false;
 
     private int attackAmount = 0;
     private int defenseAmount = 0;
@@ -47,7 +46,6 @@ public class Fighter : MonoBehaviour, ControllerInterface {
     private float healthSliderSpeed = 1f;
     private float evolveTimer = 0f;
 
-    // Start is called before the first frame update
     void Awake() {
         attackAmount = (int)(2.5f * Strength);
         defenseAmount = (int)(1.5f * Defense);
@@ -57,16 +55,22 @@ public class Fighter : MonoBehaviour, ControllerInterface {
         expText.text = "EXP: " + exp + "/" + expNeeded;
     }
 
-    // Update is called once per frame
+    void Start()
+    {
+        ControllerStateMachine.Instance.SetGame(this);
+    }
+
     void Update() {
         if(levelUp && readyToTakeAction) {
-            textBox.fontSize = 36;
-            textBox.text = "LEVEL UP!\nOh, what is this? You're pokabomination is evolving!";
-
             if(evolveTimer < 4f) {
+                textBox.fontSize = 36;
+                textBox.text = "LEVEL UP!\nOh, what is this? You're pokabomination is evolving!";
                 evolveTimer += Time.deltaTime;
             } else {
-
+                if (!evolveCanvas.activeInHierarchy) {
+                    evolveCanvas.SetActive(true);
+                    battleCanvas.SetActive(true);
+                }
             }
         } else if(needsNewTarget && readyToTakeAction) { // spawn a new target for the player
             SpawnNewEnemy();
@@ -74,12 +78,14 @@ public class Fighter : MonoBehaviour, ControllerInterface {
             needsNewTarget = false;
         } else if (Alive()) { // check if player is alive and if they do not need a new target
             if(!readyToTakeAction) {
-                timeSinceAction += Time.deltaTime;
+                if (!pause) {
+                    timeSinceAction += Time.deltaTime;
+                }
 
                 // if time since action is greater than the action cooldown then the player is ready to take action
                 if (timeSinceAction >= actionCooldown) {
                    if (!needsNewTarget) { // if needsNewTarget is false then update textBox as normal
-                        textBox.fontSize = 28;
+                        textBox.fontSize = 24;
                         textBox.text = "Select an ability to use:\nAttack for highest damage\nDefend to reduce damage\nRush to attack first with less damage\nCounter" +
                             " to counter your opponents rush\nHeal to heal yourself.";
                    }
@@ -99,6 +105,8 @@ public class Fighter : MonoBehaviour, ControllerInterface {
             }
         }
 
+        //Debug.Log(currentAction + " " + readyToTakeAction + " " + needsNewTarget);
+
         // update the players health bar to represent their current health
         if (playerHealth.value > ((float)Health / (float)maxHealth) + 0.005f) {
             playerHealth.value -= Time.deltaTime * healthSliderSpeed;
@@ -106,9 +114,37 @@ public class Fighter : MonoBehaviour, ControllerInterface {
             playerHealth.value += Time.deltaTime * healthSliderSpeed;
         }
 
+        /* IN HERE FOR EVOLVING TESTING PURPOSES */
+        /*
+        if (exp < expNeeded) {
+            ExpGain(100);
+        }
+        */
+
         healthText.text = "HP: " + Health + " / " + maxHealth; // update player health text
         expText.text = "EXP: " + exp + "/" + expNeeded; // update player exp text
     }
+
+    // function for left button
+    public void Left() { UpdateAction("Rush"); }
+
+    // function for right button
+    public void Right() { Debug.Log("right button hit"); }
+
+    // function for up button
+    public void Up() { UpdateAction("Attack"); }
+
+    // function for down button
+    public void Down() { UpdateAction("Heal"); }
+
+    // function for a button
+    public void A() { UpdateAction("Defend"); }
+
+    // function for b button
+    public void B() { UpdateAction("Counter"); }
+
+    // function for pause button
+    public void Pause() { pause = !pause; }
 
     // function to handle the execution of actions between the player and the target
     public void ExecuteAction(FighterAI target, string action) {
@@ -122,8 +158,8 @@ public class Fighter : MonoBehaviour, ControllerInterface {
                 battleFeedback += target.nickname + " dealt " + (int)(target.AttackAmount() / 1.5f) + " damage to you.\n";
                 TakeDamage((int)(target.AttackAmount() / 1.5f));
             } else if(targetsAction == "Heal") {
-                battleFeedback += target.nickname + " healed for 7 HP.\n";
-                target.TakeDamage(-7); // take damage from target with a negative value to increase targets health
+                battleFeedback += target.nickname + " healed for 4 HP.\n";
+                target.TakeDamage(-4); // take damage from target with a negative value to increase targets health
             }
 
             if(Alive()) { // check that player is still alive
@@ -167,8 +203,8 @@ public class Fighter : MonoBehaviour, ControllerInterface {
                         battleFeedback += target.nickname + " dealt " + (int)(target.AttackAmount() / 1.5f) + " damage to you.\n";
                         TakeDamage((int)(target.AttackAmount() / 1.5f));
                     } else if(targetsAction == "Heal") {
-                        battleFeedback += target.nickname + " healed for 7 HP.\n";
-                        target.TakeDamage(-7); // take damage from target with a negative value to increase targets health
+                        battleFeedback += target.nickname + " healed for 4 HP.\n";
+                        target.TakeDamage(-4); // take damage from target with a negative value to increase targets health
                     }
                 }
             }
@@ -176,8 +212,8 @@ public class Fighter : MonoBehaviour, ControllerInterface {
             if(targetsAction == "Defend" || targetsAction == "Counter") {
                 battleFeedback += "Nothing happened.\n";
             } else if(targetsAction == "Heal") {
-                battleFeedback += "You defended.\n" + target.nickname + " healed for 7 HP.\n";
-                target.TakeDamage(-7); // take damage from target with a negative value to increase targets health
+                battleFeedback += "You defended.\n" + target.nickname + " healed for 4 HP.\n";
+                target.TakeDamage(-4); // take damage from target with a negative value to increase targets health
             } else {
                 int targetDamage = target.AttackAmount();
                 battleFeedback += "You defended. ";
@@ -216,13 +252,13 @@ public class Fighter : MonoBehaviour, ControllerInterface {
                 TakeDamage((int)(target.AttackAmount() / 1.5f));
 
                 if(Alive()) { // check if player is still alive
-                    battleFeedback += "You healed for 7 HP.\n";
-                    Health += 7;
+                    battleFeedback += "You healed for 6 HP.\n";
+                    Health += 6;
                     Health = Mathf.Clamp(Health, 0, maxHealth);
                 }
             } else {
-                battleFeedback += "You healed for 7 HP.\n";
-                Health += 7;
+                battleFeedback += "You healed for 6 HP.\n";
+                Health += 6;
                 Health = Mathf.Clamp(Health, 0, maxHealth);
 
                 if(targetsAction == "Attack") {
@@ -233,8 +269,8 @@ public class Fighter : MonoBehaviour, ControllerInterface {
                 } else if(targetsAction == "Counter") {
                     battleFeedback += target.nickname + " was unsuccessful in countering.\n";
                 } else if(targetsAction == "Heal") {
-                    battleFeedback += target.nickname + " healed for 7 HP.\n";
-                    target.TakeDamage(-7); // take damage from target with a negative value to increase targets health
+                    battleFeedback += target.nickname + " healed for 4 HP.\n";
+                    target.TakeDamage(-4); // take damage from target with a negative value to increase targets health
                 }
             }
         }
@@ -298,32 +334,8 @@ public class Fighter : MonoBehaviour, ControllerInterface {
 
     // function to use with onClick() to update the players current action
     public void UpdateAction(string a) {
-        if(readyToTakeAction) {
+        if(readyToTakeAction && !pause) {
             currentAction = a;
         }
-    }
-
-    void ControllerInterface.Left() {
-
-    }
-
-    void ControllerInterface.Right() {
-
-    }
-
-    void ControllerInterface.Up() {
-
-    }
-
-    void ControllerInterface.Down() {
-
-    }
-
-    void ControllerInterface.A() {
-
-    }
-
-    void ControllerInterface.B() {
-
     }
 }

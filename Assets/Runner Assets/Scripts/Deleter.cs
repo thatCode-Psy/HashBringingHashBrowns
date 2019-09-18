@@ -6,6 +6,7 @@ public class Deleter : MonoBehaviour
 {
     public GameObject player;
     bool pause;
+    public Spawner spawner;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +27,7 @@ public class Deleter : MonoBehaviour
     {
         if(collision.transform.tag == "Obstacle")
         {
+            spawner.obs.Remove(collision.gameObject);
             Destroy(collision.gameObject);
         }
     }

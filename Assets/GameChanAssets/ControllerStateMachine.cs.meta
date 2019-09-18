@@ -3,7 +3,13 @@ guid: e664fd39efa05b94b91ce60f15d0cc36
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - DefaultImage: {fileID: 21300000, guid: c3479447f7e21fe42aacb96d72cab46c, type: 3}
+  - HappyImage: {fileID: 21300000, guid: eb2befc45853a3049807ca0dbeec761e, type: 3}
+  - ExcitedImage: {fileID: 21300000, guid: 786984e47ab40b947ade4945c7244ea8, type: 3}
+  - AngryImage: {fileID: 21300000, guid: 41a083f2f7b3ffd4889561e72b66b9b5, type: 3}
+  - SadImage: {fileID: 21300000, guid: df504cb42da171c4bacdf42345829b67, type: 3}
+  - DepressedImage: {fileID: 21300000, guid: 4eafe9cb034c6ab4292cfd2a3ffb5ac8, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using TMPro;
 
 public class Player : MonoBehaviour , ControllerInterface
 {
@@ -18,7 +20,8 @@ public class Player : MonoBehaviour , ControllerInterface
     Vector3 pausevel;
     bool forceunduck;
     public bool unduckafterpause;
-    
+    public Spawner spawner;
+    public TextMeshProUGUI scoretext;
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +30,7 @@ public class Player : MonoBehaviour , ControllerInterface
         grounded = true;
         score = 0;
         pause = false;
+        ControllerStateMachine.Instance.SetGame(this);
     }
 
     // Update is called once per frame
@@ -40,24 +44,24 @@ public class Player : MonoBehaviour , ControllerInterface
         {
             runspeed += acceleration;
             
-            if (Input.GetKeyDown(KeyCode.UpArrow) && grounded)
-            {
-                Jump();
-            }
+            // if (Input.GetKeyDown(KeyCode.UpArrow) && grounded)
+            // {
+            //     Jump();
+            // }
 
-            if (Input.GetKeyDown(KeyCode.DownArrow))
-            {
-                if(!grounded)
-                {
-                    duckonland = true;
-                }
-                else
-                {
-                    Duck();
-                }
-            }
-
-            if(Input.GetKeyUp(KeyCode.DownArrow))
+            // if (Input.GetKeyDown(KeyCode.DownArrow))
+            // {
+            //     if(!grounded)
+            //     {
+            //         duckonland = true;
+            //     }
+            //     else
+            //     {
+            //         Duck();
+            //     }
+            // }
+            /*
+            if(Input.GetKeyUp(KeyCode.DownArrow) || Input.GetKeyUp(KeyCode.B))
             {
                 duckonland = false;
                 Unduck();
@@ -65,7 +69,7 @@ public class Player : MonoBehaviour , ControllerInterface
                 {
                     unduckafterpause = true;
                 }
-            }
+            }*/
         }
 
         if(Input.GetKeyDown(KeyCode.P))
@@ -74,6 +78,53 @@ public class Player : MonoBehaviour , ControllerInterface
         }
 
         
+    }
+
+    public void A()
+    {
+        
+        if(grounded){
+            Jump();
+        }
+    }
+
+    public void B()
+    {
+
+    }
+
+    public void Up()
+    {
+        if(grounded){
+            Jump();
+        }
+        
+    }
+
+    public void Down()
+    {
+        if(!grounded)
+        {
+            //duckonland = true;
+        }
+        else if(!ducking)
+        {
+            Duck();
+        }
+        else if(ducking)
+        {
+            Unduck();
+        }
+    }
+
+    public void Left()
+    {
+
+    }
+
+    public void Right()
+    {
+
     }
 
     void Pause()
@@ -124,39 +175,24 @@ public class Player : MonoBehaviour , ControllerInterface
 
         if(collision.transform.tag == "Obstacle")
         {
-            SceneManager.LoadScene("RunnerMinigame");
+            Die();
         }
     }
 
-    public void A()
+    void Die()
     {
-        Jump();
+        foreach(GameObject g in spawner.obs)
+        {
+            Destroy(g);
+        }
+
+        spawner.obs.Clear();
+
+        score = 0;
+        scoretext.text = "Score: 0";
+        runspeed = 5;
     }
 
-    public void B()
-    {
-
-    }
-
-    public void Up()
-    {
-
-    }
-
-    public void Down()
-    {
-
-    }
-
-    public void Left()
-    {
-
-    }
-
-    public void Right()
-    {
-
-    }
 
     public void Jump()
     {
@@ -165,7 +201,7 @@ public class Player : MonoBehaviour , ControllerInterface
         {
             forceunduck = true;
             Unduck();
-            duckonland = true;
+            //duckonland = true;
         }
         rb.AddForce(new Vector2(0,jumppower));
     }
@@ -174,7 +210,7 @@ public class Player : MonoBehaviour , ControllerInterface
     {
         if(pause)
         {
-            unduckafterpause = false;
+
         }
         else
         {
@@ -190,7 +226,7 @@ public class Player : MonoBehaviour , ControllerInterface
     {
         if(pause)
         {
-            unduckafterpause = true;
+            
         }
         else if(grounded || forceunduck)
         {
@@ -202,4 +238,5 @@ public class Player : MonoBehaviour , ControllerInterface
         }
         
     }
+
 }

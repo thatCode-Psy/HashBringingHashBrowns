@@ -12,6 +12,7 @@ public class Spawner : MonoBehaviour
     public GameObject player;
     public bool wait;
     bool pause;
+    public List<GameObject> obs;
     // Start is called before the first frame update
     void Start()
     {
@@ -56,12 +57,12 @@ public class Spawner : MonoBehaviour
         float r = Random.Range(0,2);
         if(r == 0)
         {
-            Instantiate(jumpobstacle, new Vector3(player.transform.position.x + 20f, 1f, 0f), Quaternion.identity);
+            obs.Add(Instantiate(jumpobstacle, new Vector3(player.transform.position.x + 20f, 1f, 0f), Quaternion.identity));
             StartCoroutine("startwait");
         }
         else if(r == 1)
         {
-            Instantiate(duckobstacle, new Vector3(player.transform.position.x + 20f, 5.7f, 0f), Quaternion.identity);
+            obs.Add(Instantiate(duckobstacle, new Vector3(player.transform.position.x + 20f, 5.7f, 0f), Quaternion.identity));
             StartCoroutine("startwait");
         }      
         
@@ -69,8 +70,8 @@ public class Spawner : MonoBehaviour
 
     void Cloud()
     {
-        float rr = Random.Range(4f, 8.1f);
-        Instantiate(clouds, new Vector3(player.transform.position.x + 20f, rr, 0f), Quaternion.identity);
+        //float rr = Random.Range(4f, 8.1f);
+        //Instantiate(clouds, new Vector3(player.transform.position.x + 20f, rr, 0f), Quaternion.identity);
     }
 
     IEnumerator startwait()
