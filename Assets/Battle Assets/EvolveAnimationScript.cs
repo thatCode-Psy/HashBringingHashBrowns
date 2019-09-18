@@ -14,7 +14,6 @@ public class EvolveAnimationScript : MonoBehaviour {
 
     private void OnEnable() {
         evolving = true;
-        spriteColor = evolvingSprite.color;
     }
 
     // Update is called once per frame
