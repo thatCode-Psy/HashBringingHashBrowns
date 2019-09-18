@@ -84,13 +84,13 @@ public class ControllerStateMachine : MonoBehaviour
                 }
             }
             
-            bool left = Input.GetButton("left");
-            bool right = Input.GetButton("right");
-            bool up = Input.GetButton("up");
-            bool down = Input.GetButton("down");
+            bool left = Input.GetButton("Left");
+            bool right = Input.GetButton("Right");
+            bool up = Input.GetButton("Up");
+            bool down = Input.GetButton("Down");
             bool a = Input.GetButton("A");
             bool b = Input.GetButton("B");
-            if(horizontal != 0f || vertical != 0f || a != 0f || b != 0){
+            if(left || right || up || down || a || b){
                 float decisionValue = Random.value;
                 if(decisionValue < currentState.listenPercent){
                     if(right){
