@@ -4,5 +4,10 @@
     "playerResponses": ["talk talk talk", "sigh....", "please just leave me alone"],
     "adjacentNodes": [4],
     "Head": false,
-    "Tail": false
+    "Tail": false,
+    "Angry": 2,
+    "Happy": 0,
+    "Excited": 0,
+    "Sad": 0,
+    "Depressed": 0
 }

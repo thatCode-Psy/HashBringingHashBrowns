@@ -4,5 +4,10 @@
     "playerResponses": [],
     "adjacentNodes": [],
     "Head": false,
-    "Tail": true
+    "Tail": true,
+    "Angry": 2,
+    "Happy": 0,
+    "Excited": 0,
+    "Sad": 0,
+    "Depressed": 0
 }

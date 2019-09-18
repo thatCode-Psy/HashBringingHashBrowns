@@ -3,5 +3,10 @@
     "line": ["OK BYE!!"],
     "playerResponses": [],
     "adjacentNodes": [],
-    "Head": false
+    "Head": false,
+    "Angry": 2,
+    "Happy": 0,
+    "Excited": 0,
+    "Sad": 0,
+    "Depressed": 0
 }

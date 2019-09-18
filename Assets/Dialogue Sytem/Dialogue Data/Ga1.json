@@ -4,5 +4,10 @@
     "playerResponses": ["and??", "I know u are but wut am i", "shhh, im sorry bb"],
     "adjacentNodes": [4, 2, 3],
     "Head": false,
-    "Tail": false
+    "Tail": false,
+    "Angry": 2,
+    "Happy": 0,
+    "Excited": 0,
+    "Sad": 0,
+    "Depressed": 0
 }

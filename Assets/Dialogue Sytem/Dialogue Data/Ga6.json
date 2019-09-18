@@ -3,5 +3,10 @@
     "line": ["HELLO MY FRIEND"],
     "playerResponses": ["shut up", "ok?", "U stupid"],
     "adjacentNodes": [1, 2, 3],
-    "Head": true
+    "Head": true,
+    "Angry": 0,
+    "Happy": 0,
+    "Excited": 0,
+    "Sad": 0,
+    "Depressed": 0
 }
