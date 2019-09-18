@@ -1,0 +1,7 @@
+{
+    "id": 6,
+    "line": ["HELLO MY FRIEND"],
+    "playerResponses": ["shut up", "ok?", "U stupid"],
+    "adjacentNodes": [1, 2, 3],
+    "Head": true
+}

@@ -2,14 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DialogueGraph : MonoBehaviour
+public class DialogueGraph
 {
-    List<Node> mainGraph = new List<Node>(); 
-    
+    List<Node> mainGraph = new List<Node>();
+    public int id; 
+
+    public DialogueGraph(Node node, int ID)
+    {
+        mainGraph.Add(node);
+        id = ID; 
+    }
     public void AddNode(Node nodeToAdd)
     {
         if (!IsInList(nodeToAdd))
         {
+            if(mainGraph.Count == 0)
+            {
+                nodeToAdd.nodPos = Node.nodePosition.HEAD; 
+            }
+            else
+            {
+                nodeToAdd.nodPos = Node.nodePosition.BODY;
+            }
             mainGraph.Add(nodeToAdd);
         }
     }
@@ -21,6 +35,11 @@ public class DialogueGraph : MonoBehaviour
         {
             mainGraph[index].addLink(branchingNode);
         }
+    }
+
+    public Node GetHead()
+    {
+        return mainGraph[0];
     }
 
     private bool IsInList(Node nodeFind)
@@ -50,11 +69,37 @@ public class DialogueGraph : MonoBehaviour
 
 public class Node
 {
-    int nodeID;
-    List<Node> adjacentNodes;
+    public int nodeID;
+    public List<Node> adjacentNodes = new List<Node>();
+    public int[] adjNodeIDs; 
+    public nodePosition nodPos; 
     lineType typeOfLine;
-    List<List<string>> linePool; 
+    public List<string> playerResponses = new List<string>(); 
+    public string[] lines; 
 
+    public Node(DialogueNode diaNode)
+    {
+        nodeID = diaNode.id;
+        if (diaNode.Head)
+        {
+            nodPos = nodePosition.HEAD;
+        }
+        else if (diaNode.Tail)
+        {
+            nodPos = nodePosition.TAIL; 
+        }
+        else
+        {
+            nodPos = nodePosition.BODY; 
+        }
+        foreach(string s in diaNode.playerResponses)
+        {
+            playerResponses.Add(s);
+        }
+        lines = diaNode.line;
+        adjNodeIDs = diaNode.adjacentNodes;
+    }
+    //Links are based on player responses. If player has 3 responses, there should be 3 adjacent nodes. Map player choice to correspoding index number. 
     public void addLink(Node linkToAdd)
     {
         if (!InList(linkToAdd))
@@ -75,9 +120,15 @@ public class Node
         return false; 
     }
 
+
     public enum lineType
     {
         PROMPT, RESPONSE
+    }
+
+    public enum nodePosition
+    {
+        HEAD, BODY, TAIL
     }
 }
 

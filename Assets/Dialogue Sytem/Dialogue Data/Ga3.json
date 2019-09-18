@@ -1,0 +1,8 @@
+{
+    "id": 3,
+    "line": ["That's why I don't like talking to you :("],
+    "playerResponses": ["talk talk talk", "sigh....", "please just leave me alone"],
+    "adjacentNodes": [4],
+    "Head": false,
+    "Tail": false
+}

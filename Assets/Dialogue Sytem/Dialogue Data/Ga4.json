@@ -1,0 +1,8 @@
+{
+    "id": 4,
+    "line": ["Stupid head!!"],
+    "playerResponses": [],
+    "adjacentNodes": [],
+    "Head": false,
+    "Tail": true
+}

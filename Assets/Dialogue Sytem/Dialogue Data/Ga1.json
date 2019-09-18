@@ -1,0 +1,8 @@
+{
+    "id": 1,
+    "line": ["Oh wow ur an asshole"],
+    "playerResponses": ["and??", "I know u are but wut am i", "shhh, im sorry bb"],
+    "adjacentNodes": [4, 2, 3],
+    "Head": false,
+    "Tail": false
+}

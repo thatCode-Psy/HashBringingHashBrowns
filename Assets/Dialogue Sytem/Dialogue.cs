@@ -8,15 +8,32 @@ public class Dialogue : MonoBehaviour
 {
     public TMP_Text textBox;
     public GameObject continueButton;
-    public GameEventListener listenerRef; 
+    public PlayerResponse playerResponseRef; 
+    public GameEventListener listenerRef;
+    public DialogueGraph diaGraph;
+    public DialogueLoader diaRef;
+    private Node startNode;
+    public Node currentNode;
+    private bool dialougeInitiated = false; 
+    public int dialogueId; 
     string[] goatText = new string[] { "1. Laik's super awesome custom typewriter script", "2. You can click to skip to the next text", "3.All text is stored in a single string array", "4. Ok, now we can continue", "5. End Kappa" };
     int currentlyDisplayingText = 0;
 
+
+    public GameEvent choiceEvent;
 
     void Awake()
     {
     }
 
+    private void Start()
+    {
+        diaGraph = diaRef.GetDiaGraphByID(dialogueId);
+        startNode = diaGraph.GetHead();
+        currentNode = startNode; 
+        goatText = startNode.lines;
+
+    }
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.D))
@@ -28,13 +45,18 @@ public class Dialogue : MonoBehaviour
 
     public void SkipToNextText()
     {
-        StopAllCoroutines();
-        currentlyDisplayingText++;
-        if (currentlyDisplayingText > goatText.Length - 1)
+        if (currentlyDisplayingText < goatText.Length - 1)
         {
-            currentlyDisplayingText = 0;
+            StopAllCoroutines();
+            currentlyDisplayingText++;
+            StartCoroutine(AnimateText());
         }
-        StartCoroutine(AnimateText());
+        else
+        {
+            textBox.text = "";
+            continueButton.SetActive(false);
+            choiceEvent.Raise(); 
+        }
     }
 
     public void GoToEnd()
@@ -61,10 +83,40 @@ public class Dialogue : MonoBehaviour
 
     public void DialogueInit()
     {
+        Debug.Log(dialougeInitiated);
+        currentlyDisplayingText = 0; 
+        if (dialougeInitiated)
+        {
+            int curnodeNum = 0;
+            if (currentNode.adjacentNodes.Count == 3)
+            {
+                curnodeNum = playerResponseRef.currentChoice;
+            }
+            Debug.Log(currentNode.adjacentNodes[curnodeNum].lines);
+
+            currentNode = currentNode.adjacentNodes[curnodeNum];
+            
+            goatText = currentNode.lines;
+
+        }
+        else
+        {
+            dialougeInitiated = true; 
+        }
+        int choiceNum = 0; 
+        foreach(string g in currentNode.playerResponses)
+        {
+            playerResponseRef.SetChoiceText(choiceNum, g);
+            choiceNum++; 
+        }
         StartCoroutine(AnimateText());
         listenerRef.enabled = false; 
 
+
+
     }
+
+
 
 
 }
