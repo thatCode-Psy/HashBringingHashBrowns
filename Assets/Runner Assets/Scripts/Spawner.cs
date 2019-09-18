@@ -5,8 +5,10 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     public float spawnchance;
+    public float cloudspawnchance;
     public GameObject jumpobstacle;
     public GameObject duckobstacle;
+    public GameObject clouds;
     public GameObject player;
     public bool wait;
     bool pause;
@@ -38,6 +40,15 @@ public class Spawner : MonoBehaviour
                 Spawn();
             }
         }
+
+        float c = Random.Range(0f, 100f);
+        if(c < cloudspawnchance)
+        {
+            if(!wait)
+            {
+                Cloud();   
+            }
+        }
     }
 
     void Spawn()
@@ -48,12 +59,18 @@ public class Spawner : MonoBehaviour
             Instantiate(jumpobstacle, new Vector3(player.transform.position.x + 20f, 1f, 0f), Quaternion.identity);
             StartCoroutine("startwait");
         }
-        else
+        else if(r == 1)
         {
             Instantiate(duckobstacle, new Vector3(player.transform.position.x + 20f, 5.7f, 0f), Quaternion.identity);
             StartCoroutine("startwait");
-        }
+        }      
         
+    }
+
+    void Cloud()
+    {
+        float rr = Random.Range(4f, 8.1f);
+        Instantiate(clouds, new Vector3(player.transform.position.x + 20f, rr, 0f), Quaternion.identity);
     }
 
     IEnumerator startwait()
