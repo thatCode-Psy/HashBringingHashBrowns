@@ -178,6 +178,11 @@ public class ControllerStateMachine : MonoBehaviour
         else if(state.Equals(DEPRESSED)){
             stateValues[5] += valueChange;
         }
+        for(int i = 0; i < stateValues.Length; ++i){
+            if(stateValues[i] < 0){
+                stateValues = 0;
+            }
+        }
         SetImage();
         AdjustState();
     } 
