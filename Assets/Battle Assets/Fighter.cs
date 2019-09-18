@@ -73,6 +73,7 @@ public class Fighter : MonoBehaviour, ControllerInterface {
                 }
             }
         } else if(needsNewTarget && readyToTakeAction) { // spawn a new target for the player
+            if (enemy) { Destroy(enemy.gameObject); }
             SpawnNewEnemy();
             readyToTakeAction = false;
             needsNewTarget = false;

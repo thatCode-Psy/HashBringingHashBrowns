@@ -37,6 +37,7 @@ public class FighterAI : MonoBehaviour {
         defenseAmount = 2 * Defense;
         maxHealth = Health;
 
+        healthSliderSpeed = 1f;
         healthText.text = "HP: " + Health + " / " + maxHealth;
     }
 

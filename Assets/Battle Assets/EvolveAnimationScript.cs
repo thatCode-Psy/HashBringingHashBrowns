@@ -12,7 +12,7 @@ public class EvolveAnimationScript : MonoBehaviour {
     private bool evolving = false;
     private bool goingDown = true;
 
-    private float evolveTimer = 7f;
+    private float evolveTimer = 5f;
 
     private void OnEnable() {
         evolving = true;
