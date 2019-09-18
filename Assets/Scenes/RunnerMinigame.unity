@@ -152,6 +152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1952890289}
+  spawner: {fileID: 1962753394}
 --- !u!61 &186014279
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1260,6 +1261,8 @@ MonoBehaviour:
   score: 0
   pause: 0
   unduckafterpause: 0
+  spawner: {fileID: 1962753394}
+  scoretext: {fileID: 352947151}
 --- !u!50 &1952890292
 Rigidbody2D:
   serializedVersion: 4
@@ -1415,3 +1418,4 @@ MonoBehaviour:
   clouds: {fileID: 144724497166387894, guid: 9195df32189aa15449edb4969edcee23, type: 3}
   player: {fileID: 1952890289}
   wait: 0
+  obs: []

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using TMPro;
 
 public class Player : MonoBehaviour , ControllerInterface
 {
@@ -18,6 +20,8 @@ public class Player : MonoBehaviour , ControllerInterface
     Vector3 pausevel;
     bool forceunduck;
     public bool unduckafterpause;
+    public Spawner spawner;
+    public TextMeshProUGUI scoretext;
 
     // Start is called before the first frame update
     void Start()
@@ -56,7 +60,7 @@ public class Player : MonoBehaviour , ControllerInterface
             //         Duck();
             //     }
             // }
-
+            /*
             if(Input.GetKeyUp(KeyCode.DownArrow) || Input.GetKeyUp(KeyCode.B))
             {
                 duckonland = false;
@@ -65,7 +69,7 @@ public class Player : MonoBehaviour , ControllerInterface
                 {
                     unduckafterpause = true;
                 }
-            }
+            }*/
         }
 
         if(Input.GetKeyDown(KeyCode.P))
@@ -100,13 +104,17 @@ public class Player : MonoBehaviour , ControllerInterface
     public void Down()
     {
         if(!grounded)
-            {
-                duckonland = true;
-            }
-            else
-            {
-                Duck();
-            }
+        {
+            //duckonland = true;
+        }
+        else if(!ducking)
+        {
+            Duck();
+        }
+        else if(ducking)
+        {
+            Unduck();
+        }
     }
 
     public void Left()
@@ -167,11 +175,23 @@ public class Player : MonoBehaviour , ControllerInterface
 
         if(collision.transform.tag == "Obstacle")
         {
-            SceneManager.LoadScene("RunnerMinigame");
+            Die();
         }
     }
 
-    
+    void Die()
+    {
+        foreach(GameObject g in spawner.obs)
+        {
+            Destroy(g);
+        }
+
+        spawner.obs.Clear();
+
+        score = 0;
+        scoretext.text = "Score: 0";
+        runspeed = 5;
+    }
 
 
     public void Jump()
@@ -181,7 +201,7 @@ public class Player : MonoBehaviour , ControllerInterface
         {
             forceunduck = true;
             Unduck();
-            duckonland = true;
+            //duckonland = true;
         }
         rb.AddForce(new Vector2(0,jumppower));
     }
