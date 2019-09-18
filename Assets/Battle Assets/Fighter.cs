@@ -322,4 +322,6 @@ public class Fighter : MonoBehaviour, ControllerInterface {
     void ControllerInterface.B() {
         UpdateAction("Counter");
     }
+
+
 }
