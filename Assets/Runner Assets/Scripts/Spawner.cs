@@ -70,8 +70,8 @@ public class Spawner : MonoBehaviour
 
     void Cloud()
     {
-        float rr = Random.Range(4f, 8.1f);
-        Instantiate(clouds, new Vector3(player.transform.position.x + 20f, rr, 0f), Quaternion.identity);
+        //float rr = Random.Range(4f, 8.1f);
+        //Instantiate(clouds, new Vector3(player.transform.position.x + 20f, rr, 0f), Quaternion.identity);
     }
 
     IEnumerator startwait()

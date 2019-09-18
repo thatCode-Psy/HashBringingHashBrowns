@@ -247,7 +247,7 @@ PrefabInstance:
     - target: {fileID: 5672798103889203677, guid: 547a5bcff1567334b9f3870012a7800a,
         type: 3}
       propertyPath: enemyNames.Array.size
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5672798103889203677, guid: 547a5bcff1567334b9f3870012a7800a,
         type: 3}
@@ -293,17 +293,17 @@ PrefabInstance:
     - target: {fileID: 5672798103889203677, guid: 547a5bcff1567334b9f3870012a7800a,
         type: 3}
       propertyPath: enemyNames.Array.data[0]
-      value: Bitch
+      value: Jared
       objectReference: {fileID: 0}
     - target: {fileID: 5672798103889203677, guid: 547a5bcff1567334b9f3870012a7800a,
         type: 3}
       propertyPath: enemyNames.Array.data[1]
-      value: Asshole
+      value: Nik
       objectReference: {fileID: 0}
     - target: {fileID: 5672798103889203677, guid: 547a5bcff1567334b9f3870012a7800a,
         type: 3}
       propertyPath: enemyNames.Array.data[2]
-      value: Ugly
+      value: Zaire
       objectReference: {fileID: 0}
     - target: {fileID: 5672798103889203677, guid: 547a5bcff1567334b9f3870012a7800a,
         type: 3}
@@ -340,6 +340,21 @@ PrefabInstance:
       propertyPath: evolveCanvas
       value: 
       objectReference: {fileID: 953247670}
+    - target: {fileID: 5672798103889203677, guid: 547a5bcff1567334b9f3870012a7800a,
+        type: 3}
+      propertyPath: enemyNames.Array.data[3]
+      value: Adrianna
+      objectReference: {fileID: 0}
+    - target: {fileID: 5672798103889203677, guid: 547a5bcff1567334b9f3870012a7800a,
+        type: 3}
+      propertyPath: enemyNames.Array.data[4]
+      value: Austin
+      objectReference: {fileID: 0}
+    - target: {fileID: 5672798103889203677, guid: 547a5bcff1567334b9f3870012a7800a,
+        type: 3}
+      propertyPath: enemyNames.Array.data[5]
+      value: Jinli
+      objectReference: {fileID: 0}
     - target: {fileID: 5579882850632563153, guid: 547a5bcff1567334b9f3870012a7800a,
         type: 3}
       propertyPath: m_LocalPosition.x

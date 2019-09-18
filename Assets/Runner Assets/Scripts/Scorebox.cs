@@ -7,8 +7,10 @@ public class Scorebox : MonoBehaviour
 {
     public GameObject player;
     public TextMeshProUGUI t;
+    public TextMeshProUGUI h;
     bool pause;
     public int score;
+    public int hiscore;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,5 +41,10 @@ public class Scorebox : MonoBehaviour
     void IncreaseScore()
     {
         t.text = "Score: " + score;
+        if(score > hiscore)
+        {
+            hiscore = score;
+            h.text = "Hi-score: " + hiscore;
+        }
     }
 }
