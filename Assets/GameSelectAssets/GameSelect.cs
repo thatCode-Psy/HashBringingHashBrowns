@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameSelect : MonoBehaviour
 {
@@ -35,12 +36,12 @@ public class GameSelect : MonoBehaviour
         {
             if(selected == Runner)
             {
-                //load runner scene
+                SceneManager.LoadScene("RunnerMinigame");
             }
 
             if(selected == Poke)
             {
-                //load poke scene
+                SceneManager.LoadScene("BattleMinigame");
             }
         }
     }

@@ -210,7 +210,7 @@ public class Player : MonoBehaviour , ControllerInterface
     {
         if(pause)
         {
-            unduckafterpause = false;
+
         }
         else
         {
@@ -226,7 +226,7 @@ public class Player : MonoBehaviour , ControllerInterface
     {
         if(pause)
         {
-            unduckafterpause = true;
+            
         }
         else if(grounded || forceunduck)
         {
