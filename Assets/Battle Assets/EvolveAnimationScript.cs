@@ -7,8 +7,6 @@ public class EvolveAnimationScript : MonoBehaviour {
     public Image evolvingSprite;
     public float evolveSpeed = 1f;
 
-    private Color spriteColor;
-
     private bool evolving = false;
     private bool goingDown = true;
 
