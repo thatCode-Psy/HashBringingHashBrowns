@@ -83,34 +83,40 @@ public class ControllerStateMachine : MonoBehaviour
                     RandomInput();
                 }
             }
-            float horizontal = Input.GetAxis("Horizontal");
-            float vertical = Input.GetAxis("Vertical");
-            float a = Input.GetAxis("A");
-            float b = Input.GetAxis("B");
-            if(horizontal != 0f || vertical != 0f || a != 0f || b != 0){
+            
+            bool left = Input.GetButton("Left");
+            bool right = Input.GetButton("Right");
+            bool up = Input.GetButton("Up");
+            bool down = Input.GetButton("Down");
+            bool a = Input.GetButton("A");
+            bool b = Input.GetButton("B");
+            if(left || right || up || down || a || b){
                 float decisionValue = Random.value;
                 if(decisionValue < currentState.listenPercent){
-                    if(horizontal > 0f){
+                    if(right){
                         currentGame.Right();
                     }
-                    if(horizontal < 0f){
+                    if(left){
                         currentGame.Left();
                     }
-                    if(vertical > 0f){
+                    if(up){
                         currentGame.Up();
                     }
-                    if(vertical < 0f){
+                    if(down){
                         currentGame.Down();
                     }
-                    if(a > 0f){
+                    if(a){
                         currentGame.A();
                     }
-                    if(b > 0f){
+                    if(b){
                         currentGame.B();
                     }
                 }
                 else if(1 - decisionValue < currentState.wrongInputPercent){
                     RandomInput();
+                }
+                else{
+                    print("not listening");
                 }
             }
         }
@@ -119,6 +125,7 @@ public class ControllerStateMachine : MonoBehaviour
 
     public void RandomInput(){
         int randInput = Random.Range(0, 6);
+        print("doing random input");
         switch(randInput){
             case 0:
                 currentGame.A();
