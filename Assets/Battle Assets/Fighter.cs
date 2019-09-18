@@ -326,4 +326,6 @@ public class Fighter : MonoBehaviour, ControllerInterface {
     void ControllerInterface.B() {
 
     }
+
+
 }

@@ -83,29 +83,32 @@ public class ControllerStateMachine : MonoBehaviour
                     RandomInput();
                 }
             }
-            float horizontal = Input.GetAxis("Horizontal");
-            float vertical = Input.GetAxis("Vertical");
-            float a = Input.GetAxis("A");
-            float b = Input.GetAxis("B");
+            
+            bool left = Input.GetButton("left");
+            bool right = Input.GetButton("right");
+            bool up = Input.GetButton("up");
+            bool down = Input.GetButton("down");
+            bool a = Input.GetButton("A");
+            bool b = Input.GetButton("B");
             if(horizontal != 0f || vertical != 0f || a != 0f || b != 0){
                 float decisionValue = Random.value;
                 if(decisionValue < currentState.listenPercent){
-                    if(horizontal > 0f){
+                    if(right){
                         currentGame.Right();
                     }
-                    if(horizontal < 0f){
+                    if(left){
                         currentGame.Left();
                     }
-                    if(vertical > 0f){
+                    if(up){
                         currentGame.Up();
                     }
-                    if(vertical < 0f){
+                    if(down){
                         currentGame.Down();
                     }
-                    if(a > 0f){
+                    if(a){
                         currentGame.A();
                     }
-                    if(b > 0f){
+                    if(b){
                         currentGame.B();
                     }
                 }
