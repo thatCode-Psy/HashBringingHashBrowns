@@ -127,7 +127,7 @@ public class Player : MonoBehaviour , ControllerInterface
 
     }
 
-    void Pause()
+    public void Pause()
     {
         pause = !pause;
     
