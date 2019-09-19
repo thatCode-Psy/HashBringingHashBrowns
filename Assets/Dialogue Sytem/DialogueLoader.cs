@@ -8,6 +8,7 @@ public class DialogueLoader : MonoBehaviour
 {
     List<DialogueGraph> allDialogue = new List<DialogueGraph>();
     List<DialogueNode> diaNodes = new List<DialogueNode>();
+    DialogueNode[] dia; 
     List<Node> allNodes = new List<Node>(); 
     string[] jsonFiles; 
     // Start is called before the first frame update
@@ -106,4 +107,9 @@ public class DialogueNode
     public int[] adjacentNodes;
     public bool Head;
     public bool Tail;
+    public int Happy;
+    public int Angry;
+    public int Sad;
+    public int Depressed;
+    public int Excited; 
 }

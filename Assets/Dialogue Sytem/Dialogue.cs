@@ -83,7 +83,6 @@ public class Dialogue : MonoBehaviour
 
     public void DialogueInit()
     {
-        Debug.Log(dialougeInitiated);
         currentlyDisplayingText = 0; 
         if (dialougeInitiated)
         {
@@ -92,17 +91,16 @@ public class Dialogue : MonoBehaviour
             {
                 curnodeNum = playerResponseRef.currentChoice;
             }
-            Debug.Log(currentNode.adjacentNodes[curnodeNum].lines);
-
-            currentNode = currentNode.adjacentNodes[curnodeNum];
-            
+            currentNode = currentNode.adjacentNodes[curnodeNum];  
             goatText = currentNode.lines;
-
         }
         else
         {
             dialougeInitiated = true; 
         }
+
+        ChangeGameChanState(); 
+
         int choiceNum = 0; 
         foreach(string g in currentNode.playerResponses)
         {
@@ -117,7 +115,18 @@ public class Dialogue : MonoBehaviour
     }
 
 
+    void ChangeGameChanState()
+    {
+        ControllerStateMachine.Instance.SetState(ControllerStateMachine.HAPPY, currentNode.Happy);
+        ControllerStateMachine.Instance.SetState(ControllerStateMachine.SAD, currentNode.Sad);
+        ControllerStateMachine.Instance.SetState(ControllerStateMachine.DEPRESSED, currentNode.Depressed);
+        ControllerStateMachine.Instance.SetState(ControllerStateMachine.EXCITED, currentNode.Excited);
+        ControllerStateMachine.Instance.SetState(ControllerStateMachine.ANGRY, currentNode.Angry);
 
+
+
+
+    }
 
 }
 

@@ -132,6 +132,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dialogue Loader
       objectReference: {fileID: 0}
+    - target: {fileID: 538289084717778950, guid: 31804755b7e9ca844b6dcdd2c60f3698,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 538289084717778944, guid: 31804755b7e9ca844b6dcdd2c60f3698,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -532,6 +537,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Dialouge Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 4192575072422550081, guid: a4cf86ccc0fde88468184d7e903059b4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4192575072422550109, guid: a4cf86ccc0fde88468184d7e903059b4,
         type: 3}
