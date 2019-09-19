@@ -7,16 +7,13 @@ public class EvolveAnimationScript : MonoBehaviour {
     public Image evolvingSprite;
     public float evolveSpeed = 1f;
 
-    private Color spriteColor;
-
     private bool evolving = false;
     private bool goingDown = true;
 
-    private float evolveTimer = 7f;
+    private float evolveTimer = 5f;
 
     private void OnEnable() {
         evolving = true;
-        spriteColor = evolvingSprite.color;
     }
 
     // Update is called once per frame
