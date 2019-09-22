@@ -14,10 +14,14 @@ public class Scorebox : MonoBehaviour
     public int hiscore;
     public TextAsset hiscorefile;
     string path = "Assets/HighScore.txt";
+    public AudioClip ding;
+    AudioSource asource;
     // Start is called before the first frame update
     void Start()
     {
-        score = 0;
+        asource = GetComponent<AudioSource>();
+        asource.clip = ding;
+       score = 0;
        hiscore = ReadString();
        h.text = "HI-SCORE: " + hiscore.ToString();
     }
@@ -45,6 +49,7 @@ public class Scorebox : MonoBehaviour
 
     void IncreaseScore()
     {
+        asource.Play();
         t.text = "Score: " + score;
         if(score > hiscore)
         {
