@@ -80,7 +80,7 @@ public class ControllerStateMachine : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(started){
+        if(started && pauseStartTime != -1f){
             if(Time.time - startTime > randomInputDelay){
                 startTime = Time.time;
                 if(currentState.randomInputPercent > Random.value){
