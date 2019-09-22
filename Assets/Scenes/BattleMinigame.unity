@@ -354,7 +354,7 @@ PrefabInstance:
     - target: {fileID: 5672798103889203677, guid: 547a5bcff1567334b9f3870012a7800a,
         type: 3}
       propertyPath: enemySprites.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5672798103889203677, guid: 547a5bcff1567334b9f3870012a7800a,
         type: 3}
@@ -457,6 +457,11 @@ PrefabInstance:
       propertyPath: enemyNames.Array.data[5]
       value: Jinli
       objectReference: {fileID: 0}
+    - target: {fileID: 5672798103889203677, guid: 547a5bcff1567334b9f3870012a7800a,
+        type: 3}
+      propertyPath: enemySprites.Array.data[2]
+      value: 
+      objectReference: {fileID: 1293593229}
     - target: {fileID: 5579882850632563153, guid: 547a5bcff1567334b9f3870012a7800a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -909,6 +914,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8672067948010595337, guid: 1c792777efb33314f932390476d06289,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 78.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4629780667411642553, guid: 1c792777efb33314f932390476d06289,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8658621117638275705, guid: 1c792777efb33314f932390476d06289,
         type: 3}
       propertyPath: m_Name
@@ -1057,7 +1072,7 @@ PrefabInstance:
     - target: {fileID: 1579026059969922224, guid: 1c792777efb33314f932390476d06289,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 94
+      value: 82.4
       objectReference: {fileID: 0}
     - target: {fileID: 1579026059969922224, guid: 1c792777efb33314f932390476d06289,
         type: 3}
@@ -1077,7 +1092,7 @@ PrefabInstance:
     - target: {fileID: 3891300620487266517, guid: 1c792777efb33314f932390476d06289,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 91
+      value: 87.2
       objectReference: {fileID: 0}
     - target: {fileID: 3891300620487266517, guid: 1c792777efb33314f932390476d06289,
         type: 3}
@@ -1092,7 +1107,7 @@ PrefabInstance:
     - target: {fileID: 3891300620487266517, guid: 1c792777efb33314f932390476d06289,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -303
+      value: -311.5
       objectReference: {fileID: 0}
     - target: {fileID: 8658621117638275701, guid: 1c792777efb33314f932390476d06289,
         type: 3}
@@ -1636,6 +1651,12 @@ PrefabInstance:
       propertyPath: m_Text
       value: (Left) Rush
       objectReference: {fileID: 0}
+    - target: {fileID: 3738626077898611213, guid: 1c792777efb33314f932390476d06289,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b8fe369dd72754f4297b763d454e6ff5,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c792777efb33314f932390476d06289, type: 3}
 --- !u!114 &1293593223 stripped
@@ -1710,6 +1731,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1293593229 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4629780667411642553, guid: 1c792777efb33314f932390476d06289,
+    type: 3}
+  m_PrefabInstance: {fileID: 1293593222}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1627199026 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4192575072859948627, guid: a4cf86ccc0fde88468184d7e903059b4,
