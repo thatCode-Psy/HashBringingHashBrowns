@@ -46,17 +46,15 @@ public class Fighter : MonoBehaviour, ControllerInterface {
     private float healthSliderSpeed = 1f;
     private float evolveTimer = 0f;
 
-    void Awake() {
+    void Start() {
         attackAmount = (int)(2.5f * Strength);
         defenseAmount = (int)(1.5f * Defense);
         maxHealth = Health;
+        exp = 0;
 
         healthText.text = "HP: " + Health + " / " + maxHealth;
         expText.text = "EXP: " + exp + "/" + expNeeded;
-    }
 
-    void Start()
-    {
         ControllerStateMachine.Instance.SetGame(this);
     }
 
@@ -64,12 +62,11 @@ public class Fighter : MonoBehaviour, ControllerInterface {
         if(levelUp && readyToTakeAction) {
             if(evolveTimer < 4f) {
                 textBox.fontSize = 36;
-                textBox.text = "LEVEL UP!\nOh, what is this? You're pokabomination is evolving!";
+                textBox.text = "LEVEL UP!\nOh, what is this? Your pokabomination is evolving!";
                 evolveTimer += Time.deltaTime;
             } else {
                 if (!evolveCanvas.activeInHierarchy) {
                     evolveCanvas.SetActive(true);
-                    battleCanvas.SetActive(true);
                 }
             }
         } else if(needsNewTarget && readyToTakeAction) { // spawn a new target for the player
@@ -106,8 +103,6 @@ public class Fighter : MonoBehaviour, ControllerInterface {
             }
         }
 
-        //Debug.Log(currentAction + " " + readyToTakeAction + " " + needsNewTarget);
-
         // update the players health bar to represent their current health
         if (playerHealth.value > ((float)Health / (float)maxHealth) + 0.005f) {
             playerHealth.value -= Time.deltaTime * healthSliderSpeed;
@@ -130,7 +125,7 @@ public class Fighter : MonoBehaviour, ControllerInterface {
     public void Left() { UpdateAction("Rush"); }
 
     // function for right button
-    public void Right() { Debug.Log("right button hit"); }
+    public void Right() { UpdateAction("Rush"); }
 
     // function for up button
     public void Up() { UpdateAction("Attack"); }
@@ -335,8 +330,22 @@ public class Fighter : MonoBehaviour, ControllerInterface {
 
     // function to use with onClick() to update the players current action
     public void UpdateAction(string a) {
-        if(readyToTakeAction && !pause) {
+        if (readyToTakeAction && !pause) {
             currentAction = a;
         }
+    }
+
+    // function to update fighter after evolve
+    public void StopEvolve() {
+        levelUp = false;
+        evolveCanvas.SetActive(false);
+
+        attackAmount++;
+        defenseAmount++;
+        maxHealth += Random.Range(2, 5);
+        Health = maxHealth;
+        exp = 0;
+        expNeeded += 5;
+        expNeeded = Mathf.Clamp(expNeeded, 0, 100);
     }
 }
