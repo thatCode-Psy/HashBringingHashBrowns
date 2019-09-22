@@ -18,4 +18,6 @@ public interface ControllerInterface
 
     void Pause();
 
+    List<int> GetPossibleDialogueNodes();
+
 }

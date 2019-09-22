@@ -249,5 +249,8 @@ public class Player : MonoBehaviour , ControllerInterface
         }
         
     }
+    public List<int> GetPossibleDialogueNodes(){
+        return null;
+    }
 
 }

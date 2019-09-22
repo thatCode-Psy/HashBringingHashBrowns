@@ -348,4 +348,8 @@ public class Fighter : MonoBehaviour, ControllerInterface {
         expNeeded += 5;
         expNeeded = Mathf.Clamp(expNeeded, 0, 100);
     }
+
+    public List<int> GetPossibleDialogueNodes(){
+        return null;
+    }
 }
