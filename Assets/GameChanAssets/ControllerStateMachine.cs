@@ -131,6 +131,8 @@ public class ControllerStateMachine : MonoBehaviour
                 print("pause");
                 pauseStartTime = -1f;
                 currentGame.Pause();
+                Dialogue dialogue = GameObject.FindGameObjectWithTag("Dialogue").GetComponent<Dialogue>();
+                dialogue.InitSetup(0);
             }
         }
     }

@@ -192,6 +192,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 538289084717778947, guid: 31804755b7e9ca844b6dcdd2c60f3698,
+        type: 3}
+      propertyPath: diaRef
+      value: 
+      objectReference: {fileID: 401723401}
     - target: {fileID: 538289084717778945, guid: 31804755b7e9ca844b6dcdd2c60f3698,
         type: 3}
       propertyPath: diaEvent
@@ -203,11 +208,6 @@ PrefabInstance:
       propertyPath: diaTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 538289084717778947, guid: 31804755b7e9ca844b6dcdd2c60f3698,
-        type: 3}
-      propertyPath: diaRef
-      value: 
-      objectReference: {fileID: 401723401}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 31804755b7e9ca844b6dcdd2c60f3698, type: 3}
 --- !u!1 &186014276
@@ -676,6 +676,21 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4192575072513162932, guid: a4cf86ccc0fde88468184d7e903059b4,
+        type: 3}
+      propertyPath: diaRef
+      value: 
+      objectReference: {fileID: 1013218059}
+    - target: {fileID: 4192575072513162932, guid: a4cf86ccc0fde88468184d7e903059b4,
+        type: 3}
+      propertyPath: dialogueId
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4192575072513162934, guid: a4cf86ccc0fde88468184d7e903059b4,
+        type: 3}
+      propertyPath: m_TagString
+      value: Dialogue
+      objectReference: {fileID: 0}
     - target: {fileID: 4192575072513162933, guid: a4cf86ccc0fde88468184d7e903059b4,
         type: 3}
       propertyPath: Response.m_PersistentCalls.m_Calls.Array.size
@@ -705,16 +720,6 @@ PrefabInstance:
         type: 3}
       propertyPath: Response.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 4192575072513162932, guid: a4cf86ccc0fde88468184d7e903059b4,
-        type: 3}
-      propertyPath: diaRef
-      value: 
-      objectReference: {fileID: 1013218059}
-    - target: {fileID: 4192575072513162932, guid: a4cf86ccc0fde88468184d7e903059b4,
-        type: 3}
-      propertyPath: dialogueId
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4192575072859948626, guid: a4cf86ccc0fde88468184d7e903059b4,
         type: 3}
@@ -1379,6 +1384,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotatespeed: -3
+  player: {fileID: 0}
 --- !u!1 &1591499656
 GameObject:
   m_ObjectHideFlags: 0

@@ -61,6 +61,7 @@ public class Dialogue : MonoBehaviour
             textBox.text = "";
             continueButton.SetActive(false);
             choiceEvent.Raise(); 
+            ControllerStateMachine.Instance.UnPauseGame();
         }
     }
 
