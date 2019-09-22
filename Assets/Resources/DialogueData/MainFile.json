@@ -1,0 +1,107 @@
+{
+    "DialogueNodes": [{
+            "id": 0,
+            "line": ["HELLO MY FRIEND", "I like u"],
+            "playerResponses": ["shut up", "ok?", "U stupid"],
+            "adjacentNodes": [1, 2, 3],
+            "Head": true,
+            "Tail": false,
+            "Angry": 0,
+            "Happy": 0,
+            "Excited": 0,
+            "Sad": 0,
+            "Depressed": 0
+        },
+        {
+            "id": 1,
+            "line": ["Oh wow ur an asshole"],
+            "playerResponses": ["and??", "I know u are but wut am i", "shhh, im sorry bb"],
+            "adjacentNodes": [4, 2, 3],
+            "Head": false,
+            "Tail": false,
+            "Angry": 2,
+            "Happy": 0,
+            "Excited": 0,
+            "Sad": 0,
+            "Depressed": 0
+        },
+        {
+            "id": 2,
+            "line": ["Meanie :("],
+            "playerResponses": ["yupp", "U stupid"],
+            "adjacentNodes": [4],
+            "Head": false,
+            "Tail": false,
+            "Angry": 2,
+            "Happy": 0,
+            "Excited": 0,
+            "Sad": 0,
+            "Depressed": 0
+        },
+        {
+            "id": 3,
+            "line": ["That's why I don't like talking to you :("],
+            "playerResponses": ["talk talk talk", "sigh....", "please just leave me alone"],
+            "adjacentNodes": [4],
+            "Head": false,
+            "Tail": false,
+            "Angry": 2,
+            "Happy": 0,
+            "Excited": 0,
+            "Sad": 0,
+            "Depressed": 0
+        },
+        {
+            "id": 4,
+            "line": ["Stupid head!!"],
+            "playerResponses": [],
+            "adjacentNodes": [],
+            "Head": false,
+            "Tail": true,
+            "Angry": 2,
+            "Happy": 0,
+            "Excited": 0,
+            "Sad": 0,
+            "Depressed": 0
+        },
+        {
+            "id": 5,
+            "line": ["OK BYE!!"],
+            "playerResponses": [],
+            "adjacentNodes": [],
+            "Head": false,
+            "Tail": false,
+            "Angry": 2,
+            "Happy": 3,
+            "Excited": 0,
+            "Sad": 0,
+            "Depressed": 0
+        },
+        {
+            "id": 6,
+            "line": ["I'm so tired!!"],
+            "playerResponses": [],
+            "adjacentNodes": [],
+            "Head": true,
+            "Tail": false,
+            "Angry": 2,
+            "Happy": 0,
+            "Excited": 0,
+            "Sad": 0,
+            "Depressed": 0
+        },
+        {
+            "id": 7,
+            "line": ["Whats your name!!"],
+            "playerResponses": [],
+            "adjacentNodes": [],
+            "Head": true,
+            "Tail": false,
+            "Angry": 2,
+            "Happy": 3,
+            "Excited": 0,
+            "Sad": 0,
+            "Depressed": 0
+        }
+    ]
+}

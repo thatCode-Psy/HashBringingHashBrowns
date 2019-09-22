@@ -44,6 +44,8 @@ public class ControllerStateMachine : MonoBehaviour
 
 
     public float randomInputDelay = 5f;
+    public float pauseInterval = 30f;
+    float pauseStartTime;
 
 
     State currentState;
@@ -71,13 +73,14 @@ public class ControllerStateMachine : MonoBehaviour
         started = false;
         stateValues = new int[6];
         stateValues[0] = 1;
+        pauseStartTime = -1f;
         
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(started){
+        if(started && pauseStartTime != -1f){
             if(Time.time - startTime > randomInputDelay){
                 startTime = Time.time;
                 if(currentState.randomInputPercent > Random.value){
@@ -124,6 +127,13 @@ public class ControllerStateMachine : MonoBehaviour
                     print("not listening");
                 }
             }
+            if(Time.time - pauseStartTime >= pauseInterval && pauseStartTime != -1f){
+                print("pause");
+                pauseStartTime = -1f;
+                currentGame.Pause();
+                Dialogue dialogue = GameObject.FindGameObjectWithTag("Dialogue").GetComponent<Dialogue>();
+                dialogue.DialogueInit(0);
+            }
         }
     }
 
@@ -159,6 +169,7 @@ public class ControllerStateMachine : MonoBehaviour
     public void SetGame(ControllerInterface game){
         currentGame = game;
         startTime = Time.time;
+        pauseStartTime = Time.time;
         started = true;
     }
 
@@ -262,5 +273,8 @@ public class ControllerStateMachine : MonoBehaviour
         currentState = new State(listenPercent, randomInputPercent, wrongInputPercent);
     }
 
-    
+    public void UnPauseGame(){
+        currentGame.Pause();
+        pauseStartTime = Time.time;
+    }
 }

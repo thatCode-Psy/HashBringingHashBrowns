@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System.IO;
 
 public class Scorebox : MonoBehaviour
 {
@@ -11,10 +12,14 @@ public class Scorebox : MonoBehaviour
     bool pause;
     public int score;
     public int hiscore;
+    public TextAsset hiscorefile;
+    string path = "Assets/HighScore.txt";
     // Start is called before the first frame update
     void Start()
     {
         score = 0;
+       hiscore = ReadString();
+       h.text = "HI-SCORE: " + hiscore.ToString();
     }
 
     // Update is called once per frame
@@ -45,6 +50,22 @@ public class Scorebox : MonoBehaviour
         {
             hiscore = score;
             h.text = "Hi-score: " + hiscore;
+            WriteString(hiscore.ToString());
         }
+    }
+
+    void WriteString(string hiscore)
+    {
+        StreamWriter writer = new StreamWriter(path,false);
+        writer.WriteLine(hiscore);
+        writer.Close();
+    }
+
+    int ReadString()
+    {
+        StreamReader reader = new StreamReader(path);
+        int t = int.Parse(reader.ReadToEnd());
+        reader.Close();
+        return t;
     }
 }
