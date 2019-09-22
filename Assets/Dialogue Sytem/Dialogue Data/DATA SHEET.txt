@@ -1,0 +1,3 @@
+id	line	player response 1	player response 2	player response 3	adjacent node 1	adjacent node 2	adjacent node 3	Head	Tail	Angry	Happy	Excited	Sad	Depressed
+0	Hi There Sir. What is your name?	Not your business	I'll tell you later	I don't have a name	1	2	3	TRUE	FALSE	0	0	0	0	0
+1	Oh but it is my business.	Umm no it's not	Fine I'll tell you	Stop with the attitude plz	4	-1	-1	FALSE	FALSE	1	0	0	0	0

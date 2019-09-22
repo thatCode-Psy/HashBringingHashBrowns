@@ -75,7 +75,12 @@ public class Node
     public nodePosition nodPos; 
     lineType typeOfLine;
     public List<string> playerResponses = new List<string>(); 
-    public string[] lines; 
+    public string[] lines;
+    public int Happy;
+    public int Sad;
+    public int Depressed;
+    public int Excited;
+    public int Angry; 
 
     public Node(DialogueNode diaNode)
     {
@@ -96,6 +101,12 @@ public class Node
         {
             playerResponses.Add(s);
         }
+        Happy = diaNode.Happy;
+        Sad = diaNode.Sad;
+        Depressed = diaNode.Sad;
+        Excited = diaNode.Excited;
+        Angry = diaNode.Angry; 
+
         lines = diaNode.line;
         adjNodeIDs = diaNode.adjacentNodes;
     }
