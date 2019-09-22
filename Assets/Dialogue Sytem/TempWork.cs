@@ -12,9 +12,9 @@ public class TempWork : MonoBehaviour
     void Start()
     {
         //jsonFile = Directory.GetFiles(@"C:\Users\carlic2\Documents\Zaire's Shit\Unity Projects\HashBringingHashBrowns\Assets\Dialogue Sytem\Dialogue Data");
-        jsonFile = File.ReadAllText(@"C:\Users\carlic2\Documents\Zaire's Shit\Unity Projects\HashBringingHashBrowns\Assets\Dialogue Sytem\Dialogue Data\Ga1.json");
+        jsonFile = File.ReadAllText(@"C:\Users\carlic2\Documents\Zaire's Shit\Unity Projects\HashBringingHashBrowns\Assets\Dialogue Sytem\Dialogue Data\MainFile.json");
         DialogueNode[] dia = JsonHelper.FromJson<DialogueNode>(jsonFile);
-        Debug.Log(dia.Length);
+        Debug.Log(dia[2].id);
     }
 
     // Update is called once per frame

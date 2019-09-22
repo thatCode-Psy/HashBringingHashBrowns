@@ -28,11 +28,16 @@ public class Dialogue : MonoBehaviour
 
     private void Start()
     {
-        diaGraph = diaRef.GetDiaGraphByID(dialogueId);
-        startNode = diaGraph.GetHead();
-        currentNode = startNode; 
-        goatText = startNode.lines;
 
+
+    }
+
+    public void InitSetup(int graphID)
+    {
+        diaGraph = diaRef.GetDiaGraphByID(graphID);
+        startNode = diaGraph.GetHead();
+        currentNode = startNode;
+        goatText = startNode.lines;
     }
     private void Update()
     {
@@ -80,9 +85,38 @@ public class Dialogue : MonoBehaviour
             continueButton.SetActive(true);
     }
 
-
-    public void DialogueInit()
+    public void DialogueContinue()
     {
+        if (dialougeInitiated)
+        {
+            int curnodeNum = 0;
+            if (currentNode.adjacentNodes.Count == 3)
+            {
+                curnodeNum = playerResponseRef.currentChoice;
+            }
+            currentNode = currentNode.adjacentNodes[curnodeNum];
+            goatText = currentNode.lines;
+        }
+        else
+        {
+            dialougeInitiated = true;
+        }
+
+        ChangeGameChanState();
+
+        int choiceNum = 0;
+        foreach (string g in currentNode.playerResponses)
+        {
+            playerResponseRef.SetChoiceText(choiceNum, g);
+            choiceNum++;
+        }
+        StartCoroutine(AnimateText());
+        listenerRef.enabled = false;
+    }
+
+    public void DialogueInit(int graphID)
+    {
+        InitSetup(graphID);
         currentlyDisplayingText = 0; 
         if (dialougeInitiated)
         {

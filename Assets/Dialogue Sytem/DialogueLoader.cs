@@ -8,26 +8,29 @@ public class DialogueLoader : MonoBehaviour
 {
     List<DialogueGraph> allDialogue = new List<DialogueGraph>();
     List<DialogueNode> diaNodes = new List<DialogueNode>();
+    public Dialogue diaRef; 
     DialogueNode[] dia; 
     List<Node> allNodes = new List<Node>(); 
-    string[] jsonFiles; 
+    string jsonFiles; 
     // Start is called before the first frame update
     void Start()
     {
-        jsonFiles = Directory.GetFiles(@"C:\Users\carlic2\Documents\Zaire's Shit\Unity Projects\HashBringingHashBrowns\Assets\Dialogue Sytem\Dialogue Data");
-        foreach(string s in jsonFiles)
-        {
-            if(Path.GetExtension(s) == ".json"){
-                string text = File.ReadAllText(s, Encoding.UTF8);
-                DialogueNode diaTemp = JsonUtility.FromJson<DialogueNode>(text);
-                diaNodes.Add(diaTemp);
-            }
-        }
-        foreach (DialogueNode d in diaNodes)
+        //jsonFiles = Directory.GetFiles(@"C:\Users\carlic2\Documents\Zaire's Shit\Unity Projects\HashBringingHashBrowns\Assets\Dialogue Sytem\Dialogue Data");
+        jsonFiles = File.ReadAllText(@"C:\Users\carlic2\Documents\Zaire's Shit\Unity Projects\HashBringingHashBrowns\Assets\Dialogue Sytem\Dialogue Data\MainFile.json");
+        //foreach (string s in jsonFiles)
+        //{
+            //if(Path.GetExtension(s) == ".json"){
+                dia = JsonHelper.FromJson<DialogueNode>(jsonFiles);
+                
+            //}
+       // }
+        foreach (DialogueNode d in dia)
         {
             Node tempNode = new Node(d);
+            
             allNodes.Add(tempNode);
         }
+        
         foreach(Node t in allNodes)
         {
             foreach(int d in t.adjNodeIDs)
@@ -51,7 +54,6 @@ public class DialogueLoader : MonoBehaviour
 
 
         }
-
 
     }
 
