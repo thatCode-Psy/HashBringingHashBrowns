@@ -11,16 +11,16 @@ public class DialogueLoader : MonoBehaviour
     public Dialogue diaRef; 
     DialogueNode[] dia; 
     List<Node> allNodes = new List<Node>(); 
-    string jsonFiles; 
     // Start is called before the first frame update
     void Start()
     {
         //jsonFiles = Directory.GetFiles(@"C:\Users\carlic2\Documents\Zaire's Shit\Unity Projects\HashBringingHashBrowns\Assets\Dialogue Sytem\Dialogue Data");
-        jsonFiles = File.ReadAllText(@"C:\Users\carlic2\Documents\Zaire's Shit\Unity Projects\HashBringingHashBrowns\Assets\Dialogue Sytem\Dialogue Data\MainFile.json");
+        TextAsset temp = Resources.Load<TextAsset>("DialogueData/MainFile");
+        
         //foreach (string s in jsonFiles)
         //{
             //if(Path.GetExtension(s) == ".json"){
-                dia = JsonHelper.FromJson<DialogueNode>(jsonFiles);
+                dia = JsonHelper.FromJson<DialogueNode>(temp.text);
                 
             //}
        // }
