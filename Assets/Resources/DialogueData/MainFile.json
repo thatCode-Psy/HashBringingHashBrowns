@@ -70,7 +70,7 @@
             "playerResponses": [],
             "adjacentNodes": [],
             "Head": false,
-            "Tail": false,
+            "Tail": true,
             "Angry": 2,
             "Happy": 3,
             "Excited": 0,

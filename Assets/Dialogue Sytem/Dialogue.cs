@@ -8,6 +8,7 @@ public class Dialogue : MonoBehaviour
 {
     public TMP_Text textBox;
     public GameObject continueButton;
+    public GameObject TextDisplay; 
     public PlayerResponse playerResponseRef; 
     public GameEventListener listenerRef;
     public DialogueGraph diaGraph;
@@ -38,6 +39,7 @@ public class Dialogue : MonoBehaviour
         startNode = diaGraph.GetHead();
         currentNode = startNode;
         goatText = startNode.lines;
+        TextDisplay.SetActive(true);
     }
     private void Update()
     {
@@ -56,12 +58,20 @@ public class Dialogue : MonoBehaviour
             currentlyDisplayingText++;
             StartCoroutine(AnimateText());
         }
+        else if(currentNode.nodPos == Node.nodePosition.TAIL)
+        {
+            /*
+            textBox.text = "";
+            continueButton.SetActive(false);
+            */
+            TextDisplay.SetActive(false);
+            ControllerStateMachine.Instance.UnPauseGame();
+        }
         else
         {
             textBox.text = "";
             continueButton.SetActive(false);
-            choiceEvent.Raise(); 
-            ControllerStateMachine.Instance.UnPauseGame();
+            choiceEvent.Raise();
         }
     }
 
@@ -77,6 +87,7 @@ public class Dialogue : MonoBehaviour
     IEnumerator AnimateText()
     {
         continueButton.SetActive(false);
+        Debug.Log("Length " + goatText.Length + " current sentence: " + currentlyDisplayingText);
         for (int i = 0; i < (goatText[currentlyDisplayingText].Length + 1); i++)
         {
             textBox.text = goatText[currentlyDisplayingText].Substring(0, i);
@@ -88,12 +99,20 @@ public class Dialogue : MonoBehaviour
 
     public void DialogueContinue()
     {
+        currentlyDisplayingText = 0;
+
+        int curnodeNum = 0;
         if (dialougeInitiated)
         {
-            int curnodeNum = 0;
             if (currentNode.adjacentNodes.Count == 3)
             {
                 curnodeNum = playerResponseRef.currentChoice;
+            }
+            Debug.Log("Amount of adj nodes: " + currentNode.adjacentNodes.Count);
+            foreach (Node n in currentNode.adjacentNodes)
+            {
+                Debug.Log("Adjacent Nodes: " + n.nodeID);
+
             }
             currentNode = currentNode.adjacentNodes[curnodeNum];
             goatText = currentNode.lines;

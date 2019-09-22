@@ -9,6 +9,8 @@ public class DiaTrig : MonoBehaviour
     [SerializeField]
     UnityEvent diaTrigger;
 
+    public Dialogue tempDialogue; 
+
     public GameEvent choiceEvent;
     public GameEvent diaEvent; 
     // Start is called before the first frame update
@@ -22,7 +24,7 @@ public class DiaTrig : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            diaEvent.Raise();
+            tempDialogue.DialogueInit(0); 
         }
 
         if (Input.GetKeyDown(KeyCode.G))
