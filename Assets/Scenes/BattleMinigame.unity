@@ -222,11 +222,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 538289084717778947, guid: 31804755b7e9ca844b6dcdd2c60f3698,
-        type: 3}
-      propertyPath: diaRef
-      value: 
-      objectReference: {fileID: 685317064}
     - target: {fileID: 538289084717778945, guid: 31804755b7e9ca844b6dcdd2c60f3698,
         type: 3}
       propertyPath: diaEvent
@@ -238,6 +233,11 @@ PrefabInstance:
       propertyPath: diaTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 538289084717778947, guid: 31804755b7e9ca844b6dcdd2c60f3698,
+        type: 3}
+      propertyPath: diaRef
+      value: 
+      objectReference: {fileID: 685317064}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 31804755b7e9ca844b6dcdd2c60f3698, type: 3}
 --- !u!1 &460884085 stripped
@@ -683,11 +683,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4192575072513162934, guid: a4cf86ccc0fde88468184d7e903059b4,
-        type: 3}
-      propertyPath: m_TagString
-      value: Dialogue
-      objectReference: {fileID: 0}
     - target: {fileID: 4192575072513162933, guid: a4cf86ccc0fde88468184d7e903059b4,
         type: 3}
       propertyPath: Response.m_PersistentCalls.m_Calls.Array.size
@@ -752,6 +747,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: DialogueContinue
+      objectReference: {fileID: 0}
+    - target: {fileID: 4192575072513162934, guid: a4cf86ccc0fde88468184d7e903059b4,
+        type: 3}
+      propertyPath: m_TagString
+      value: Dialogue
+      objectReference: {fileID: 0}
+    - target: {fileID: 4192575071765999721, guid: a4cf86ccc0fde88468184d7e903059b4,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: DialogueContinue
+      objectReference: {fileID: 0}
+    - target: {fileID: 4192575072500699691, guid: a4cf86ccc0fde88468184d7e903059b4,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: DialogueContinue
+      objectReference: {fileID: 0}
+    - target: {fileID: 3407826440363356770, guid: a4cf86ccc0fde88468184d7e903059b4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4cf86ccc0fde88468184d7e903059b4, type: 3}
@@ -889,6 +904,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: c3479447f7e21fe42aacb96d72cab46c,
         type: 3}
+    - target: {fileID: 7412352299169499357, guid: 48050bc247d67f647be09054044991f1,
+        type: 3}
+      propertyPath: pauseInterval
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1069403215575840898, guid: 48050bc247d67f647be09054044991f1,
         type: 3}
       propertyPath: m_CullTransparentMesh
@@ -914,16 +934,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8672067948010595337, guid: 1c792777efb33314f932390476d06289,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 78.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 4629780667411642553, guid: 1c792777efb33314f932390476d06289,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8658621117638275705, guid: 1c792777efb33314f932390476d06289,
         type: 3}
       propertyPath: m_Name
@@ -940,6 +950,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7051035544236359927, guid: 1c792777efb33314f932390476d06289,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8672067948010595337, guid: 1c792777efb33314f932390476d06289,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 78.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4629780667411642553, guid: 1c792777efb33314f932390476d06289,
         type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -1786,7 +1806,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1850037176}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
   m_Name: 
