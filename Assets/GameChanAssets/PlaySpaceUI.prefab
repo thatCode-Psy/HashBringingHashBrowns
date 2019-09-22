@@ -165,7 +165,7 @@ GameObject:
   - component: {fileID: 7412352299169499357}
   m_Layer: 5
   m_Name: PlaySpaceUI
-  m_TagString: Untagged
+  m_TagString: PlaySpace
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -270,3 +270,4 @@ MonoBehaviour:
   SadImage: {fileID: 21300000, guid: df504cb42da171c4bacdf42345829b67, type: 3}
   DepressedImage: {fileID: 21300000, guid: 4eafe9cb034c6ab4292cfd2a3ffb5ac8, type: 3}
   randomInputDelay: 5
+  pauseInterval: 30

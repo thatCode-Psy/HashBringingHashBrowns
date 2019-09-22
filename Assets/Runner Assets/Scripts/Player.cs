@@ -22,6 +22,10 @@ public class Player : MonoBehaviour , ControllerInterface
     public bool unduckafterpause;
     public Spawner spawner;
     public TextMeshProUGUI scoretext;
+    public AudioClip jump;
+    public AudioClip duck;
+    public AudioClip fail;
+    AudioSource asource;
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +35,7 @@ public class Player : MonoBehaviour , ControllerInterface
         score = 0;
         pause = false;
         ControllerStateMachine.Instance.SetGame(this);
+        asource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -191,6 +196,8 @@ public class Player : MonoBehaviour , ControllerInterface
         score = 0;
         scoretext.text = "Score: 0";
         runspeed = 5;
+        asource.clip = fail;
+        asource.Play();
     }
 
 
@@ -204,6 +211,8 @@ public class Player : MonoBehaviour , ControllerInterface
             //duckonland = true;
         }
         rb.AddForce(new Vector2(0,jumppower));
+        asource.clip = jump;
+        asource.Play();
     }
 
     public void Duck()
@@ -218,6 +227,8 @@ public class Player : MonoBehaviour , ControllerInterface
             GetComponent<CircleCollider2D>().radius = 0.075f;
             transform.position = new Vector3(transform.position.x,.25f,0);
             ducking = true;
+            asource.clip = duck;
+            asource.Play();
         }
         
     }
@@ -237,6 +248,9 @@ public class Player : MonoBehaviour , ControllerInterface
             forceunduck = false;
         }
         
+    }
+    public List<int> GetPossibleDialogueNodes(){
+        return null;
     }
 
 }
