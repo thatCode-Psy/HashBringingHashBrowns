@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class EvolveAnimationScript : MonoBehaviour {
+    public Fighter player;
     public Image evolvingSprite;
     public float evolveSpeed = 1f;
 
@@ -11,9 +12,11 @@ public class EvolveAnimationScript : MonoBehaviour {
     private bool goingDown = true;
 
     private float evolveTimer = 5f;
+    private float evolveTimerStart = 0f;
 
     private void OnEnable() {
         evolving = true;
+        evolveTimerStart = evolveTimer;
     }
 
     // Update is called once per frame
@@ -31,6 +34,7 @@ public class EvolveAnimationScript : MonoBehaviour {
 
                 if(evolveTimer <= 0f && newColor.r <= 0f) {
                     evolving = false;
+                    evolveTimer = evolveTimerStart;
                 } else if (newColor.r <= 0f) {
                     goingDown = false;
                 }
@@ -45,6 +49,8 @@ public class EvolveAnimationScript : MonoBehaviour {
                     goingDown = true;
                 }
             }
+        } else {
+            player.StopEvolve();
         }
     }
 }
