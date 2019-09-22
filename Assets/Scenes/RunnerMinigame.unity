@@ -766,6 +766,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4192575071765999721, guid: a4cf86ccc0fde88468184d7e903059b4,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: DialogueContinue
+      objectReference: {fileID: 0}
+    - target: {fileID: 4192575072500699691, guid: a4cf86ccc0fde88468184d7e903059b4,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: DialogueContinue
+      objectReference: {fileID: 0}
     - target: {fileID: 3407826440363356770, guid: a4cf86ccc0fde88468184d7e903059b4,
         type: 3}
       propertyPath: m_IsActive
