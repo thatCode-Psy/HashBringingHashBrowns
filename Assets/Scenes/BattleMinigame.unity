@@ -629,7 +629,7 @@ PrefabInstance:
     - target: {fileID: 7996801280311811895, guid: 1c792777efb33314f932390476d06289,
         type: 3}
       propertyPath: evolveSpeed
-      value: 2
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 7051035544236359927, guid: 1c792777efb33314f932390476d06289,
         type: 3}
