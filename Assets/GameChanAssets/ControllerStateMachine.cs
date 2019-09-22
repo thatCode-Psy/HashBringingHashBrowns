@@ -274,6 +274,7 @@ public class ControllerStateMachine : MonoBehaviour
     }
 
     public void UnPauseGame(){
+        Debug.Log("UNPAUSED");
         currentGame.Pause();
         pauseStartTime = Time.time;
     }
