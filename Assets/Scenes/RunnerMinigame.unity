@@ -192,6 +192,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 538289084717778947, guid: 31804755b7e9ca844b6dcdd2c60f3698,
+        type: 3}
+      propertyPath: diaRef
+      value: 
+      objectReference: {fileID: 401723401}
     - target: {fileID: 538289084717778945, guid: 31804755b7e9ca844b6dcdd2c60f3698,
         type: 3}
       propertyPath: diaEvent
@@ -203,11 +208,6 @@ PrefabInstance:
       propertyPath: diaTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 538289084717778947, guid: 31804755b7e9ca844b6dcdd2c60f3698,
-        type: 3}
-      propertyPath: diaRef
-      value: 
-      objectReference: {fileID: 401723401}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 31804755b7e9ca844b6dcdd2c60f3698, type: 3}
 --- !u!1 &186014276
@@ -686,6 +686,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4192575072513162934, guid: a4cf86ccc0fde88468184d7e903059b4,
+        type: 3}
+      propertyPath: m_TagString
+      value: Dialogue
+      objectReference: {fileID: 0}
     - target: {fileID: 4192575072513162933, guid: a4cf86ccc0fde88468184d7e903059b4,
         type: 3}
       propertyPath: Response.m_PersistentCalls.m_Calls.Array.size
@@ -750,11 +755,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: DialogueContinue
-      objectReference: {fileID: 0}
-    - target: {fileID: 4192575072513162934, guid: a4cf86ccc0fde88468184d7e903059b4,
-        type: 3}
-      propertyPath: m_TagString
-      value: Dialogue
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4cf86ccc0fde88468184d7e903059b4, type: 3}
@@ -1461,6 +1461,7 @@ MonoBehaviour:
   h: {fileID: 951623036}
   score: 0
   hiscore: 0
+  hiscorefile: {fileID: 0}
 --- !u!50 &1591499661
 Rigidbody2D:
   serializedVersion: 4
@@ -1655,7 +1656,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   runspeed: 5
-  acceleration: 0.001
+  acceleration: 0.002
   jumppower: 950
   grounded: 0
   ducking: 0
@@ -1820,6 +1821,8 @@ MonoBehaviour:
   player: {fileID: 1952890289}
   wait: 0
   obs: []
+  starttime: 0
+  quotient: 8
 --- !u!114 &1995261683 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4192575072859948627, guid: a4cf86ccc0fde88468184d7e903059b4,

@@ -132,7 +132,7 @@ public class ControllerStateMachine : MonoBehaviour
                 pauseStartTime = -1f;
                 currentGame.Pause();
                 Dialogue dialogue = GameObject.FindGameObjectWithTag("Dialogue").GetComponent<Dialogue>();
-                dialogue.InitSetup(0);
+                dialogue.DialogueInit(0);
             }
         }
     }
@@ -274,8 +274,10 @@ public class ControllerStateMachine : MonoBehaviour
     }
 
     public void UnPauseGame(){
-        Debug.Log("UNPAUSED");
-        currentGame.Pause();
-        pauseStartTime = Time.time;
+        if(pauseStartTime == -1f){
+            currentGame.Pause();
+            pauseStartTime = Time.time;
+        }
+        
     }
 }

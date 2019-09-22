@@ -13,11 +13,15 @@ public class Spawner : MonoBehaviour
     public bool wait;
     bool pause;
     public List<GameObject> obs;
+    public float starttime;
+    public float quotient;
+    public float spawnpercent;
     // Start is called before the first frame update
     void Start()
     {
         wait = false;
         pause = player.GetComponent<Player>().pause;
+        starttime = Time.time;
     }
 
     // Update is called once per frame
@@ -28,12 +32,12 @@ public class Spawner : MonoBehaviour
         {
             SpawnCheck();
         }
-        
     }
 
     void SpawnCheck()
     {
-        float r = Random.Range(0f, 100f);
+        spawnpercent = 100f - (Time.time - starttime) / quotient;
+        float r = Random.Range(0f, spawnpercent);
         if(r < spawnchance)
         {
             if(!wait)
@@ -77,7 +81,7 @@ public class Spawner : MonoBehaviour
     IEnumerator startwait()
     {
         wait = true;
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(1f);
         wait = false;
     }
 
