@@ -64,6 +64,9 @@ public class ControllerStateMachine : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        if(GameObject.FindGameObjectsWithTag("PlaySpace").Length > 1){
+            Destroy(gameObject);
+        }
         DontDestroyOnLoad(transform.gameObject);
         Instance = this;
     }

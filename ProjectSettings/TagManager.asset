@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - ControllerChan
   - Dialogue
+  - PlaySpace
   layers:
   - Default
   - TransparentFX
