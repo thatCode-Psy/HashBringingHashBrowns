@@ -69,6 +69,7 @@ public class ControllerStateMachine : MonoBehaviour
     {
         if(GameObject.FindGameObjectsWithTag("PlaySpace").Length > 1){
             Destroy(gameObject);
+            return;
         }
         DontDestroyOnLoad(transform.gameObject);
         Instance = this;
@@ -131,14 +132,14 @@ public class ControllerStateMachine : MonoBehaviour
                     RandomInput();
                 }
                 else{
-                    print("not listening");
+                    Debug.Log("not listening");
                 }
             }
             if(Time.time - pauseStartTime >= pauseInterval && pauseStartTime != -1f){
                 List<int> options = currentGame.GetPossibleDialogueNodes();
                 pauseStartTime = Time.time;
                 if(options.Count > 0){
-                    print("pause");
+                    Debug.Log("pause");
                     pauseStartTime = -1f;
                     currentGame.Pause();
                     Dialogue dialogue = GameObject.FindGameObjectWithTag("Dialogue").GetComponent<Dialogue>();
@@ -151,7 +152,7 @@ public class ControllerStateMachine : MonoBehaviour
 
     public void RandomInput(){
         int randInput = Random.Range(0, 7);
-        print("doing random input");
+        Debug.Log("doing random input");
         switch(randInput){
             case 0:
                 currentGame.A();
@@ -285,6 +286,9 @@ public class ControllerStateMachine : MonoBehaviour
         currentState = new State(listenPercent, randomInputPercent, wrongInputPercent);
     }
 
+    public void StopPauseTimer(){
+        pauseStartTime = -1f;
+    }
     public void UnPauseGame(){
         if(pauseStartTime == -1f){
             currentGame.Pause();
