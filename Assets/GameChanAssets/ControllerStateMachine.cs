@@ -139,8 +139,11 @@ public class ControllerStateMachine : MonoBehaviour
                 currentGame.Pause();
                 Dialogue dialogue = GameObject.FindGameObjectWithTag("Dialogue").GetComponent<Dialogue>();
                 List<int> options = currentGame.GetPossibleDialogueNodes();
-
-                dialogue.DialogueInit(options[Random.Range(0, options.Capacity)]);
+                
+                if(options.Capacity != 0)
+                {
+                    dialogue.DialogueInit(options[Random.Range(0, options.Capacity)]);
+                }
             }
         }
     }
