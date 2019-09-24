@@ -4,8 +4,8 @@
 
         {
             "id": 1,
-            "line": ["Wow you suck at this game haha!"],
-            "playerResponses": ["Piss off, like you can do better!", "Hey this game is harder than you think you know...", "MAN SCREW THIS GAME!"],
+            "line": ["Wow you SUCK at this game, haha!"],
+            "playerResponses": ["Piss off, like you can do better!", "Hey, this game is harder than you think, you know...", "MAN, SCREW THIS GAME!"],
             "adjacentNodes": [2, 5, 8],
             "Head": true,
             "Tail": false,
@@ -17,8 +17,8 @@
         },
         {
             "id": 2,
-            "line": ["Hmph of course I can do better than you!"],
-            "playerResponses": ["Oh please, you suck at platforms!", "Hey lighten up I was just joking."],
+            "line": ["Hmph! Of course I can do better than you!"],
+            "playerResponses": ["Oh please, you suck at platforms!", "Hey, lighten up! I was just joking."],
             "adjacentNodes": [3, 4],
             "Head": false,
             "Tail": false,
@@ -69,7 +69,7 @@
         },
         {
             "id": 6,
-            "line": ["Nah I'm having too much fun watching you get screwed over!"],
+            "line": ["Nah, I'm having too much fun watching you get screwed over!"],
             "playerResponses": [],
             "adjacentNodes": [],
             "Head": false,
@@ -95,8 +95,8 @@
         },
         {
             "id": 8,
-            "line": ["Why are you getting so worked up? Relax or something it's just a game."],
-            "playerResponses": ["Yeah and this game is a piece of crap!", "Okay fine. -Takes deep breath-"],
+            "line": ["Why are you getting so worked up? Relax or something, it's just a game."],
+            "playerResponses": ["Yeah, and this game is a piece of crap!", "Okay...fine. -Takes deep breath-"],
             "adjacentNodes": [9, 10],
             "Head": false,
             "Tail": false,
@@ -121,7 +121,7 @@
         },
         {
             "id": 10,
-            "line": ["There you go! Now focus up. Time to score 100 points let's go!"],
+            "line": ["There you go! Now focus up. Time to score 100 points! Let's go!"],
             "playerResponses": [],
             "adjacentNodes": [],
             "Head": false,
@@ -134,8 +134,8 @@
         },
         {
             "id": 11,
-            "line": ["Wow you're like a natural! Don't you get dizzy or something after it gets super fast?"],
-            "playerResponses": ["There�s a cool trick you can use for games like these -explains it to her-", "Eh well I mean it's hard to be this good at the game~", "A tiny brain like yours could never understand."],
+            "line": ["Wow, you're like a natural! Don't you get dizzy or something when it gets super fast?"],
+            "playerResponses": ["There's a cool trick you can use for games like these...(Explain it to her)", "Eh well I mean, it's hard to be this good at the game~", "A tiny brain like yours could never understand."],
             "adjacentNodes": [12, 15, 16],
             "Head": true,
             "Tail": false,
@@ -147,8 +147,8 @@
         },
         {
             "id": 12,
-            "line": ["Uhh I don�t get it. How am I supposed to do this?"],
-            "playerResponses": ["Here, let me show you.", "Forget it never mind. It's too complicated."],
+            "line": ["Uhh, I don't get it. How am I supposed to do this?"],
+            "playerResponses": ["Here, let me show you.", "Forget it. Never mind, it's too complicated."],
             "adjacentNodes": [13, 14],
             "Head": false,
             "Tail": false,
@@ -186,7 +186,7 @@
         },
         {
             "id": 15,
-            "line": ["Look at you mister bigshot."],
+            "line": ["Look at you, mister bigshot."],
             "playerResponses": [],
             "adjacentNodes": [],
             "Head": false,
@@ -238,7 +238,7 @@
         },
         {
             "id": 19,
-            "line": ["Yes I can! You're my prisoner mwahahahahahaha!"],
+            "line": ["Yes I can! You're my prisoner, mwahahahahahaha!"],
             "playerResponses": [],
             "adjacentNodes": [],
             "Head": false,
@@ -251,7 +251,7 @@
         },
         {
             "id": 20,
-            "line": ["You don't have to be such a jerk about it"],
+            "line": ["...You don't have to be such a jerk about it..."],
             "playerResponses": [],
             "adjacentNodes": [],
             "Head": false,
@@ -264,7 +264,7 @@
         },
         {
             "id": 21,
-            "line": ["Finally! That game gets so much harder once everything goes super speed it hurts my eyes..."],
+            "line": ["Finally! That game gets so much harder once everything goes super speed. It hurts my eyes..."],
             "playerResponses": ["Get good scrub.", "Yeah I'm really dizzy now..."],
             "adjacentNodes": [22, 23],
             "Head": true,
@@ -277,7 +277,7 @@
         },
         {
             "id": 22,
-            "line": ["Hmph you took like a million tries to get 100 who are you to talk?"],
+            "line": ["Hmph you took like a MILLION tries to get 100, who are you to talk?"],
             "playerResponses": [],
             "adjacentNodes": [],
             "Head": false,
@@ -357,7 +357,7 @@
         },
         {
             "id": 28,
-            "line": ["Hey, pick something else. This is boring to watch if you just spam the same skill over against"],
+            "line": ["Hey, pick something else. This is boring to watch if you just spam the same skill over and over."],
             "playerResponses": [],
             "adjacentNodes": [],
             "Head": true,
@@ -474,7 +474,7 @@
         },
         {
             "id": 37,
-            "line": ["It's basic AI dumbass. They always use heal when on low HP."],
+            "line": ["It's basic AI dumb*ss. They always use heal when on low HP."],
             "playerResponses": [],
             "adjacentNodes": [],
             "Head": false,
@@ -488,7 +488,7 @@
         {
             "id": 38,
             "line": ["Don't you know? The best defense is a strong offense!"],
-            "playerResponses": ["That's what I was trying to do you smartass."],
+            "playerResponses": ["That's what I was trying to do, you smartass."],
             "adjacentNodes": [39],
             "Head": true,
             "Tail": false,
@@ -501,7 +501,7 @@
         {
             "id": 39,
             "line": ["By doing what? Waiting for something to happen?"],
-            "playerResponses": ["Think about it for a moment if you countered a rush it would do double damage back.", "Okay well this time it didn't work..."],
+            "playerResponses": ["Think about it for a moment. If you countered a rush it would do double damage back.", "Okay, well THIS time it didn't work..."],
             "adjacentNodes": [40, 41],
             "Head": false,
             "Tail": false,
@@ -513,7 +513,7 @@
         },
         {
             "id": 40,
-            "line": ["But you didn't~ so therefore your strategy suckssss!"],
+            "line": ["But you didn't~ so therefore your strategy suuuucccckkkssss!"],
             "playerResponses": [],
             "adjacentNodes": [],
             "Head": false,
@@ -552,7 +552,7 @@
         },
         {
             "id": 43,
-            "line": ["Once again, it does literally nothing for us idiot. You're letting him do chip damage for free!"],
+            "line": ["Once again, it does literally NOTHING for us, idiot. You're letting him do chip damage for free!"],
             "playerResponses": [],
             "adjacentNodes": [],
             "Head": false,
@@ -565,7 +565,7 @@
         },
         {
             "id": 44,
-            "line": ["Sigh... how did I ever get to know you."],
+            "line": ["Sigh... how did I ever get to know you?"],
             "playerResponses": [],
             "adjacentNodes": [],
             "Head": false,
@@ -579,7 +579,7 @@
         {
             "id": 45,
             "line": ["So it failed before and you think somehow it's gonna succeed this time?"],
-            "playerResponses": ["AI's never do the same thing twice."],
+            "playerResponses": ["AIs never do the same thing twice."],
             "adjacentNodes": [46],
             "Head": true,
             "Tail": false,
@@ -617,7 +617,7 @@
         },
         {
             "id": 48,
-            "line": ["Tch, you are..."],
+            "line": ["...Wow."],
             "playerResponses": [],
             "adjacentNodes": [],
             "Head": false,
@@ -643,7 +643,7 @@
         },
         {
             "id": 50,
-            "line": ["I know right? RPG balance is so dumb!"],
+            "line": ["I know right? RPG balancing is so dumb!"],
             "playerResponses": [],
             "adjacentNodes": [],
             "Head": false,
@@ -657,8 +657,8 @@
 
         {
             "id": 51,
-            "line": ["I�ve been having this in my head for a while but why are newer games not allowed to be paused anymore?"],
-            "playerResponses": ["Most games are online multiplayer so it wouldn't really work to pause a whole game for only one person.", "I used to hate it when my parents told me to pause my game so I personally like it.", "Do you have something against unpausable games?"],
+            "line": ["I've been having this in my head for a while, but why are newer games not allowed to be paused anymore?"],
+            "playerResponses": ["Most games are online multiplayer, so it wouldn't really work to pause a whole game for only one person.", "I used to hate it when my parents told me to pause my game so I personally like it.", "Do you have something against unpausable games?"],
             "adjacentNodes": [52, 55, 58],
             "Head": true,
             "Tail": false,
@@ -671,7 +671,7 @@
         {
             "id": 52,
             "line": ["I guess so... why are all the popular ones multiplayer anyway? Am I the only one who still likes singleplayer?"],
-            "playerResponses": ["I still like singleplayer games too you know.", "There's a lot more depth to multiplayer games, especially if they're competitive."],
+            "playerResponses": ["I still like singleplayer games too, you know.", "There's a lot more depth to multiplayer games, especially if they're competitive."],
             "adjacentNodes": [53, 54],
             "Head": false,
             "Tail": false,
@@ -696,7 +696,7 @@
         },
         {
             "id": 54,
-            "line": ["I know but I still think singleplayer games can be fun too..."],
+            "line": ["I know, but I still think singleplayer games can be fun too..."],
             "playerResponses": [],
             "adjacentNodes": [],
             "Head": false,
@@ -709,7 +709,7 @@
         },
         {
             "id": 55,
-            "line": ["There are online singleplayer games though like MMO's! You can afk, which is sorta like pausing right?"],
+            "line": ["There are online singleplayer games though like MMO's! You can go afk, which is sorta like pausing right?"],
             "playerResponses": ["Pausing and AFKing aren't the same thing doofus. If you afk in the middle of a boss battle you're just gonna die.", "True, but even in that scenario the world doesn't freeze until you get back. It just keeps on going."],
             "adjacentNodes": [56, 57],
             "Head": false,
@@ -722,7 +722,7 @@
         },
         {
             "id": 56,
-            "line": ["Well you can just afk in a safe spot!"],
+            "line": ["Well, you can just afk in a safe spot!"],
             "playerResponses": [],
             "adjacentNodes": [],
             "Head": false,
@@ -761,7 +761,7 @@
         },
         {
             "id": 59,
-            "line": ["You're a real smartass you know that?"],
+            "line": ["You're a real smart*ss, you know that?"],
             "playerResponses": [],
             "adjacentNodes": [],
             "Head": false,
@@ -787,7 +787,7 @@
         },
         {
             "id": 61,
-            "line": ["So much homework to do but I'm too lazy..."],
+            "line": ["So much homework to do, but I'm too lazy..."],
             "playerResponses": ["Wait a minute, you don't have any homework!", "What do you have for homework?"],
             "adjacentNodes": [62, 63],
             "Head": true,
@@ -813,8 +813,8 @@
         },
         {
             "id": 63,
-            "line": ["Oh you know the usual, gotta catch all the cute Pokemon or get Teemo's new skin. Oh I should probably check up on my Animal Crossing again."],
-            "playerResponses": ["Cool I guess?", "For a second I thought you were actually serious.", "Ew you play Teemo?"],
+            "line": ["Oh you know the usual, gotta catch all the cute Bokemons or get Zeemo's new skin. Oh I should probably check up on my Reptile Crossing again."],
+            "playerResponses": ["Cool, I guess?", "For a second I thought you were actually serious.", "Ew you play Zeemo?"],
             "adjacentNodes": [64, 65, 66],
             "Head": false,
             "Tail": false,
@@ -826,7 +826,7 @@
         },
         {
             "id": 64,
-            "line": ["You could at least try to laugh at my joke..."],
+            "line": ["You could at least TRY to laugh at my joke..."],
             "playerResponses": [],
             "adjacentNodes": [],
             "Head": false,
@@ -839,7 +839,7 @@
         },
         {
             "id": 65,
-            "line": ["Use your head dummy how can I have homework haha!"],
+            "line": ["Use your head dummy, how can I have homework! Haha!!"],
             "playerResponses": [],
             "adjacentNodes": [],
             "Head": false,
@@ -852,7 +852,7 @@
         },
         {
             "id": 66,
-            "line": ["Yeah I play Teemo. What are you gonna do about it?"],
+            "line": ["Yeah I play Zeemo. What are you gonna do about it?"],
             "playerResponses": [],
             "adjacentNodes": [],
             "Head": false,
@@ -865,8 +865,8 @@
         },
         {
             "id": 67,
-            "line": ["OH MY GOSH YES! SEASON 4 OF MY HERO ACADEMIA IS COMING OUT!!! WOO!!!"],
-            "playerResponses": ["Hey get away from the screen I can't see! YOU'RE GONNA MAKE ME LOSE!!!"],
+            "line": ["OH MY GOSH YES! SEASON 4 OF MY HERIONE ACADEMIA IS COMING OUT!!! WOO!!!"],
+            "playerResponses": ["Hey get away from the screen! I can't see! YOU'RE GONNA MAKE ME LOSE!!!"],
             "adjacentNodes": [68],
             "Head": true,
             "Tail": false,
@@ -893,8 +893,8 @@
 
         {
             "id": 69,
-            "line": ["Hey what's your favorite Pokemon game?"],
-            "playerResponses": ["Where did that come from?", "I don't play Pokemon."],
+            "line": ["Hey, what's your favorite Bokemons game?"],
+            "playerResponses": ["Where did that come from?", "I don't play Bokemon."],
             "adjacentNodes": [70, 73],
             "Head": true,
             "Tail": false,
@@ -906,8 +906,8 @@
         },
         {
             "id": 70,
-            "line": ["I dunno. This game kinda reminds me of Pokemon."],
-            "playerResponses": ["And no other turn based RPG?", "I don't know really, I like every Pokemon game. I guess... -insert your favorite pokemon game-?"],
+            "line": ["I dunno. This game kinda reminds me of Bokemons."],
+            "playerResponses": ["And no other turn based RPG?", "I don't know really, I like every Bokemons game. I guess... -insert your favorite Bokemon game-?"],
             "adjacentNodes": [71, 72],
             "Head": false,
             "Tail": false,
@@ -945,7 +945,7 @@
         },
         {
             "id": 73,
-            "line": ["What... WHAT?!?! HOW DO YOU NOT LIKE POKEMON?!"],
+            "line": ["What... WHAT?!?! HOW DO YOU NOT LIKE BOKEMON?!"],
             "playerResponses": ["I just don't care about it.", "I never got into it."],
             "adjacentNodes": [74, 76],
             "Head": false,
@@ -984,7 +984,7 @@
         },
         {
             "id": 76,
-            "line": ["Are you kidding me?! PLAY POKEMON YOU DUMBASS!"],
+            "line": ["Are you kidding me?! PLAY BOKEMON YOU DUMB*SS!"],
             "playerResponses": ["Okay okay jeez...", "Stop screaming in my ear!"],
             "adjacentNodes": [77, 78],
             "Head": false,
@@ -1010,7 +1010,7 @@
         },
         {
             "id": 78,
-            "line": ["I HAVE EVERY RIGHT TO! HOW DARE YOU NEVER HAVE PLAYED POKEMON YOU IDIOT!!!"],
+            "line": ["I HAVE EVERY RIGHT TO! HOW DARE YOU NEVER HAVE PLAYED BOKEMON YOU IDIOT!!!"],
             "playerResponses": [],
             "adjacentNodes": [],
             "Head": false,
@@ -1036,7 +1036,7 @@
         },
         {
             "id": 80,
-            "line": ["Let's play something else, I'm bored."],
+            "line": ["I got booooooreddddd."],
             "playerResponses": ["Oh, what do you wanna play?"],
             "adjacentNodes": [81],
             "Head": false,
@@ -1063,7 +1063,7 @@
         {
             "id": 82,
             "line": ["Because I don't wanna play this game anymore."],
-            "playerResponses": ["Well you could've at least asked me before you did that!"],
+            "playerResponses": ["Well you could've at least ASKED me before you did that!"],
             "adjacentNodes": [83],
             "Head": false,
             "Tail": false,
@@ -1076,7 +1076,7 @@
         {
             "id": 83,
             "line": ["Hey! These are MY games. I can do whatever I want to do"],
-            "playerResponses": ["Well you could've at least asked me before you did that!"],
+            "playerResponses": ["Well you could've at least ASKED me before you did that!"],
             "adjacentNodes": [83],
             "Head": false,
             "Tail": false,
