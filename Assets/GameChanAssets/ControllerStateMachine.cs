@@ -48,7 +48,9 @@ public class ControllerStateMachine : MonoBehaviour
     float pauseStartTime;
 
 
-    State currentState;
+    public State currentState{
+        get;
+    };
 
 
     int[] stateValues;
@@ -120,6 +122,7 @@ public class ControllerStateMachine : MonoBehaviour
                         currentGame.B();
                     }
                     if(escape){
+                        StopGame();
                         ExitGame();
                     }
                 }
@@ -166,6 +169,7 @@ public class ControllerStateMachine : MonoBehaviour
                 currentGame.Right();
                 break;
             case 6:
+                StopGame();
                 ExitGame();
                 break;
         }

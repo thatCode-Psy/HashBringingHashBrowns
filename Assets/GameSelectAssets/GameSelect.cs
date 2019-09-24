@@ -12,6 +12,7 @@ public class GameSelect : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        ControllerStateMachine.Instance.StopGame();
         selected = Runner;
         Runner.GetComponent<Image>().color = Color.green;
     }
@@ -34,15 +35,33 @@ public class GameSelect : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            if(selected == Runner)
-            {
-                SceneManager.LoadScene("RunnerMinigame");
-            }
+            float randValue = Random.value;
+            State currState = ControllerStateMachine.Instance.currentState;
+            if(currState.listenPercent > randValue){
+                randValue = Random.value;
+                if(selected == Runner)
+                {
+                    if(currState.wrongInputPercent > randValue){
+                        SceneManager.LoadScene("BattleMinigame");
+                    }
+                    else{
+                        SceneManager.LoadScene("RunnerMinigame");    
+                    }
+                    
+                }
 
-            if(selected == Poke)
-            {
-                SceneManager.LoadScene("BattleMinigame");
+                if(selected == Poke)
+                {
+                    
+                    if(currState.wrongInputPercent > randValue){
+                        SceneManager.LoadScene("RunnerMinigame");
+                    }
+                    else{
+                        SceneManager.LoadScene("BattleMinigame");    
+                    }
+                }
             }
+            
         }
     }
 }
