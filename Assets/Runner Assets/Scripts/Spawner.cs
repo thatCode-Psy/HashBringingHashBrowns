@@ -61,12 +61,12 @@ public class Spawner : MonoBehaviour
         float r = Random.Range(0,2);
         if(r == 0)
         {
-            obs.Add(Instantiate(jumpobstacle, new Vector3(player.transform.position.x + 20f, 1f, 0f), Quaternion.identity));
+            obs.Add(Instantiate(jumpobstacle, new Vector3(player.transform.position.x + 20f, .64f, 0f), Quaternion.identity));
             StartCoroutine("startwait");
         }
         else if(r == 1)
         {
-            obs.Add(Instantiate(duckobstacle, new Vector3(player.transform.position.x + 20f, 5.7f, 0f), Quaternion.identity));
+            obs.Add(Instantiate(duckobstacle, new Vector3(player.transform.position.x + 20f, 4.8f, 0f), Quaternion.identity));
             StartCoroutine("startwait");
         }      
         

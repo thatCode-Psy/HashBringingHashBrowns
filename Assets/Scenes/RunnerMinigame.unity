@@ -922,7 +922,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 116, y: 139.15}
+  m_AnchoredPosition: {x: 100.9, y: 139.15}
   m_SizeDelta: {x: 206.06, y: 19.65}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &951623036
@@ -1583,6 +1583,7 @@ MonoBehaviour:
   h: {fileID: 951623036}
   score: 0
   hiscore: 0
+  fails: 0
   hiscorefile: {fileID: 0}
   ding: {fileID: 8300000, guid: 021d3135f27ac3f408506d493d8c0ee8, type: 3}
 --- !u!50 &1591499661
@@ -1723,17 +1724,17 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7412352299169499357, guid: 48050bc247d67f647be09054044991f1,
+        type: 3}
+      propertyPath: pauseInterval
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1069403216468749363, guid: 48050bc247d67f647be09054044991f1,
         type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: c3479447f7e21fe42aacb96d72cab46c,
         type: 3}
-    - target: {fileID: 7412352299169499357, guid: 48050bc247d67f647be09054044991f1,
-        type: 3}
-      propertyPath: pauseInterval
-      value: 5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48050bc247d67f647be09054044991f1, type: 3}
 --- !u!1 &1952890289
@@ -1797,6 +1798,7 @@ MonoBehaviour:
   jump: {fileID: 8300000, guid: 6ac4616102c32574cb0d0b13d3b0d41b, type: 3}
   duck: {fileID: 8300000, guid: a49085483169b41428068ea1c4a1b6bb, type: 3}
   fail: {fileID: 8300000, guid: 809e3e8715e781546ace567c8bbfe9dc, type: 3}
+  sb: {fileID: 1591499660}
 --- !u!50 &1952890292
 Rigidbody2D:
   serializedVersion: 4
@@ -2041,9 +2043,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnchance: 1
   cloudspawnchance: 1
-  jumpobstacle: {fileID: 3576439944635822825, guid: a1e510a37eee9954db464df4aac2e7ab,
+  jumpobstacle: {fileID: 3244392201492891818, guid: 3866ee8f8e719f14f806b5e038cb55cb,
     type: 3}
-  duckobstacle: {fileID: 6859505698634429931, guid: d7eb2ae364be0ce4790e4f3f7a275eef,
+  duckobstacle: {fileID: 3018852751015927682, guid: 385a4adbc829cc54fbb039dbce0cf4da,
     type: 3}
   clouds: {fileID: 144724497166387894, guid: 9195df32189aa15449edb4969edcee23, type: 3}
   player: {fileID: 1952890289}

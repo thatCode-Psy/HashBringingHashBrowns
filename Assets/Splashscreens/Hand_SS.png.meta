@@ -112,8 +112,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 20
-        width: 2000
-        height: 1125
+        width: 1920
+        height: 1080
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -121,7 +121,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 891f0e720a9a44776bebeef1712024ac
+      spriteID: f200b20c5a19c489fbb8e7010f89a9ea
       internalID: 3636159859735505664
       vertices: []
       indices: 
@@ -131,10 +131,10 @@ TextureImporter:
       name: Hand_SS_1
       rect:
         serializedVersion: 2
-        x: 2010
+        x: 1940
         y: 20
-        width: 2000
-        height: 1125
+        width: 1920
+        height: 1080
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -142,7 +142,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d95c1cd5e4d584782bf6439445682a62
+      spriteID: 9b1b3cc5487fb4505ad4d1e558080367
       internalID: 7924387401799891442
       vertices: []
       indices: 
@@ -152,10 +152,10 @@ TextureImporter:
       name: Hand_SS_2
       rect:
         serializedVersion: 2
-        x: 4020
+        x: 3880
         y: 20
-        width: 2000
-        height: 1125
+        width: 1920
+        height: 1080
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -163,7 +163,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6d5257294251f41eca589ace92922216
+      spriteID: 6b1836eb45b624f11baf281c2ed289b9
       internalID: 2056533705766594347
       vertices: []
       indices: 
