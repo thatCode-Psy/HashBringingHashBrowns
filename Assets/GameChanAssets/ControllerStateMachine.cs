@@ -50,7 +50,7 @@ public class ControllerStateMachine : MonoBehaviour
 
     public State currentState{
         get;
-    };
+    }
 
 
     int[] stateValues;
