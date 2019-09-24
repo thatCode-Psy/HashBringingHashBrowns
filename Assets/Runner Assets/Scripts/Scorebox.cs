@@ -12,6 +12,7 @@ public class Scorebox : MonoBehaviour
     bool pause;
     public int score;
     public int hiscore;
+    public int fails;
     public TextAsset hiscorefile;
     string path = "Assets/HighScore.txt";
     public AudioClip ding;
@@ -72,5 +73,11 @@ public class Scorebox : MonoBehaviour
         int t = int.Parse(reader.ReadToEnd());
         reader.Close();
         return t;
+    }
+
+    public void Die()
+    {
+        score = 0;
+        fails++;
     }
 }

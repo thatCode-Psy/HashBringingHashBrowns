@@ -26,6 +26,7 @@ public class Player : MonoBehaviour , ControllerInterface
     public AudioClip duck;
     public AudioClip fail;
     AudioSource asource;
+    public Scorebox sb;
 
     // Start is called before the first frame update
     void Start()
@@ -95,7 +96,19 @@ public class Player : MonoBehaviour , ControllerInterface
 
     public void B()
     {
-
+        if (!pause)
+        {
+            if (sb.hiscore < 100)
+            {
+                Pause();
+                Dialogue dialogue = GameObject.FindGameObjectWithTag("Dialogue").GetComponent<Dialogue>();
+                dialogue.DialogueInit(2);
+            }
+            else
+            {
+                SceneManager.LoadScene("GameSelect");
+            }
+        }
     }
 
     public void Up()
@@ -198,6 +211,7 @@ public class Player : MonoBehaviour , ControllerInterface
         runspeed = 5;
         asource.clip = fail;
         asource.Play();
+        sb.Die();
     }
 
 
@@ -250,7 +264,25 @@ public class Player : MonoBehaviour , ControllerInterface
         
     }
     public List<int> GetPossibleDialogueNodes(){
-        return null;
+        List<int> ret = new List<int>();
+        if(sb.fails > 9 && sb.score < 100)
+        {
+            ret.Add(1);
+        }
+        if(sb.fails < 10 && sb.score > 49)
+        {
+            ret.Add(11);
+        }
+        if(sb.score > 99)
+        {
+            ret.Add(21);
+        }
+
+
+
+
+
+        return ret;
     }
 
 }
