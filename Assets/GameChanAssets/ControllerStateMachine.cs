@@ -135,7 +135,9 @@ public class ControllerStateMachine : MonoBehaviour
                 pauseStartTime = -1f;
                 currentGame.Pause();
                 Dialogue dialogue = GameObject.FindGameObjectWithTag("Dialogue").GetComponent<Dialogue>();
-                dialogue.DialogueInit(0);
+                List<int> options = currentGame.GetPossibleDialogueNodes();
+
+                dialogue.DialogueInit(options[Random.Range(0, options.Capacity)]);
             }
         }
     }
