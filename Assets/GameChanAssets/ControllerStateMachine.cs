@@ -50,6 +50,7 @@ public class ControllerStateMachine : MonoBehaviour
 
     public State currentState{
         get;
+        set;
     }
 
 
