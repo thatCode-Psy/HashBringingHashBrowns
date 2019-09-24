@@ -135,6 +135,7 @@ public class ControllerStateMachine : MonoBehaviour
             }
             if(Time.time - pauseStartTime >= pauseInterval && pauseStartTime != -1f){
                 List<int> options = currentGame.GetPossibleDialogueNodes();
+                pauseStartTime = Time.time;
                 if(options.Count > 0){
                     print("pause");
                     pauseStartTime = -1f;
