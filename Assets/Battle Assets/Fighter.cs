@@ -397,6 +397,8 @@ public class Fighter : MonoBehaviour, ControllerInterface {
     }
 
     public List<int> GetPossibleDialogueNodes(){
-        return null;
+        List<int> ret = new List<int>();
+        ret.Add(graphNodeIndex);
+        return ret;
     }
 }
