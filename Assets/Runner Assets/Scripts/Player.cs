@@ -101,11 +101,13 @@ public class Player : MonoBehaviour , ControllerInterface
             if (sb.hiscore < 100)
             {
                 Pause();
+                ControllerStateMachine.Instance.StopPauseTimer();
                 Dialogue dialogue = GameObject.FindGameObjectWithTag("Dialogue").GetComponent<Dialogue>();
                 dialogue.DialogueInit(2);
             }
             else
             {
+                ControllerStateMachine.Instance.StopGame();
                 SceneManager.LoadScene("GameSelect");
             }
         }
