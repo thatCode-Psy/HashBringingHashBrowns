@@ -111,9 +111,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 20
-        width: 2000
-        height: 1125
+        y: 19
+        width: 1920
+        height: 1080
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -121,7 +121,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 808d9ef7c9e6e4525b15569b5f308ed5
+      spriteID: 4dd89a9dcccd1419087826fae5f6ed01
       internalID: 760858753263220228
       vertices: []
       indices: 
@@ -131,10 +131,10 @@ TextureImporter:
       name: Body_SS_1
       rect:
         serializedVersion: 2
-        x: 2010
-        y: 20
-        width: 2000
-        height: 1125
+        x: 1930
+        y: 19
+        width: 1920
+        height: 1080
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -142,7 +142,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0bc1988805f194474912c13424b3608d
+      spriteID: 09a2c91e9bf2d43d79e42e75828ecfbc
       internalID: -3022183057937157773
       vertices: []
       indices: 
@@ -152,10 +152,10 @@ TextureImporter:
       name: Body_SS_2
       rect:
         serializedVersion: 2
-        x: 4020
-        y: 20
-        width: 2000
-        height: 1125
+        x: 3860
+        y: 19
+        width: 1920
+        height: 1080
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -163,7 +163,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1d527290385804b50910182fe2ad72be
+      spriteID: 7a4829890203c44c8a612f63a7bab96c
       internalID: 4564357113968998362
       vertices: []
       indices: 
