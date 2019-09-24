@@ -134,13 +134,14 @@ public class ControllerStateMachine : MonoBehaviour
                 }
             }
             if(Time.time - pauseStartTime >= pauseInterval && pauseStartTime != -1f){
-                print("pause");
-                pauseStartTime = -1f;
-                currentGame.Pause();
-                Dialogue dialogue = GameObject.FindGameObjectWithTag("Dialogue").GetComponent<Dialogue>();
                 List<int> options = currentGame.GetPossibleDialogueNodes();
-
-                dialogue.DialogueInit(options[Random.Range(0, options.Capacity)]);
+                if(options.Count > 0){
+                    print("pause");
+                    pauseStartTime = -1f;
+                    currentGame.Pause();
+                    Dialogue dialogue = GameObject.FindGameObjectWithTag("Dialogue").GetComponent<Dialogue>();
+                    dialogue.DialogueInit(options[Random.Range(0, options.Count)]);
+                }
             }
         }
     }
