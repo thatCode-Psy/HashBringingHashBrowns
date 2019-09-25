@@ -35,6 +35,9 @@ public class ControllerStateMachine : MonoBehaviour
     public static State SAD = new State(0.4f, 0f, 0.15f);
     public static State DEPRESSED = new State(0.2f, 0f, 0.1f);
 
+    public AudioClip IgnoredSound;
+    public AudioClip RandomSound;
+
     public Sprite DefaultImage;
     public Sprite HappyImage;
     public Sprite ExcitedImage;
@@ -140,6 +143,9 @@ public class ControllerStateMachine : MonoBehaviour
                     RandomInput();
                 }
                 else{
+                    AudioSource audio = GetComponent<AudioSource>();
+                    audio.clip = IgnoredSound;
+                    audio.Play();
                     Debug.Log("not listening");
                 }
             }
@@ -168,6 +174,9 @@ public class ControllerStateMachine : MonoBehaviour
 
     public void RandomInput(){
         int randInput = Random.Range(0, 7);
+        AudioSource audio = GetComponent<AudioSource>();
+        audio.clip = RandomSound;
+        audio.Play();
         Debug.Log("doing random input");
         switch(randInput){
             case 0:
