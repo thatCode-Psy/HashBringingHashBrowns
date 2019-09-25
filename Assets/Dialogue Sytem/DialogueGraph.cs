@@ -103,7 +103,7 @@ public class Node
         }
         Happy = diaNode.Happy;
         Sad = diaNode.Sad;
-        Depressed = diaNode.Sad;
+        Depressed = diaNode.Depressed;
         Excited = diaNode.Excited;
         Angry = diaNode.Angry; 
 
