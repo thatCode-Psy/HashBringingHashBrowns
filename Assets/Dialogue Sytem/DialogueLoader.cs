@@ -143,6 +143,7 @@ public class DialogueNode
     public bool Tail;
     public int Happy;
     public int Angry;
+    public int Annoyed;
     public int Sad;
     public int Depressed;
     public int Excited; 

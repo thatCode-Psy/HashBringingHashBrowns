@@ -152,7 +152,7 @@ public class ControllerStateMachine : MonoBehaviour
                     currentGame.Pause();
                     Dialogue dialogue = GameObject.FindGameObjectWithTag("Dialogue").GetComponent<Dialogue>();
                     int optionNum = Random.Range(0, options.Count);
-                    if(options[optionNum] == 18){
+                    if(options[optionNum] == 12){
                         GameObject gameChan = GameObject.FindGameObjectWithTag("ControllerChan");
                         Vector3 position = gameChan.transform.position;
                         position.x += 250f;
