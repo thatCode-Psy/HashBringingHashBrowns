@@ -136,11 +136,11 @@ public class Fighter : MonoBehaviour, ControllerInterface {
         }
 
         /* IN HERE FOR EVOLVING TESTING PURPOSES */
-        
+        /*
         if (exp < expNeeded) {
             ExpGain(100);
         }
-        
+        */
 
         healthText.text = "HP: " + Health + " / " + maxHealth; // update player health text
         expText.text = "EXP: " + exp + "/" + expNeeded; // update player exp text
