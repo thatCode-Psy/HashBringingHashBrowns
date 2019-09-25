@@ -76,6 +76,9 @@ public class FighterAI : MonoBehaviour {
     // return the defense stat of the enemy
     public int DefenseAmount() { return defenseAmount; }
 
+    // return the remaining HP of the enemy
+    public int GetHealth() { return Health; }
+
     // return the exp amount of the enemy
     public int ExpAmount() { return EXP; }
 

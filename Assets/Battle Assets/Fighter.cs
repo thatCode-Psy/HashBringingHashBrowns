@@ -30,17 +30,24 @@ public class Fighter : MonoBehaviour, ControllerInterface {
 
     private string currentAction = "";
     private string battleFeedback = "";
+    private string previousAction = "";
+    private string enemyPreviousAction = "";
 
     private bool readyToTakeAction = false;
     private bool needsNewTarget = true;
     private bool levelUp = false;
     private bool pause = false;
+    private bool enemySuccussfulCounter = false;
 
     private int attackAmount = 0;
     private int defenseAmount = 0;
     private int maxHealth = 0;
     private int exp = 0;
     private int spriteIndex = 0;
+    private int graphNodeIndex = 0;
+    private int repeatActions = 0;
+    private int enemyRepeatActions = 0;
+    private int turnCount = 0;
 
     private float timeSinceAction = 3f;
     private float healthSliderSpeed = 1f;
@@ -72,6 +79,7 @@ public class Fighter : MonoBehaviour, ControllerInterface {
         } else if(needsNewTarget && readyToTakeAction) { // spawn a new target for the player
             if (enemy) { Destroy(enemy.gameObject); }
             SpawnNewEnemy();
+            turnCount = 0;
             readyToTakeAction = false;
             needsNewTarget = false;
         } else if (Alive()) { // check if player is alive and if they do not need a new target
@@ -98,8 +106,12 @@ public class Fighter : MonoBehaviour, ControllerInterface {
                 enemy.PickRandomAction();
                 ExecuteAction(enemy, currentAction);
 
+                previousAction = currentAction;
+                enemyPreviousAction = enemy.Action();
+
                 currentAction = "";
                 readyToTakeAction = false;
+                turnCount++;
             }
         }
 
@@ -148,7 +160,28 @@ public class Fighter : MonoBehaviour, ControllerInterface {
         string targetsAction = target.Action();
         battleFeedback = "You used " + currentAction.ToLower() + " and " + target.nickname + " used " + targetsAction.ToLower() + ".\n";
 
-        if(action == "Attack") { // check if player used attack
+        // check for repeat player actions
+        if (previousAction == currentAction) { repeatActions++; }
+        else { repeatActions = 0; }
+
+        // check for repeat enemy actions
+        if (enemyPreviousAction == targetsAction) { enemyRepeatActions++; }
+        else { enemyRepeatActions = 0; }
+
+        graphNodeIndex = 68; // for random conversation if it is not overwritten by a situation
+
+        if(repeatActions >= 2) { graphNodeIndex = 27; }
+        else if(targetsAction == "Heal" && enemyRepeatActions >= 2) { graphNodeIndex = 26; }
+        else if((targetsAction == "Defend" || targetsAction == "Counter") && (enemyRepeatActions >= 2)) { graphNodeIndex = 28; }
+        else if(turnCount >= 10) { graphNodeIndex = 48; }
+
+        if (action == "Attack") { // check if player used attack
+            if (enemy.GetHealth() > 7 && enemy.GetHealth() <= 10) {
+                int pick = Random.Range(0, 2);
+                if (pick == 0) { graphNodeIndex = 34; }
+                else { graphNodeIndex = 37; }
+            }
+
             // check for if target used rush or heal because they take priority over attack
             if(targetsAction == "Rush") {
                 battleFeedback += target.nickname + " dealt " + (int)(target.AttackAmount() / 1.5f) + " damage to you.\n";
@@ -162,9 +195,11 @@ public class Fighter : MonoBehaviour, ControllerInterface {
                 int damage = attackAmount;
 
                 if (targetsAction == "Counter") {
+                    graphNodeIndex = 24;
                     battleFeedback += target.nickname + " was unsuccessful in countering. ";
                     damage *= 2; // attack does twice as much if target counters
                 } else if(targetsAction == "Defend") {
+                    graphNodeIndex = 23;
                     battleFeedback += target.nickname + " defended. ";
                     damage -= target.DefenseAmount(); // attack does less if target defends
                 }
@@ -179,7 +214,10 @@ public class Fighter : MonoBehaviour, ControllerInterface {
                 }
             }
         } else if(action == "Rush") { // check if player used rush
-            if(targetsAction == "Counter") {
+            if(enemySuccussfulCounter) { graphNodeIndex = 44; }
+
+            if (targetsAction == "Counter") {
+                graphNodeIndex = 25;
                 battleFeedback += target.nickname + " was successful in countering and dealt " + target.AttackAmount() * 2 + " damage to you.\n";
                 TakeDamage(target.AttackAmount() * 2); // deal damage to the player since the oppenent successfully countered
             } else if(targetsAction == "Defend") {
@@ -205,6 +243,8 @@ public class Fighter : MonoBehaviour, ControllerInterface {
                 }
             }
         } else if(action == "Defend") { // check if player used defend
+            graphNodeIndex = 41;
+
             if(targetsAction == "Defend" || targetsAction == "Counter") {
                 battleFeedback += "Nothing happened.\n";
             } else if(targetsAction == "Heal") {
@@ -225,12 +265,16 @@ public class Fighter : MonoBehaviour, ControllerInterface {
                 TakeDamage(targetDamage);
             }
         } else if(action == "Counter") { // check if player used counter
+            if(Health < (maxHealth / 2)) { graphNodeIndex = 29; }
+
             if(targetsAction == "Defend" || targetsAction == "Counter") {
                 battleFeedback += "Nothing happened.\n";
             } else if(targetsAction == "Rush") {
+                graphNodeIndex = 31;
                 battleFeedback += "You successfully countered and dealt " + attackAmount * 2 + " damage to " + target.nickname + ".\n";
                 target.TakeDamage(attackAmount * 2); // deal damage to the target since player successfully countered
             } else {
+                graphNodeIndex = 32;
                 battleFeedback += "You were unsuccessful in countering. ";
 
                 if (targetsAction == "Attack") {
@@ -282,6 +326,9 @@ public class Fighter : MonoBehaviour, ControllerInterface {
             enemySprites[spriteIndex].SetActive(false);
             needsNewTarget = true; // update that the player needs a new target
         }
+
+        if(action == "Rush" && targetsAction == "Counter") { enemySuccussfulCounter = true; }
+        else { enemySuccussfulCounter = false; }
 
         textBox.text = battleFeedback; // update the textBox with the battle feedback
     }
@@ -350,6 +397,8 @@ public class Fighter : MonoBehaviour, ControllerInterface {
     }
 
     public List<int> GetPossibleDialogueNodes(){
-        return null;
+        List<int> ret = new List<int>();
+        ret.Add(graphNodeIndex);
+        return ret;
     }
 }

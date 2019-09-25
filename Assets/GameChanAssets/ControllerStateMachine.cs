@@ -17,6 +17,10 @@ public class State{
     public bool Equals(State other){
         return listenPercent == other.listenPercent && randomInputPercent == other.randomInputPercent && wrongInputPercent == other.wrongInputPercent;
     }
+
+    public override string ToString(){
+        return "(" + listenPercent + ", " + randomInputPercent + ", " + wrongInputPercent + ")";
+    }
 }
 
 
@@ -138,7 +142,7 @@ public class ControllerStateMachine : MonoBehaviour
             if(Time.time - pauseStartTime >= pauseInterval && pauseStartTime != -1f){
                 List<int> options = currentGame.GetPossibleDialogueNodes();
                 pauseStartTime = Time.time;
-                if(options.Count > 0){
+                if(options == null || options.Count > 0){
                     Debug.Log("pause");
                     pauseStartTime = -1f;
                     currentGame.Pause();
@@ -226,6 +230,7 @@ public class ControllerStateMachine : MonoBehaviour
                 stateValues[i] = 0;
             }
         }
+        Debug.Log("Adding " + state.ToString() + " with value " + valueChange);
         SetImage();
         AdjustState();
     } 
@@ -284,6 +289,8 @@ public class ControllerStateMachine : MonoBehaviour
         randomInputPercent /= totalValue;
         wrongInputPercent /= totalValue;
         currentState = new State(listenPercent, randomInputPercent, wrongInputPercent);
+        Debug.Log("Values for each state are " + ValuesToString());
+        Debug.Log("Changed state to " + currentState.ToString());
     }
 
     public void StopPauseTimer(){
@@ -295,5 +302,13 @@ public class ControllerStateMachine : MonoBehaviour
             pauseStartTime = Time.time;
         }
         
+    }
+
+    private string ValuesToString(){
+        string s = "(";
+        for(int i = 0; i < 6; ++i){
+            s += stateValues[i] + (i < 5 ? ", " : ")");
+        }
+        return s;
     }
 }
