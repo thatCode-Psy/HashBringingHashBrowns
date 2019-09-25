@@ -98,7 +98,7 @@ public class ControllerStateMachine : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(started && pauseStartTime != -1f){
+        if(started && pauseStartTime + 1f < 0.0001f){
             if(Time.time - startTime > randomInputDelay){
                 startTime = Time.time;
                 if(currentState.randomInputPercent > Random.value){
@@ -318,7 +318,7 @@ public class ControllerStateMachine : MonoBehaviour
         pauseStartTime = -1f;
     }
     public void UnPauseGame(){
-        if(pauseStartTime == -1f){
+        if(pauseStartTime + 1f < 0.001f){
             currentGame.Pause();
             pauseStartTime = Time.time;
             GameObject gameChan = GameObject.FindGameObjectWithTag("ControllerChan");
