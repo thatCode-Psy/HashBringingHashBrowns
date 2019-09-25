@@ -2317,7 +2317,7 @@ PrefabInstance:
     - target: {fileID: 7412352299169499357, guid: 48050bc247d67f647be09054044991f1,
         type: 3}
       propertyPath: pauseInterval
-      value: 5
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 1069403216468749363, guid: 48050bc247d67f647be09054044991f1,
         type: 3}

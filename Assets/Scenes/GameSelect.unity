@@ -490,7 +490,7 @@ PrefabInstance:
     - target: {fileID: 7412352299169499357, guid: 48050bc247d67f647be09054044991f1,
         type: 3}
       propertyPath: pauseInterval
-      value: 15
+      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48050bc247d67f647be09054044991f1, type: 3}
