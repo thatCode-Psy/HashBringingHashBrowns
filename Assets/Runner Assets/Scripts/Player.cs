@@ -283,9 +283,9 @@ public class Player : MonoBehaviour , ControllerInterface
         {
             ret.Add(3);
         }
-        ret.Add(16);
-        ret.Add(17);
-        ret.Add(18);
+        ret.Add(10);
+        ret.Add(11);
+        ret.Add(12);
 
 
 
