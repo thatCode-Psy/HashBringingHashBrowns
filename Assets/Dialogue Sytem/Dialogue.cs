@@ -58,7 +58,7 @@ public class Dialogue : MonoBehaviour
             currentlyDisplayingText++;
             StartCoroutine(AnimateText());
         }
-        else if(currentNode.nodPos == Node.nodePosition.TAIL)
+        else if(currentNode.nodPos == Node.nodePosition.TAIL || currentNode.nodPos == Node.nodePosition.SINGLE)
         {
             /*
             textBox.text = "";
