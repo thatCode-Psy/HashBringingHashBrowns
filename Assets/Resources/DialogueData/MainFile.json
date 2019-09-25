@@ -9,11 +9,12 @@
             "adjacentNodes": [2, 5, 8],
             "Head": true,
             "Tail": false,
-            "Angry": 0,
-            "Happy": 0,
-            "Annoyed": 0,
-            "Sad": 0,
-            "Depressed": 0
+            "Excited": -10,
+            "Happy": 1,
+            "Annoyed": -10,
+            "Sad": -10,
+            "Depressed": -10,
+			"Default": -10
         },
         {
             "id": 2,
@@ -22,11 +23,12 @@
             "adjacentNodes": [3, 4],
             "Head": false,
             "Tail": false,
-            "Angry": 0,
-            "Happy": 0,
-            "Annoyed": 0,
-            "Sad": 0,
-            "Depressed": 0
+            "Excited": -10,
+            "Happy": -10,
+            "Annoyed": 1,
+            "Sad": -10,
+            "Depressed": -10,
+			"Default": -10
         },
         {
             "id": 3,
@@ -35,11 +37,12 @@
             "adjacentNodes": [],
             "Head": false,
             "Tail": true,
-            "Angry": 2,
-            "Happy": 0,
-            "Annoyed": 0,
-            "Sad": 0,
-            "Depressed": 0
+            "Excited": -10,
+            "Happy": -10,
+            "Annoyed": 1,
+            "Sad": -10,
+            "Depressed": -10,
+			"Default": -10
         },
         {
             "id": 4,
@@ -48,11 +51,12 @@
             "adjacentNodes": [],
             "Head": false,
             "Tail": true,
-            "Angry": 0,
-            "Happy": 0,
-            "Annoyed": 2,
-            "Sad": 0,
-            "Depressed": 0
+            "Excited": -10,
+            "Happy": -10,
+            "Annoyed": 1,
+            "Sad": -10,
+            "Depressed": -10,
+			"Default": -10
         },
         {
             "id": 5,
@@ -61,11 +65,12 @@
             "adjacentNodes": [6, 7],
             "Head": false,
             "Tail": false,
-            "Angry": 0,
-            "Happy": 0,
-            "Annoyed": 0,
-            "Sad": 0,
-            "Depressed": 0
+            "Excited": -10,
+            "Happy": -10,
+            "Annoyed": -10,
+            "Sad": -10,
+            "Depressed": 1,
+			"Default": -10
         },
         {
             "id": 6,
@@ -74,11 +79,12 @@
             "adjacentNodes": [],
             "Head": false,
             "Tail": true,
-            "Angry": 0,
-            "Happy": 2,
-            "Annoyed": 0,
-            "Sad": 0,
-            "Depressed": 0
+            "Excited": -10,
+            "Happy": 1,
+            "Annoyed": -10,
+            "Sad": -10,
+            "Depressed": -10,
+			"Default": -10
         },
         {
             "id": 7,
@@ -87,11 +93,12 @@
             "adjacentNodes": [],
             "Head": false,
             "Tail": true,
-            "Angry": 0,
-            "Happy": 0,
-            "Annoyed": 0,
-            "Sad": 2,
-            "Depressed": 0
+            "Excited": -10,
+            "Happy": -10,
+            "Annoyed": -10,
+            "Sad": 1,
+            "Depressed": -10,
+			"Default": -10
         },
         {
             "id": 8,
@@ -100,11 +107,12 @@
             "adjacentNodes": [9, 10],
             "Head": false,
             "Tail": false,
-            "Angry": 0,
-            "Happy": 0,
-            "Annoyed": 0,
-            "Sad": 0,
-            "Depressed": 0
+            "Excited": -10,
+            "Happy": -10,
+            "Annoyed": -10,
+            "Sad": -10,
+            "Depressed": -10,
+			"Default": 1
         },
         {
             "id": 9,
@@ -113,11 +121,12 @@
             "adjacentNodes": [],
             "Head": false,
             "Tail": true,
-            "Angry": 0,
-            "Happy": 0,
-            "Annoyed": 2,
-            "Sad": 0,
-            "Depressed": 0
+            "Excited": -10,
+            "Happy": 1,
+            "Annoyed": -10,
+            "Sad": -10,
+            "Depressed": -10,
+			"Default": -10
         },
         {
             "id": 10,
@@ -126,11 +135,12 @@
             "adjacentNodes": [],
             "Head": false,
             "Tail": true,
-            "Angry": 0,
-            "Happy": 2,
-            "Annoyed": 0,
-            "Sad": 0,
-            "Depressed": 0
+            "Excited": 1,
+            "Happy": -10,
+            "Annoyed": -10,
+            "Sad": -10,
+            "Depressed": -10,
+			"Default": -10
         },
         {
             "id": 11,
@@ -139,11 +149,12 @@
             "adjacentNodes": [12, 15, 16],
             "Head": true,
             "Tail": false,
-            "Angry": 0,
-            "Happy": 0,
-            "Annoyed": 0,
-            "Sad": 0,
-            "Depressed": 0
+            "Excited": -10,
+            "Happy": -10,
+            "Annoyed": -10,
+            "Sad": -10,
+            "Depressed": -10,
+			"Default": 1
         },
         {
             "id": 12,
@@ -152,11 +163,12 @@
             "adjacentNodes": [13, 14],
             "Head": false,
             "Tail": false,
-            "Angry": 0,
-            "Happy": 0,
-            "Annoyed": 0,
-            "Sad": 0,
-            "Depressed": 0
+            "Excited": -10,
+            "Happy": -10,
+            "Annoyed": -10,
+            "Sad": -10,
+            "Depressed": 1,
+			"Default": -10
         },
         {
             "id": 13,
@@ -165,11 +177,12 @@
             "adjacentNodes": [],
             "Head": false,
             "Tail": true,
-            "Angry": 0,
-            "Happy": 2,
-            "Annoyed": 0,
-            "Sad": 0,
-            "Depressed": 0
+            "Excited": -10,
+            "Happy": -10,
+            "Annoyed": -10,
+            "Sad": -10,
+            "Depressed": -10,
+			"Default": 1
         },
         {
             "id": 14,
@@ -178,11 +191,12 @@
             "adjacentNodes": [],
             "Head": false,
             "Tail": true,
-            "Angry": 0,
-            "Happy": 0,
-            "Annoyed": 0,
-            "Sad": 2,
-            "Depressed": 1
+            "Excited": -10,
+            "Happy": -10,
+            "Annoyed": -10,
+            "Sad": 1,
+            "Depressed": -10,
+			"Default": -10
         },
         {
             "id": 15,
@@ -191,11 +205,12 @@
             "adjacentNodes": [],
             "Head": false,
             "Tail": true,
-            "Angry": 0,
-            "Happy": 0,
-            "Annoyed": 2,
-            "Sad": 0,
-            "Depressed": 0
+            "Excited": -10,
+            "Happy": -10,
+            "Annoyed": 1,
+            "Sad": -10,
+            "Depressed": -10,
+			"Default": -10
         },
         {
             "id": 16,
@@ -204,11 +219,12 @@
             "adjacentNodes": [],
             "Head": false,
             "Tail": true,
-            "Angry": 2,
-            "Happy": 0,
-            "Annoyed": 0,
-            "Sad": 0,
-            "Depressed": 0
+            "Excited": -10,
+            "Happy": -10,
+            "Annoyed": 1,
+            "Sad": -10,
+            "Depressed": -10,
+			"Default": -10
         },
         {
             "id": 17,
@@ -217,11 +233,12 @@
             "adjacentNodes": [18, 19, 20],
             "Head": true,
             "Tail": false,
-            "Angry": 0,
-            "Happy": 0,
-            "Annoyed": 0,
-            "Sad": 0,
-            "Depressed": 0
+            "Excited": -10,
+            "Happy": -10,
+            "Annoyed": -10,
+            "Sad": -10,
+            "Depressed": -10,
+			"Default": 1
         },
         {
             "id": 18,
@@ -230,11 +247,12 @@
             "adjacentNodes": [],
             "Head": false,
             "Tail": true,
-            "Angry": 0,
-            "Happy": 2,
-            "Annoyed": 0,
-            "Sad": 0,
-            "Depressed": 0
+            "Excited": 1,
+            "Happy": -10,
+            "Annoyed": -10,
+            "Sad": -10,
+            "Depressed": -10,
+			"Default": -10
         },
         {
             "id": 19,
@@ -243,11 +261,12 @@
             "adjacentNodes": [],
             "Head": false,
             "Tail": true,
-            "Angry": 0,
-            "Happy": 2,
-            "Annoyed": 0,
-            "Sad": 0,
-            "Depressed": 0
+            "Excited": -10,
+            "Happy": 1,
+            "Annoyed": -10,
+            "Sad": -10,
+            "Depressed": -10,
+			"Default": -10
         },
         {
             "id": 20,
@@ -256,11 +275,12 @@
             "adjacentNodes": [],
             "Head": false,
             "Tail": true,
-            "Angry": 0,
-            "Happy": 0,
-            "Annoyed": 0,
-            "Sad": 2,
-            "Depressed": 0
+            "Excited": -10,
+            "Happy": -10,
+            "Annoyed": -10,
+            "Sad": -10,
+            "Depressed": 1,
+			"Default": -10
         },
         {
             "id": 21,
@@ -269,11 +289,12 @@
             "adjacentNodes": [22, 23],
             "Head": true,
             "Tail": false,
-            "Angry": 0,
-            "Happy": 0,
-            "Annoyed": 0,
-            "Sad": 0,
-            "Depressed": 0
+            "Excited": 1,
+            "Happy": -10,
+            "Annoyed": -10,
+            "Sad": -10,
+            "Depressed": -10,
+			"Default": -10
         },
         {
             "id": 22,
@@ -282,11 +303,12 @@
             "adjacentNodes": [],
             "Head": false,
             "Tail": true,
-            "Angry": 0,
-            "Happy": 0,
-            "Annoyed": 2,
-            "Sad": 0,
-            "Depressed": 0
+            "Excited": -10,
+            "Happy": -10,
+            "Annoyed": 1,
+            "Sad": -10,
+            "Depressed": -10,
+			"Default": -10
         },
         {
             "id": 23,
@@ -295,11 +317,12 @@
             "adjacentNodes": [],
             "Head": false,
             "Tail": true,
-            "Angry": 0,
-            "Happy": 2,
-            "Annoyed": 0,
-            "Sad": 0,
-            "Depressed": 0
+            "Excited": -10,
+            "Happy": -10,
+            "Annoyed": -10,
+            "Sad": -10,
+            "Depressed": -10,
+			"Default": 1
         },
 
 
@@ -310,11 +333,12 @@
             "adjacentNodes": [],
             "Head": true,
             "Tail": true,
-            "Angry": 2,
-            "Happy": 0,
-            "Annoyed": 0,
-            "Sad": 0,
-            "Depressed": 0
+            "Excited": -10,
+            "Happy": -10,
+            "Annoyed": 1,
+            "Sad": -10,
+            "Depressed": -10,
+			"Default": -10
         },
         {
             "id": 25,
@@ -323,11 +347,12 @@
             "adjacentNodes": [],
             "Head": true,
             "Tail": true,
-            "Angry": 0,
-            "Happy": 2,
-            "Annoyed": 0,
-            "Sad": 0,
-            "Depressed": 0
+            "Excited": 1,
+            "Happy": -10,
+            "Annoyed": -10,
+            "Sad": -10,
+            "Depressed": -10,
+			"Default": -10
         },
         {
             "id": 26,
@@ -336,11 +361,12 @@
             "adjacentNodes": [],
             "Head": true,
             "Tail": true,
-            "Angry": 0,
-            "Happy": 0,
-            "Annoyed": 0,
-            "Sad": 0,
-            "Depressed": 2
+            "Excited": -10,
+            "Happy": -10,
+            "Annoyed": -10,
+            "Sad": -10,
+            "Depressed": 1,
+			"Default": -10
         },
         {
             "id": 27,
@@ -349,11 +375,12 @@
             "adjacentNodes": [],
             "Head": true,
             "Tail": true,
-            "Angry": 0,
-            "Happy": 0,
-            "Annoyed": 2,
-            "Sad": 0,
-            "Depressed": 0
+            "Excited": -10,
+            "Happy": -10,
+            "Annoyed": 1,
+            "Sad": -10,
+            "Depressed": -10,
+			"Default": -10
         },
         {
             "id": 28,
@@ -362,11 +389,12 @@
             "adjacentNodes": [],
             "Head": true,
             "Tail": true,
-            "Angry": 0,
-            "Happy": 0,
-            "Annoyed": 0,
-            "Sad": 0,
-            "Depressed": 2
+            "Excited": -10,
+            "Happy": -10,
+            "Annoyed": -10,
+            "Sad": -10,
+            "Depressed": 1,
+			"Default": -10
         },
         {
             "id": 29,
@@ -375,11 +403,12 @@
             "adjacentNodes": [],
             "Head": true,
             "Tail": true,
-            "Angry": 0,
-            "Happy": 2,
-            "Annoyed": 0,
-            "Sad": 0,
-            "Depressed": 0
+            "Excited": -10,
+            "Happy": 1,
+            "Annoyed": -10,
+            "Sad": -10,
+            "Depressed": -10,
+			"Default": -10
         },
         {
             "id": 30,
@@ -388,11 +417,12 @@
             "adjacentNodes": [31, 34],
             "Head": true,
             "Tail": false,
-            "Angry": 0,
-            "Happy": 0,
-            "Annoyed": 0,
-            "Sad": 0,
-            "Depressed": 0
+            "Excited": -10,
+            "Happy": -10,
+            "Annoyed": -10,
+            "Sad": -10,
+            "Depressed": 1,
+			"Default": -10
         },
         {
             "id": 31,
@@ -401,11 +431,12 @@
             "adjacentNodes": [32, 33],
             "Head": false,
             "Tail": false,
-            "Angry": 0,
-            "Happy": 0,
-            "Annoyed": 0,
-            "Sad": 0,
-            "Depressed": 0
+            "Excited": -10,
+            "Happy": -10,
+            "Annoyed": 1,
+            "Sad": -10,
+            "Depressed": -10,
+			"Default": -10
         },
         {
             "id": 32,
@@ -414,11 +445,12 @@
             "adjacentNodes": [],
             "Head": false,
             "Tail": true,
-            "Angry": 0,
-            "Happy": 0,
-            "Annoyed": 0,
-            "Sad": 0,
-            "Depressed": 2
+            "Excited": -10,
+            "Happy": -10,
+            "Annoyed": -10,
+            "Sad": -10,
+            "Depressed": 1,
+			"Default": -10
         },
         {
             "id": 33,
@@ -427,11 +459,12 @@
             "adjacentNodes": [],
             "Head": false,
             "Tail": true,
-            "Angry": 0,
-            "Happy": 2,
-            "Annoyed": 0,
-            "Sad": 0,
-            "Depressed": 0
+            "Excited": -10,
+            "Happy": 1,
+            "Annoyed": -10,
+            "Sad": -10,
+            "Depressed": -10,
+			"Default": -10
         },
         {
             "id": 34,
@@ -440,11 +473,12 @@
             "adjacentNodes": [],
             "Head": false,
             "Tail": true,
-            "Angry": 2,
-            "Happy": 0,
-            "Annoyed": 0,
-            "Sad": 0,
-            "Depressed": 0
+            "Excited": -10,
+            "Happy": -10,
+            "Annoyed": 1,
+            "Sad": -10,
+            "Depressed": -10,
+			"Default": -10
         },
         {
             "id": 35,
@@ -453,11 +487,12 @@
             "adjacentNodes": [36, 37],
             "Head": true,
             "Tail": false,
-            "Angry": 0,
-            "Happy": 2,
-            "Annoyed": 0,
-            "Sad": 0,
-            "Depressed": 0
+            "Excited": -10,
+            "Happy": -10,
+            "Annoyed": -10,
+            "Sad": -10,
+            "Depressed": 1,
+			"Default": -10
         },
         {
             "id": 36,
@@ -466,11 +501,12 @@
             "adjacentNodes": [],
             "Head": false,
             "Tail": true,
-            "Angry": 0,
-            "Happy": 2,
-            "Annoyed": 0,
-            "Sad": 0,
-            "Depressed": 0
+            "Excited": -10,
+            "Happy": -10,
+            "Annoyed": -10,
+            "Sad": -10,
+            "Depressed": 1,
+			"Default": -10
         },
         {
             "id": 37,
@@ -479,11 +515,12 @@
             "adjacentNodes": [],
             "Head": false,
             "Tail": true,
-            "Angry": 0,
-            "Happy": 0,
-            "Annoyed": 2,
-            "Sad": 0,
-            "Depressed": 0
+            "Excited": -10,
+            "Happy": -10,
+            "Annoyed": 1,
+            "Sad": -10,
+            "Depressed": -10,
+			"Default": -10
         },
         {
             "id": 38,
@@ -492,11 +529,12 @@
             "adjacentNodes": [39],
             "Head": true,
             "Tail": false,
-            "Angry": 0,
-            "Happy": 0,
-            "Annoyed": 0,
-            "Sad": 0,
-            "Depressed": 0
+            "Excited": -10,
+            "Happy": -10,
+            "Annoyed": -10,
+            "Sad": -10,
+            "Depressed": -10,
+			"Default": 1
         },
         {
             "id": 39,
@@ -505,11 +543,12 @@
             "adjacentNodes": [40, 41],
             "Head": false,
             "Tail": false,
-            "Angry": 0,
-            "Happy": 0,
-            "Annoyed": 0,
-            "Sad": 0,
-            "Depressed": 0
+            "Excited": -10,
+            "Happy": -10,
+            "Annoyed": -10,
+            "Sad": -10,
+            "Depressed": 1,
+			"Default": -10
         },
         {
             "id": 40,
@@ -518,11 +557,12 @@
             "adjacentNodes": [],
             "Head": false,
             "Tail": true,
-            "Angry": 0,
-            "Happy": 2,
-            "Annoyed": 0,
-            "Sad": 0,
-            "Depressed": 0
+            "Excited": -10,
+            "Happy": 1,
+            "Annoyed": -10,
+            "Sad": -10,
+            "Depressed": -10,
+			"Default": -10
         },
         {
             "id": 41,
@@ -531,11 +571,12 @@
             "adjacentNodes": [],
             "Head": false,
             "Tail": true,
-            "Angry": 0,
-            "Happy": 0,
-            "Annoyed": 2,
-            "Sad": 0,
-            "Depressed": 0
+            "Excited": -10,
+            "Happy": -10,
+            "Annoyed": 1,
+            "Sad": -10,
+            "Depressed": -10,
+			"Default": -10
         },
         {
             "id": 42,
@@ -544,11 +585,12 @@
             "adjacentNodes": [43, 44],
             "Head": true,
             "Tail": false,
-            "Angry": 0,
-            "Happy": 0,
-            "Annoyed": 0,
-            "Sad": 0,
-            "Depressed": 0
+            "Excited": -10,
+            "Happy": -10,
+            "Annoyed": 1,
+            "Sad": -10,
+            "Depressed": -10,
+			"Default": -10
         },
         {
             "id": 43,
@@ -557,11 +599,12 @@
             "adjacentNodes": [],
             "Head": false,
             "Tail": true,
-            "Angry": 0,
-            "Happy": 0,
-            "Annoyed": 2,
-            "Sad": 0,
-            "Depressed": 0
+            "Excited": -10,
+            "Happy": -10,
+            "Annoyed": 1,
+            "Sad": -10,
+            "Depressed": -10,
+			"Default": -10
         },
         {
             "id": 44,
@@ -570,11 +613,12 @@
             "adjacentNodes": [],
             "Head": false,
             "Tail": true,
-            "Angry": 0,
-            "Happy": 0,
-            "Annoyed": 0,
-            "Sad": 0,
-            "Depressed": 2
+            "Excited": -10,
+            "Happy": -10,
+            "Annoyed": -10,
+            "Sad": -10,
+            "Depressed": 1,
+			"Default": -10
         },
         {
             "id": 45,
@@ -583,11 +627,12 @@
             "adjacentNodes": [46],
             "Head": true,
             "Tail": false,
-            "Angry": 0,
-            "Happy": 0,
-            "Annoyed": 0,
-            "Sad": 0,
-            "Depressed": 0
+            "Excited": -10,
+            "Happy": -10,
+            "Annoyed": -10,
+            "Sad": -10,
+            "Depressed": 1,
+			"Default": -10
         },
         {
             "id": 46,
@@ -596,11 +641,12 @@
             "adjacentNodes": [47, 48],
             "Head": false,
             "Tail": false,
-            "Angry": 0,
-            "Happy": 0,
-            "Annoyed": 0,
-            "Sad": 0,
-            "Depressed": 0
+            "Excited": -10,
+            "Happy": -10,
+            "Annoyed": 1,
+            "Sad": -10,
+            "Depressed": -10,
+			"Default": -10
         },
         {
             "id": 47,
@@ -609,11 +655,12 @@
             "adjacentNodes": [],
             "Head": false,
             "Tail": true,
-            "Angry": 2,
-            "Happy": 0,
-            "Annoyed": 0,
-            "Sad": 0,
-            "Depressed": 0
+            "Excited": -10,
+            "Happy": -10,
+            "Annoyed": 1,
+            "Sad": -10,
+            "Depressed": -10,
+			"Default": -10
         },
         {
             "id": 48,
@@ -622,11 +669,12 @@
             "adjacentNodes": [],
             "Head": false,
             "Tail": true,
-            "Angry": 0,
-            "Happy": 0,
-            "Annoyed": 2,
-            "Sad": 0,
-            "Depressed": 0
+            "Excited": -10,
+            "Happy": -10,
+            "Annoyed": -10,
+            "Sad": -10,
+            "Depressed": 1,
+			"Default": -10
         },
         {
             "id": 49,
@@ -635,11 +683,12 @@
             "adjacentNodes": [50],
             "Head": true,
             "Tail": false,
-            "Angry": 0,
-            "Happy": 0,
-            "Annoyed": 0,
-            "Sad": 0,
-            "Depressed": 0
+            "Excited": -10,
+            "Happy": -10,
+            "Annoyed": -10,
+            "Sad": -10,
+            "Depressed": 1,
+			"Default": -10
         },
         {
             "id": 50,
@@ -648,11 +697,12 @@
             "adjacentNodes": [],
             "Head": false,
             "Tail": true,
-            "Angry": 0,
-            "Happy": 2,
-            "Annoyed": 0,
-            "Sad": 0,
-            "Depressed": 0
+            "Excited": -10,
+            "Happy": 1,
+            "Annoyed": -10,
+            "Sad": -10,
+            "Depressed": -10,
+			"Default": -10
         },
 
         {
@@ -662,11 +712,12 @@
             "adjacentNodes": [52, 55, 58],
             "Head": true,
             "Tail": false,
-            "Angry": 0,
-            "Happy": 0,
-            "Annoyed": 0,
-            "Sad": 0,
-            "Depressed": 0
+            "Excited": -10,
+            "Happy": -10,
+            "Annoyed": -10,
+            "Sad": -10,
+            "Depressed": -10,
+			"Default": 1
         },
         {
             "id": 52,
@@ -675,11 +726,12 @@
             "adjacentNodes": [53, 54],
             "Head": false,
             "Tail": false,
-            "Angry": 0,
-            "Happy": 0,
-            "Annoyed": 0,
-            "Sad": 0,
-            "Depressed": 0
+            "Excited": -10,
+            "Happy": -10,
+            "Annoyed": -10,
+            "Sad": -10,
+            "Depressed": 1,
+			"Default": -10
         },
         {
             "id": 53,
@@ -688,11 +740,12 @@
             "adjacentNodes": [],
             "Head": false,
             "Tail": true,
-            "Angry": 0,
-            "Happy": 2,
-            "Annoyed": 0,
-            "Sad": 0,
-            "Depressed": 0
+            "Excited": 1,
+            "Happy": -10,
+            "Annoyed": -10,
+            "Sad": -10,
+            "Depressed": -10,
+			"Default": -10
         },
         {
             "id": 54,
@@ -701,11 +754,12 @@
             "adjacentNodes": [],
             "Head": false,
             "Tail": true,
-            "Angry": 0,
-            "Happy": 0,
-            "Annoyed": 0,
-            "Sad": 2,
-            "Depressed": 1
+            "Excited": -10,
+            "Happy": -10,
+            "Annoyed": -10,
+            "Sad": 1,
+            "Depressed": -10,
+			"Default": -10
         },
         {
             "id": 55,
@@ -714,11 +768,12 @@
             "adjacentNodes": [56, 57],
             "Head": false,
             "Tail": false,
-            "Angry": 0,
-            "Happy": 0,
-            "Annoyed": 0,
-            "Sad": 0,
-            "Depressed": 0
+            "Excited": -10,
+            "Happy": -10,
+            "Annoyed": -10,
+            "Sad": -10,
+            "Depressed": -10,
+			"Default": 1
         },
         {
             "id": 56,
@@ -727,11 +782,12 @@
             "adjacentNodes": [],
             "Head": false,
             "Tail": true,
-            "Angry": 0,
-            "Happy": 0,
-            "Annoyed": 2,
-            "Sad": 0,
-            "Depressed": 0
+            "Excited": -10,
+            "Happy": -10,
+            "Annoyed": -10,
+            "Sad": -10,
+            "Depressed": 1,
+			"Default": -10
         },
         {
             "id": 57,
@@ -740,11 +796,12 @@
             "adjacentNodes": [],
             "Head": false,
             "Tail": true,
-            "Angry": 0,
-            "Happy": 0,
-            "Annoyed": 0,
-            "Sad": 2,
-            "Depressed": 0
+            "Excited": -10,
+            "Happy": -10,
+            "Annoyed": -10,
+            "Sad": 1,
+            "Depressed": -10,
+			"Default": -10
         },
         {
             "id": 58,
@@ -753,11 +810,12 @@
             "adjacentNodes": [59, 60],
             "Head": false,
             "Tail": false,
-            "Angry": 0,
-            "Happy": 0,
-            "Annoyed": 0,
-            "Sad": 0,
-            "Depressed": 0
+            "Excited": -10,
+            "Happy": -10,
+            "Annoyed": -10,
+            "Sad": -10,
+            "Depressed": 1,
+			"Default": -10
         },
         {
             "id": 59,
@@ -766,11 +824,12 @@
             "adjacentNodes": [],
             "Head": false,
             "Tail": true,
-            "Angry": 0,
-            "Happy": 0,
-            "Annoyed": 2,
-            "Sad": 0,
-            "Depressed": 0
+            "Excited": -10,
+            "Happy": -10,
+            "Annoyed": 1,
+            "Sad": -10,
+            "Depressed": -10,
+			"Default": -10
         },
         {
             "id": 60,
@@ -779,11 +838,12 @@
             "adjacentNodes": [],
             "Head": false,
             "Tail": true,
-            "Angry": 0,
-            "Happy": 2,
-            "Annoyed": 1,
-            "Sad": 0,
-            "Depressed": 0
+            "Excited": -10,
+            "Happy": 1,
+            "Annoyed": -10,
+            "Sad": -10,
+            "Depressed": -10,
+			"Default": -10
         },
         {
             "id": 61,
@@ -792,11 +852,12 @@
             "adjacentNodes": [62, 63],
             "Head": true,
             "Tail": false,
-            "Angry": 0,
-            "Happy": 0,
-            "Annoyed": 0,
-            "Sad": 0,
-            "Depressed": 0
+            "Excited": -10,
+            "Happy": -10,
+            "Annoyed": -10,
+            "Sad": 1,
+            "Depressed": -10,
+			"Default": -10
         },
         {
             "id": 62,
@@ -805,11 +866,12 @@
             "adjacentNodes": [],
             "Head": false,
             "Tail": true,
-            "Angry": 0,
-            "Happy": 2,
-            "Annoyed": 0,
-            "Sad": 0,
-            "Depressed": 0
+            "Excited": -10,
+            "Happy": 1,
+            "Annoyed": -10,
+            "Sad": -10,
+            "Depressed": -10,
+			"Default": -10
         },
         {
             "id": 63,
@@ -818,11 +880,12 @@
             "adjacentNodes": [64, 65, 66],
             "Head": false,
             "Tail": false,
-            "Angry": 0,
-            "Happy": 0,
-            "Annoyed": 0,
-            "Sad": 0,
-            "Depressed": 0
+            "Excited": -10,
+            "Happy": -10,
+            "Annoyed": -10,
+            "Sad": -10,
+            "Depressed": -10,
+			"Default": 1
         },
         {
             "id": 64,
@@ -831,11 +894,12 @@
             "adjacentNodes": [],
             "Head": false,
             "Tail": true,
-            "Angry": 0,
-            "Happy": 0,
-            "Annoyed": 0,
-            "Sad": 0,
-            "Depressed": 2
+            "Excited": -10,
+            "Happy": -10,
+            "Annoyed": -10,
+            "Sad": -10,
+            "Depressed": 1,
+			"Default": -10
         },
         {
             "id": 65,
@@ -844,11 +908,12 @@
             "adjacentNodes": [],
             "Head": false,
             "Tail": true,
-            "Angry": 0,
-            "Happy": 2,
-            "Annoyed": 0,
-            "Sad": 0,
-            "Depressed": 0
+            "Excited": -10,
+            "Happy": 1,
+            "Annoyed": -10,
+            "Sad": -10,
+            "Depressed": -10,
+			"Default": -10
         },
         {
             "id": 66,
@@ -857,11 +922,12 @@
             "adjacentNodes": [],
             "Head": false,
             "Tail": true,
-            "Angry": 2,
-            "Happy": 0,
-            "Annoyed": 0,
-            "Sad": 0,
-            "Depressed": 0
+            "Excited": -10,
+            "Happy": -10,
+            "Annoyed": 1,
+            "Sad": -10,
+            "Depressed": -10,
+			"Default": -10
         },
         {
             "id": 67,
@@ -870,11 +936,12 @@
             "adjacentNodes": [68],
             "Head": true,
             "Tail": false,
-            "Angry": 0,
-            "Happy": 0,
-            "Annoyed": 0,
-            "Sad": 0,
-            "Depressed": 0
+            "Excited": 1,
+            "Happy": -10,
+            "Annoyed": -10,
+            "Sad": -10,
+            "Depressed": -10,
+			"Default": -10
         },
         {
             "id": 68,
@@ -883,11 +950,12 @@
             "adjacentNodes": [],
             "Head": false,
             "Tail": true,
-            "Angry": 0,
-            "Happy": 4,
-            "Annoyed": 0,
-            "Sad": 0,
-            "Depressed": 0
+            "Excited": -10,
+            "Happy": 1,
+            "Annoyed": -10,
+            "Sad": -10,
+            "Depressed": -10,
+			"Default": -10
         },
 
 
@@ -898,11 +966,12 @@
             "adjacentNodes": [70, 73],
             "Head": true,
             "Tail": false,
-            "Angry": 0,
-            "Happy": 0,
-            "Annoyed": 0,
-            "Sad": 0,
-            "Depressed": 0
+            "Excited": -10,
+            "Happy": -10,
+            "Annoyed": -10,
+            "Sad": -10,
+            "Depressed": -10,
+			"Default": 1
         },
         {
             "id": 70,
@@ -911,11 +980,12 @@
             "adjacentNodes": [71, 72],
             "Head": false,
             "Tail": false,
-            "Angry": 0,
-            "Happy": 0,
-            "Annoyed": 0,
-            "Sad": 0,
-            "Depressed": 0
+            "Excited": -10,
+            "Happy": -10,
+            "Annoyed": -10,
+            "Sad": -10,
+            "Depressed": -10,
+			"Default": 1
         },
         {
             "id": 71,
@@ -924,11 +994,12 @@
             "adjacentNodes": [],
             "Head": false,
             "Tail": true,
-            "Angry": 0,
-            "Happy": 2,
-            "Annoyed": 0,
-            "Sad": 0,
-            "Depressed": 0
+            "Excited": -10,
+            "Happy": 1,
+            "Annoyed": -10,
+            "Sad": -10,
+            "Depressed": -10,
+			"Default": -10
         },
         {
             "id": 72,
@@ -937,11 +1008,12 @@
             "adjacentNodes": [],
             "Head": false,
             "Tail": true,
-            "Angry": 0,
-            "Happy": 0,
-            "Annoyed": 0,
-            "Sad": 0,
-            "Depressed": 2
+            "Excited": -10,
+            "Happy": -10,
+            "Annoyed": -10,
+            "Sad": -10,
+            "Depressed": 1,
+			"Default": -10
         },
         {
             "id": 73,
@@ -950,11 +1022,12 @@
             "adjacentNodes": [74, 76],
             "Head": false,
             "Tail": false,
-            "Angry": 0,
-            "Happy": 0,
-            "Annoyed": 0,
-            "Sad": 0,
-            "Depressed": 0
+            "Excited": -10,
+            "Happy": -10,
+            "Annoyed": 1,
+            "Sad": -10,
+            "Depressed": -10,
+			"Default": -10
         },
         {
             "id": 74,
@@ -963,11 +1036,12 @@
             "adjacentNodes": [75],
             "Head": false,
             "Tail": false,
-            "Angry": 0,
-            "Happy": 0,
-            "Annoyed": 0,
-            "Sad": 0,
-            "Depressed": 0
+            "Excited": -10,
+            "Happy": -10,
+            "Annoyed": -10,
+            "Sad": 1,
+            "Depressed": -10,
+			"Default": -10
         },
         {
             "id": 75,
@@ -976,11 +1050,12 @@
             "adjacentNodes": [],
             "Head": false,
             "Tail": true,
-            "Angry": 0,
-            "Happy": 0,
-            "Annoyed": 0,
-            "Sad": 2,
-            "Depressed": 0
+            "Excited": -10,
+            "Happy": -10,
+            "Annoyed": -10,
+            "Sad": 1,
+            "Depressed": -10,
+			"Default": -10
         },
         {
             "id": 76,
@@ -989,11 +1064,12 @@
             "adjacentNodes": [77, 78],
             "Head": false,
             "Tail": false,
-            "Angry": 0,
-            "Happy": 0,
-            "Annoyed": 0,
-            "Sad": 0,
-            "Depressed": 0
+            "Excited": -10,
+            "Happy": -10,
+            "Annoyed": 1,
+            "Sad": -10,
+            "Depressed": -10,
+			"Default": -10
         },
         {
             "id": 77,
@@ -1002,11 +1078,12 @@
             "adjacentNodes": [],
             "Head": false,
             "Tail": true,
-            "Angry": 0,
-            "Happy": 0,
-            "Annoyed": 0,
-            "Sad": 0,
-            "Depressed": 2
+            "Excited": -10,
+            "Happy": -10,
+            "Annoyed": -10,
+            "Sad": -10,
+            "Depressed": 1,
+			"Default": -10
         },
         {
             "id": 78,
@@ -1015,11 +1092,12 @@
             "adjacentNodes": [],
             "Head": false,
             "Tail": true,
-            "Angry": 2,
-            "Happy": 0,
-            "Annoyed": 0,
-            "Sad": 0,
-            "Depressed": 0
+            "Excited": -10,
+            "Happy": -10,
+            "Annoyed": 1,
+            "Sad": -10,
+            "Depressed": -10,
+			"Default": -10
         },
         {
             "id": 79,
@@ -1028,11 +1106,12 @@
             "adjacentNodes": [80, 82],
             "Head": true,
             "Tail": false,
-            "Angry": 0,
-            "Happy": 0,
-            "Annoyed": 0,
-            "Sad": 0,
-            "Depressed": 0
+            "Excited": -10,
+            "Happy": -10,
+            "Annoyed": -10,
+            "Sad": -10,
+            "Depressed": -10,
+			"Default": 1
         },
         {
             "id": 80,
@@ -1041,11 +1120,12 @@
             "adjacentNodes": [81],
             "Head": false,
             "Tail": false,
-            "Angry": 0,
-            "Happy": 0,
-            "Annoyed": 0,
-            "Sad": 0,
-            "Depressed": 0
+            "Excited": -10,
+            "Happy": -10,
+            "Annoyed": -10,
+            "Sad": -10,
+            "Depressed": -10,
+			"Default": 1
         },
         {
             "id": 81,
@@ -1054,11 +1134,12 @@
             "adjacentNodes": [],
             "Head": false,
             "Tail": true,
-            "Angry": 0,
-            "Happy": 2,
-            "Annoyed": 0,
-            "Sad": 0,
-            "Depressed": 0
+            "Excited": 1,
+            "Happy": -10,
+            "Annoyed": -10,
+            "Sad": -10,
+            "Depressed": -10,
+			"Default": -10
         },
         {
             "id": 82,
@@ -1067,11 +1148,12 @@
             "adjacentNodes": [83],
             "Head": false,
             "Tail": false,
-            "Angry": 0,
-            "Happy": 0,
-            "Annoyed": 0,
-            "Sad": 0,
-            "Depressed": 0
+            "Excited": -10,
+            "Happy": -10,
+            "Annoyed": -10,
+            "Sad": -10,
+            "Depressed": 1,
+			"Default": -10
         },
         {
             "id": 83,
@@ -1080,11 +1162,12 @@
             "adjacentNodes": [83],
             "Head": false,
             "Tail": false,
-            "Angry": 0,
-            "Happy": 0,
-            "Annoyed": 0,
-            "Sad": 0,
-            "Depressed": 0
+            "Excited": -10,
+            "Happy": -10,
+            "Annoyed": 1,
+            "Sad": -10,
+            "Depressed": -10,
+			"Default": -10
         }
     ]
 }
