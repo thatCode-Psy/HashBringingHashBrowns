@@ -43,9 +43,9 @@ public class FighterAI : MonoBehaviour {
 
     void Update() {
         // update the enemy's health bar to represent their current health
-        if (healthBar.value > ((float)Health / (float)maxHealth) + .005f) {
+        if (healthBar.value > ((float)Health / (float)maxHealth) + .01f) {
             healthBar.value -= Time.deltaTime * healthSliderSpeed;
-        } else if (healthBar.value < ((float)Health / (float)maxHealth) - .005f) {
+        } else if (healthBar.value < ((float)Health / (float)maxHealth) - .01f) {
             healthBar.value += Time.deltaTime * healthSliderSpeed;
         }
 
