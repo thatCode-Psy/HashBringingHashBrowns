@@ -103,8 +103,7 @@ public class Dialogue : MonoBehaviour
         currentlyDisplayingText = 0;
 
         int curnodeNum = 0;
-        if (dialougeInitiated)
-        {
+       
             if (currentNode.adjacentNodes.Count == 3)
             {
                 curnodeNum = playerResponseRef.currentChoice;
@@ -112,11 +111,7 @@ public class Dialogue : MonoBehaviour
 
             currentNode = currentNode.adjacentNodes[curnodeNum];
             goatText = currentNode.lines;
-        }
-        else
-        {
-            dialougeInitiated = true;
-        }
+
 
         ChangeGameChanState();
 
@@ -175,7 +170,7 @@ public class Dialogue : MonoBehaviour
         ControllerStateMachine.Instance.SetState(ControllerStateMachine.SAD, currentNode.Sad);
         ControllerStateMachine.Instance.SetState(ControllerStateMachine.DEPRESSED, currentNode.Depressed);
         ControllerStateMachine.Instance.SetState(ControllerStateMachine.EXCITED, currentNode.Excited);
-        ControllerStateMachine.Instance.SetState(ControllerStateMachine.ANGRY, currentNode.Angry);
+        ControllerStateMachine.Instance.SetState(ControllerStateMachine.ANGRY, currentNode.Annoyed);
 
 
 
