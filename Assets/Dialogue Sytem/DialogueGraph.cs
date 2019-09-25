@@ -81,6 +81,7 @@ public class Node
     public int Depressed;
     public int Annoyed; 
     public int Excited;
+    public int Default; 
     public int Angry; 
 
     public Node(DialogueNode diaNode)
@@ -111,7 +112,8 @@ public class Node
         Depressed = diaNode.Depressed;
         Excited = diaNode.Excited;
         Annoyed = diaNode.Annoyed; 
-        Angry = diaNode.Angry; 
+        Angry = diaNode.Angry;
+        Default = diaNode.Default; 
 
         lines = diaNode.line;
         adjNodeIDs = diaNode.adjacentNodes;

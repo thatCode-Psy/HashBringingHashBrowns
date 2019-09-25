@@ -144,6 +144,7 @@ public class DialogueNode
     public int Happy;
     public int Angry;
     public int Annoyed;
+    public int Default; 
     public int Sad;
     public int Depressed;
     public int Excited; 
