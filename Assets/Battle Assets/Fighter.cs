@@ -26,6 +26,15 @@ public class Fighter : MonoBehaviour, ControllerInterface {
     [Header("Cooldown")]
     public float actionCooldown = 7f;
 
+    [Header("Audio")]
+    public AudioSource deathSFX;
+    public AudioSource healSFX;
+    public AudioSource attackSFX;
+    public AudioSource counterSFX;
+    public AudioSource defendSFX;
+    public AudioSource levelUpSFX;
+    public AudioSource rushSFX;
+
     private FighterAI enemy;
 
     private string currentAction = "";
@@ -38,13 +47,14 @@ public class Fighter : MonoBehaviour, ControllerInterface {
     private bool levelUp = false;
     private bool pause = false;
     private bool enemySuccussfulCounter = false;
+    private bool playLevelUp = false;
 
     private int attackAmount = 0;
     private int defenseAmount = 0;
     private int maxHealth = 0;
     private int exp = 0;
     private int spriteIndex = 0;
-    private int graphNodeIndex = 0;
+    private int graphNodeIndex = 19;
     private int repeatActions = 0;
     private int enemyRepeatActions = 0;
     private int turnCount = 0;
@@ -67,14 +77,17 @@ public class Fighter : MonoBehaviour, ControllerInterface {
 
     void Update() {
         if(levelUp && readyToTakeAction) {
-            if(evolveTimer < 4f) {
+            if(evolveTimer < 3f) {
+                if(!playLevelUp) { levelUpSFX.Play(); playLevelUp = true; }
                 textBox.fontSize = 36;
-                textBox.text = "LEVEL UP!\nOh, what is this? Your pokabomination is evolving!";
+                textBox.text = "LEVEL UP!\nHealth, Strength, and Defense have increased!";//Oh, what is this? Your pokabomination is evolving!";
                 evolveTimer += Time.deltaTime;
             } else {
-                if (!evolveCanvas.activeInHierarchy) {
+                playLevelUp = false;
+                StopEvolve();
+                /*if (!evolveCanvas.activeInHierarchy) {
                     evolveCanvas.SetActive(true);
-                }
+                }*/
             }
         } else if(needsNewTarget && readyToTakeAction) { // spawn a new target for the player
             if (enemy) { Destroy(enemy.gameObject); }
@@ -123,11 +136,11 @@ public class Fighter : MonoBehaviour, ControllerInterface {
         }
 
         /* IN HERE FOR EVOLVING TESTING PURPOSES */
-        /*
+        
         if (exp < expNeeded) {
             ExpGain(100);
         }
-        */
+        
 
         healthText.text = "HP: " + Health + " / " + maxHealth; // update player health text
         expText.text = "EXP: " + exp + "/" + expNeeded; // update player exp text
@@ -168,25 +181,24 @@ public class Fighter : MonoBehaviour, ControllerInterface {
         if (enemyPreviousAction == targetsAction) { enemyRepeatActions++; }
         else { enemyRepeatActions = 0; }
 
-        graphNodeIndex = 68; // for random conversation if it is not overwritten by a situation
+        graphNodeIndex = 19; // for random conversation if it is not overwritten by a situation
 
-        if(repeatActions >= 2) { graphNodeIndex = 27; }
-        else if(targetsAction == "Heal" && enemyRepeatActions >= 2) { graphNodeIndex = 26; }
-        else if((targetsAction == "Defend" || targetsAction == "Counter") && (enemyRepeatActions >= 2)) { graphNodeIndex = 28; }
-        else if(turnCount >= 10) { graphNodeIndex = 48; }
+        if(repeatActions >= 2) { graphNodeIndex = 8; }
+        else if(targetsAction == "Heal" && enemyRepeatActions >= 2) { graphNodeIndex = 7; }
+        else if((targetsAction == "Defend" || targetsAction == "Counter") && (enemyRepeatActions >= 2)) { graphNodeIndex = 9; }
+        else if(turnCount >= 10) { graphNodeIndex = 17; }
 
         if (action == "Attack") { // check if player used attack
-            if (enemy.GetHealth() > 7 && enemy.GetHealth() <= 10) {
-                int pick = Random.Range(0, 2);
-                if (pick == 0) { graphNodeIndex = 34; }
-                else { graphNodeIndex = 37; }
-            }
+            attackSFX.Play();
+            if (enemy.GetHealth() > 7 && enemy.GetHealth() <= 10) { graphNodeIndex = 13; }
 
             // check for if target used rush or heal because they take priority over attack
             if(targetsAction == "Rush") {
+                rushSFX.Play();
                 battleFeedback += target.nickname + " dealt " + (int)(target.AttackAmount() / 1.5f) + " damage to you.\n";
                 TakeDamage((int)(target.AttackAmount() / 1.5f));
             } else if(targetsAction == "Heal") {
+                healSFX.Play();
                 battleFeedback += target.nickname + " healed for 4 HP.\n";
                 target.TakeDamage(-4); // take damage from target with a negative value to increase targets health
             }
@@ -195,11 +207,12 @@ public class Fighter : MonoBehaviour, ControllerInterface {
                 int damage = attackAmount;
 
                 if (targetsAction == "Counter") {
-                    graphNodeIndex = 24;
+                    graphNodeIndex = 5;
                     battleFeedback += target.nickname + " was unsuccessful in countering. ";
                     damage *= 2; // attack does twice as much if target counters
                 } else if(targetsAction == "Defend") {
-                    graphNodeIndex = 23;
+                    defendSFX.Play();
+                    graphNodeIndex = 4;
                     battleFeedback += target.nickname + " defended. ";
                     damage -= target.DefenseAmount(); // attack does less if target defends
                 }
@@ -214,40 +227,48 @@ public class Fighter : MonoBehaviour, ControllerInterface {
                 }
             }
         } else if(action == "Rush") { // check if player used rush
-            if(enemySuccussfulCounter) { graphNodeIndex = 44; }
+            if(enemySuccussfulCounter) { graphNodeIndex = 16; }
 
             if (targetsAction == "Counter") {
-                graphNodeIndex = 25;
+                counterSFX.Play();
+                graphNodeIndex = 6;
                 battleFeedback += target.nickname + " was successful in countering and dealt " + target.AttackAmount() * 2 + " damage to you.\n";
                 TakeDamage(target.AttackAmount() * 2); // deal damage to the player since the oppenent successfully countered
             } else if(targetsAction == "Defend") {
+                rushSFX.Play();
+                defendSFX.Play();
                 int damage = (int)((attackAmount / 1.5f) - target.DefenseAmount());
                 damage = Mathf.Clamp(damage, 0, attackAmount * 2); // clamp the min to 0 in case targets defense is higher than your attack damage
                 target.TakeDamage(damage);
                 battleFeedback += target.nickname + " defended. You dealt " + damage + " damage to " + target.nickname + ".\n";
             } else {
+                rushSFX.Play();
                 battleFeedback += "You dealt " + (int)(attackAmount / 1.5f) + " damage to " + target.nickname + ".\n";
                 target.TakeDamage((int)(attackAmount / 1.5f));
 
                 if(target.Alive()) { // check if target is still alive
                     if(targetsAction == "Attack") {
+                        attackSFX.Play();
                         battleFeedback += target.nickname + " dealt " + target.AttackAmount() + " damage to you.\n";
                         TakeDamage(target.AttackAmount());
                     } else if(targetsAction == "Rush") {
                         battleFeedback += target.nickname + " dealt " + (int)(target.AttackAmount() / 1.5f) + " damage to you.\n";
                         TakeDamage((int)(target.AttackAmount() / 1.5f));
                     } else if(targetsAction == "Heal") {
+                        healSFX.Play();
                         battleFeedback += target.nickname + " healed for 4 HP.\n";
                         target.TakeDamage(-4); // take damage from target with a negative value to increase targets health
                     }
                 }
             }
         } else if(action == "Defend") { // check if player used defend
-            graphNodeIndex = 41;
+            defendSFX.Play();
+            graphNodeIndex = 15;
 
             if(targetsAction == "Defend" || targetsAction == "Counter") {
                 battleFeedback += "Nothing happened.\n";
             } else if(targetsAction == "Heal") {
+                healSFX.Play();
                 battleFeedback += "You defended.\n" + target.nickname + " healed for 4 HP.\n";
                 target.TakeDamage(-4); // take damage from target with a negative value to increase targets health
             } else {
@@ -255,8 +276,10 @@ public class Fighter : MonoBehaviour, ControllerInterface {
                 battleFeedback += "You defended. ";
 
                 if(targetsAction == "Attack") {
+                    attackSFX.Play();
                     targetDamage -= defenseAmount;
                 } else if(targetsAction == "Rush") {
+                    rushSFX.Play();
                     targetDamage = (int)((targetDamage / 1.5f) - defenseAmount);
                 }
 
@@ -265,22 +288,28 @@ public class Fighter : MonoBehaviour, ControllerInterface {
                 TakeDamage(targetDamage);
             }
         } else if(action == "Counter") { // check if player used counter
-            if(Health < (maxHealth / 2)) { graphNodeIndex = 29; }
+            if(Health < (maxHealth / 2)) { graphNodeIndex = 10; }
 
             if(targetsAction == "Defend" || targetsAction == "Counter") {
+                if(targetsAction == "Defend") { defendSFX.Play(); }
                 battleFeedback += "Nothing happened.\n";
             } else if(targetsAction == "Rush") {
-                graphNodeIndex = 31;
+                counterSFX.Play();
+                graphNodeIndex = 11;
                 battleFeedback += "You successfully countered and dealt " + attackAmount * 2 + " damage to " + target.nickname + ".\n";
                 target.TakeDamage(attackAmount * 2); // deal damage to the target since player successfully countered
             } else {
-                graphNodeIndex = 32;
+                int pick = Random.Range(0, 2);
+                if (pick == 0) { graphNodeIndex = 12; }
+                else { graphNodeIndex = 14; }
                 battleFeedback += "You were unsuccessful in countering. ";
 
                 if (targetsAction == "Attack") {
+                    attackSFX.Play();
                     battleFeedback += target.nickname + " dealt " + (target.AttackAmount() * 2) + " damage to you.\n";
                     TakeDamage(target.AttackAmount() * 2);
                 } else if(targetsAction == "Heal") {
+                    healSFX.Play();
                     battleFeedback += target.nickname + " healed for 7 HP.\n";
                     target.TakeDamage(-7); // take damage from target with a negative value to increase targets health
                 }
@@ -288,20 +317,24 @@ public class Fighter : MonoBehaviour, ControllerInterface {
         } else if(action == "Heal") {
             // check rush first because it has priority over heal
             if (targetsAction == "Rush") {
+                rushSFX.Play();
                 battleFeedback += target.nickname + " dealt " + (int)(target.AttackAmount() / 2) + " damage to you.\n";
                 TakeDamage((int)(target.AttackAmount() / 1.5f));
 
                 if(Alive()) { // check if player is still alive
+                    healSFX.Play();
                     battleFeedback += "You healed for 6 HP.\n";
                     Health += 6;
                     Health = Mathf.Clamp(Health, 0, maxHealth);
                 }
             } else {
+                healSFX.Play();
                 battleFeedback += "You healed for 6 HP.\n";
                 Health += 6;
                 Health = Mathf.Clamp(Health, 0, maxHealth);
 
                 if(targetsAction == "Attack") {
+                    attackSFX.Play();
                     battleFeedback += target.nickname + " dealt " + target.AttackAmount() + " damage to you.\n";
                     TakeDamage(target.AttackAmount());
                 } else if(targetsAction == "Defend") {
@@ -317,10 +350,12 @@ public class Fighter : MonoBehaviour, ControllerInterface {
         
 
         if(!Alive()) { // check if the player was defeated during the battle
+            deathSFX.Play();
             battleFeedback += "You have been defeated.\n";
         }
 
         if (!target.Alive()) { // check if target was defeated during the battle
+            deathSFX.Play();
             battleFeedback += "You have defeated " + target.nickname + " and recieved " + target.ExpAmount() + " EXP!\n";
             ExpGain(target.ExpAmount());
             enemySprites[spriteIndex].SetActive(false);
@@ -397,8 +432,6 @@ public class Fighter : MonoBehaviour, ControllerInterface {
     }
 
     public List<int> GetPossibleDialogueNodes(){
-        List<int> ret = new List<int>();
-        ret.Add(graphNodeIndex);
-        return ret;
+        return new List<int> { graphNodeIndex };
     }
 }
