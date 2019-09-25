@@ -12,6 +12,18 @@ public class DialogueLoader : MonoBehaviour
     DialogueNode[] dia; 
     List<Node> allNodes = new List<Node>(); 
     // Start is called before the first frame update
+
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            foreach(DialogueGraph g in allDialogue)
+            {
+                Debug.Log("Graph ID: " + g.id + " Node ID: " + g.mainGraph[0].nodeID);
+            }
+        }
+    }
     void Start()
     {
         //jsonFiles = Directory.GetFiles(@"C:\Users\carlic2\Documents\Zaire's Shit\Unity Projects\HashBringingHashBrowns\Assets\Dialogue Sytem\Dialogue Data");
@@ -44,7 +56,7 @@ public class DialogueLoader : MonoBehaviour
         }
 
         List<Node> hNodes = FindHeads();
-
+        List<Node> sNodes = FindSingles();
         int countId = 0; 
         foreach(Node h in hNodes)
         {
@@ -53,6 +65,13 @@ public class DialogueLoader : MonoBehaviour
             countId++; 
 
 
+        }
+
+        foreach(Node s in sNodes)
+        {
+            DialogueGraph tempGraph = new DialogueGraph(s, countId);
+            allDialogue.Add(tempGraph);
+            countId++;
         }
 
     }
@@ -97,7 +116,20 @@ public class DialogueLoader : MonoBehaviour
         }
         return headNodes; 
     }
-    
+
+    List<Node> FindSingles()
+    {
+        List<Node> singleNodes = new List<Node>();
+        foreach (Node n in allNodes)
+        {
+            if (n.nodPos == Node.nodePosition.SINGLE)
+            {
+                singleNodes.Add(n);
+            }
+        }
+        return singleNodes;
+    }
+
 }
 
 [System.Serializable]

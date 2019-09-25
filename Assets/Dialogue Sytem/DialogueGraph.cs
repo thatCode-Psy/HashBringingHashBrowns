@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DialogueGraph
 {
-    List<Node> mainGraph = new List<Node>();
+    public List<Node> mainGraph = new List<Node>();
     public int id; 
 
     public DialogueGraph(Node node, int ID)
@@ -85,7 +85,11 @@ public class Node
     public Node(DialogueNode diaNode)
     {
         nodeID = diaNode.id;
-        if (diaNode.Head)
+        if(diaNode.Head && diaNode.Tail)
+        {
+            nodPos = nodePosition.SINGLE;
+        }
+        else if(diaNode.Head)
         {
             nodPos = nodePosition.HEAD;
         }
@@ -103,7 +107,7 @@ public class Node
         }
         Happy = diaNode.Happy;
         Sad = diaNode.Sad;
-        Depressed = diaNode.Sad;
+        Depressed = diaNode.Depressed;
         Excited = diaNode.Excited;
         Angry = diaNode.Angry; 
 
@@ -139,7 +143,7 @@ public class Node
 
     public enum nodePosition
     {
-        HEAD, BODY, TAIL
+        HEAD, BODY, TAIL, SINGLE
     }
 }
 

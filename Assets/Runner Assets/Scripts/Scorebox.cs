@@ -79,5 +79,6 @@ public class Scorebox : MonoBehaviour
     {
         score = 0;
         fails++;
+        Debug.Log("Fails is now "+fails);
     }
 }

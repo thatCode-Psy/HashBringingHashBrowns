@@ -60,6 +60,8 @@ public class ControllerStateMachine : MonoBehaviour
 
     int[] stateValues;
 
+    Vector3 originalGameChanTransform;
+
     public ControllerInterface currentGame;
 
 
@@ -80,6 +82,8 @@ public class ControllerStateMachine : MonoBehaviour
     }
 
     void Start(){
+        GameObject gameChan = GameObject.FindGameObjectWithTag("ControllerChan");
+        originalGameChanTransform = gameChan.transform.position;
         currentState = DEFAULT;
         started = false;
         stateValues = new int[6];
@@ -143,11 +147,19 @@ public class ControllerStateMachine : MonoBehaviour
                 List<int> options = currentGame.GetPossibleDialogueNodes();
                 pauseStartTime = Time.time;
                 if(options == null || options.Count > 0){
-                    Debug.Log("pause");
+                    
                     pauseStartTime = -1f;
                     currentGame.Pause();
                     Dialogue dialogue = GameObject.FindGameObjectWithTag("Dialogue").GetComponent<Dialogue>();
-                    dialogue.DialogueInit(options[Random.Range(0, options.Count)]);
+                    int optionNum = Random.Range(0, options.Count);
+                    if(options[optionNum] == 18){
+                        GameObject gameChan = GameObject.FindGameObjectWithTag("ControllerChan");
+                        Vector3 position = gameChan.transform.position;
+                        position.x += 250f;
+                        gameChan.transform.position = position;
+                    }
+                    Debug.Log("Chose option " + options[optionNum]);
+                    dialogue.DialogueInit(options[optionNum]);
                 }
             }
         }
@@ -300,6 +312,8 @@ public class ControllerStateMachine : MonoBehaviour
         if(pauseStartTime == -1f){
             currentGame.Pause();
             pauseStartTime = Time.time;
+            GameObject gameChan = GameObject.FindGameObjectWithTag("ControllerChan");
+            gameChan.transform.position = originalGameChanTransform;
         }
         
     }
