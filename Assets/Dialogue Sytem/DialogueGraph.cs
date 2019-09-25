@@ -79,6 +79,7 @@ public class Node
     public int Happy;
     public int Sad;
     public int Depressed;
+    public int Annoyed; 
     public int Excited;
     public int Angry; 
 
@@ -109,6 +110,7 @@ public class Node
         Sad = diaNode.Sad;
         Depressed = diaNode.Depressed;
         Excited = diaNode.Excited;
+        Annoyed = diaNode.Annoyed; 
         Angry = diaNode.Angry; 
 
         lines = diaNode.line;
