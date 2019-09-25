@@ -24,7 +24,7 @@ public class DiaTrig : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            tempDialogue.DialogueInit(0); 
+            tempDialogue.DialogueInit(4); 
         }
 
         if (Input.GetKeyDown(KeyCode.G))
