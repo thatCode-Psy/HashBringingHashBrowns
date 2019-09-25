@@ -269,10 +269,12 @@ public class Player : MonoBehaviour , ControllerInterface
         List<int> ret = new List<int>();
         if(sb.fails > 9 && sb.score < 100)
         {
+            Debug.Log("Adding 1");
             ret.Add(1);
         }
         if(sb.fails < 10 && sb.score > 49)
         {
+            Debug.Log("Adding 11");
             ret.Add(11);
         }
         if(sb.score > 99)
