@@ -104,10 +104,8 @@ public class Dialogue : MonoBehaviour
 
         int curnodeNum = 0;
        
-            if (currentNode.adjacentNodes.Count == 3)
-            {
                 curnodeNum = playerResponseRef.currentChoice;
-            }
+            
 
             currentNode = currentNode.adjacentNodes[curnodeNum];
             goatText = currentNode.lines;
