@@ -81,13 +81,14 @@ public class Dialogue : MonoBehaviour
         
         textBox.text = goatText[currentlyDisplayingText];
         continueButton.SetActive(true);
+        dialougeInitiated = false;
     }
 
 
     IEnumerator AnimateText()
     {
         continueButton.SetActive(false);
-        Debug.Log("Length " + goatText.Length + " current sentence: " + currentlyDisplayingText);
+        //Debug.Log("Length " + goatText.Length + " current sentence: " + currentlyDisplayingText);
         for (int i = 0; i < (goatText[currentlyDisplayingText].Length + 1); i++)
         {
             textBox.text = goatText[currentlyDisplayingText].Substring(0, i);
@@ -108,12 +109,7 @@ public class Dialogue : MonoBehaviour
             {
                 curnodeNum = playerResponseRef.currentChoice;
             }
-            Debug.Log("Amount of adj nodes: " + currentNode.adjacentNodes.Count);
-            foreach (Node n in currentNode.adjacentNodes)
-            {
-                Debug.Log("Adjacent Nodes: " + n.nodeID);
 
-            }
             currentNode = currentNode.adjacentNodes[curnodeNum];
             goatText = currentNode.lines;
         }
@@ -137,12 +133,16 @@ public class Dialogue : MonoBehaviour
     public void DialogueInit(int graphID)
     {
         InitSetup(graphID);
+        Debug.Log("Graph Id is " + graphID);
         currentlyDisplayingText = 0; 
+        /*
         if (dialougeInitiated)
         {
             int curnodeNum = 0;
             if (currentNode.adjacentNodes.Count == 3)
             {
+                Debug.Log("Dialogue Started");
+
                 curnodeNum = playerResponseRef.currentChoice;
             }
             currentNode = currentNode.adjacentNodes[curnodeNum];  
@@ -152,7 +152,7 @@ public class Dialogue : MonoBehaviour
         {
             dialougeInitiated = true; 
         }
-
+        */
         ChangeGameChanState(); 
 
         int choiceNum = 0; 
