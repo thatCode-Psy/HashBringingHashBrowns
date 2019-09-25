@@ -255,11 +255,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 538289084717778947, guid: 31804755b7e9ca844b6dcdd2c60f3698,
-        type: 3}
-      propertyPath: diaRef
-      value: 
-      objectReference: {fileID: 401723401}
     - target: {fileID: 538289084717778944, guid: 31804755b7e9ca844b6dcdd2c60f3698,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -329,6 +324,11 @@ PrefabInstance:
     - target: {fileID: 538289084717778945, guid: 31804755b7e9ca844b6dcdd2c60f3698,
         type: 3}
       propertyPath: tempDialogue
+      value: 
+      objectReference: {fileID: 401723401}
+    - target: {fileID: 538289084717778947, guid: 31804755b7e9ca844b6dcdd2c60f3698,
+        type: 3}
+      propertyPath: diaRef
       value: 
       objectReference: {fileID: 401723401}
     m_RemovedComponents: []
@@ -821,6 +821,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4192575072513162932, guid: a4cf86ccc0fde88468184d7e903059b4,
+        type: 3}
+      propertyPath: diaRef
+      value: 
+      objectReference: {fileID: 1013218059}
     - target: {fileID: 4192575072422550109, guid: a4cf86ccc0fde88468184d7e903059b4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1024,7 +1029,7 @@ PrefabInstance:
     - target: {fileID: 3407826440363356770, guid: a4cf86ccc0fde88468184d7e903059b4,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 750638005766719082, guid: a4cf86ccc0fde88468184d7e903059b4,
         type: 3}
@@ -2309,17 +2314,17 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7412352299169499357, guid: 48050bc247d67f647be09054044991f1,
+        type: 3}
+      propertyPath: pauseInterval
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1069403216468749363, guid: 48050bc247d67f647be09054044991f1,
         type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: c3479447f7e21fe42aacb96d72cab46c,
         type: 3}
-    - target: {fileID: 7412352299169499357, guid: 48050bc247d67f647be09054044991f1,
-        type: 3}
-      propertyPath: pauseInterval
-      value: 5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48050bc247d67f647be09054044991f1, type: 3}
 --- !u!1 &1952890289
