@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Fighter : MonoBehaviour, ControllerInterface {
@@ -62,6 +63,7 @@ public class Fighter : MonoBehaviour, ControllerInterface {
     private float timeSinceAction = 3f;
     private float healthSliderSpeed = 1f;
     private float evolveTimer = 0f;
+    private float deathCooldown = 2f;
 
     void Start() {
         attackAmount = (int)(2.5f * Strength);
@@ -76,74 +78,89 @@ public class Fighter : MonoBehaviour, ControllerInterface {
     }
 
     void Update() {
-        if(levelUp && readyToTakeAction) {
-            if(evolveTimer < 3f) {
-                if(!playLevelUp) { levelUpSFX.Play(); playLevelUp = true; }
-                textBox.fontSize = 36;
-                textBox.text = "LEVEL UP!\nHealth, Strength, and Defense have increased!";//Oh, what is this? Your pokabomination is evolving!";
-                evolveTimer += Time.deltaTime;
-            } else {
-                playLevelUp = false;
-                StopEvolve();
-                /*if (!evolveCanvas.activeInHierarchy) {
-                    evolveCanvas.SetActive(true);
-                }*/
-            }
-        } else if(needsNewTarget && readyToTakeAction) { // spawn a new target for the player
-            if (enemy) { Destroy(enemy.gameObject); }
-            SpawnNewEnemy();
-            turnCount = 0;
-            readyToTakeAction = false;
-            needsNewTarget = false;
-        } else if (Alive()) { // check if player is alive and if they do not need a new target
-            if(!readyToTakeAction) {
-                if (!pause) {
-                    timeSinceAction += Time.deltaTime;
+        if(!pause) {
+            if(levelUp && readyToTakeAction) {
+                if(evolveTimer < 3f) {
+                    if(!playLevelUp) { levelUpSFX.Play(); playLevelUp = true; }
+                    textBox.fontSize = 36;
+                    textBox.text = "LEVEL UP!\nHealth, Strength, and Defense have increased!\nOh, what is this? Your pokabomination is evolving!";
+                    evolveTimer += Time.deltaTime;
+                } else {
+                    playLevelUp = false;
+                    evolveTimer = 0f;
+                    if (!evolveCanvas.activeInHierarchy) {
+                        evolveCanvas.SetActive(true);
+                    }
                 }
-
-                // if time since action is greater than the action cooldown then the player is ready to take action
-                if (timeSinceAction >= actionCooldown) {
-                   if (!needsNewTarget) { // if needsNewTarget is false then update textBox as normal
-                        textBox.fontSize = 24;
-                        textBox.text = "Select an ability to use:\nAttack for highest damage\nDefend to reduce damage\nRush to attack first with less damage\nCounter" +
-                            " to counter your opponents rush\nHeal to heal yourself.";
-                   }
-
-                    readyToTakeAction = true;
-                    timeSinceAction = 0f;
-                }
-            }
-
-            // if the player has selected an action and is ready to take action then update the enemies action and execute their actions
-            if(currentAction != "" && readyToTakeAction && !needsNewTarget) {
-                enemy.PickRandomAction();
-                ExecuteAction(enemy, currentAction);
-
-                previousAction = currentAction;
-                enemyPreviousAction = enemy.Action();
-
-                currentAction = "";
+            } else if(needsNewTarget && readyToTakeAction) { // spawn a new target for the player
+                if (enemy) { Destroy(enemy.gameObject); }
+                SpawnNewEnemy();
+                turnCount = 0;
                 readyToTakeAction = false;
-                turnCount++;
+                needsNewTarget = false;
+            } else if (Alive()) { // check if player is alive and if they do not need a new target
+                if(!readyToTakeAction) {
+                    if (!pause) {
+                        timeSinceAction += Time.deltaTime;
+                    }
+
+                    // if time since action is greater than the action cooldown then the player is ready to take action
+                    if (timeSinceAction >= actionCooldown) {
+                       if (!needsNewTarget) { // if needsNewTarget is false then update textBox as normal
+                            textBox.fontSize = 24;
+                            textBox.text = "Select an ability to use:\nAttack for highest damage\nDefend to reduce damage\nRush to attack first with less damage\nCounter" +
+                                " to counter your opponents rush\nHeal to heal yourself.";
+                       }
+
+                        readyToTakeAction = true;
+                        timeSinceAction = 0f;
+                    }
+                }
+
+                // if the player has selected an action and is ready to take action then update the enemies action and execute their actions
+                if(currentAction != "" && readyToTakeAction && !needsNewTarget) {
+                    enemy.PickRandomAction();
+                    ExecuteAction(enemy, currentAction);
+
+                    previousAction = currentAction;
+                    enemyPreviousAction = enemy.Action();
+
+                    currentAction = "";
+                    readyToTakeAction = false;
+                    turnCount++;
+                }
+            } else if (!Alive()) {
+                if(!readyToTakeAction) {
+                    if (!pause) {
+                        timeSinceAction += Time.deltaTime;
+                    }
+
+                    if (timeSinceAction >= deathCooldown) {
+                        readyToTakeAction = true;
+                    }
+                } else {
+                    ControllerStateMachine.Instance.StopGame();
+                    SceneManager.LoadScene("GameSelect");
+                }
             }
-        }
 
-        // update the players health bar to represent their current health
-        if (playerHealth.value > ((float)Health / (float)maxHealth) + 0.005f) {
-            playerHealth.value -= Time.deltaTime * healthSliderSpeed;
-        } else if (playerHealth.value < ((float)Health / (float)maxHealth) - 0.005f) {
-            playerHealth.value += Time.deltaTime * healthSliderSpeed;
-        }
+            // update the players health bar to represent their current health
+            if (playerHealth.value > ((float)Health / (float)maxHealth) + 0.01f) {
+                playerHealth.value -= Time.deltaTime * healthSliderSpeed;
+            } else if (playerHealth.value < ((float)Health / (float)maxHealth) - 0.01f) {
+                playerHealth.value += Time.deltaTime * healthSliderSpeed;
+            }
 
-        /* IN HERE FOR EVOLVING TESTING PURPOSES */
-        /*
-        if (exp < expNeeded) {
-            ExpGain(100);
-        }
-        */
+            /* IN HERE FOR EVOLVING TESTING PURPOSES */
+            /*
+            if (exp < expNeeded) {
+                ExpGain(100);
+            }
+            */
 
-        healthText.text = "HP: " + Health + " / " + maxHealth; // update player health text
-        expText.text = "EXP: " + exp + "/" + expNeeded; // update player exp text
+            healthText.text = "HP: " + Health + " / " + maxHealth; // update player health text
+            expText.text = "EXP: " + exp + "/" + expNeeded; // update player exp text
+        }
     }
 
     // function for left button

@@ -169,7 +169,7 @@ public class Dialogue : MonoBehaviour
         ControllerStateMachine.Instance.SetState(ControllerStateMachine.DEPRESSED, currentNode.Depressed);
         ControllerStateMachine.Instance.SetState(ControllerStateMachine.EXCITED, currentNode.Excited);
         ControllerStateMachine.Instance.SetState(ControllerStateMachine.ANGRY, currentNode.Annoyed);
-
+        ControllerStateMachine.Instance.SetState(ControllerStateMachine.DEFAULT, currentNode.Default);
 
 
 

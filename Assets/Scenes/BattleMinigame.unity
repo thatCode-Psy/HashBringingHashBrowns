@@ -403,7 +403,7 @@ PrefabInstance:
     - target: {fileID: 5672798103889203677, guid: 547a5bcff1567334b9f3870012a7800a,
         type: 3}
       propertyPath: actionCooldown
-      value: 3
+      value: 2.85
       objectReference: {fileID: 0}
     - target: {fileID: 5672798103889203677, guid: 547a5bcff1567334b9f3870012a7800a,
         type: 3}
@@ -742,7 +742,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 95367858b034f6a44bd1cb5751e022d2, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.55
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1846,6 +1846,12 @@ PrefabInstance:
       propertyPath: m_Color.b
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2390102574985603892, guid: 1c792777efb33314f932390476d06289,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b8fe369dd72754f4297b763d454e6ff5,
+        type: 3}
     - target: {fileID: 410620134654083376, guid: 1c792777efb33314f932390476d06289,
         type: 3}
       propertyPath: m_AnchoredPosition.x
